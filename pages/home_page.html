@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home |AIS-China</title>
+</head>
+<!--<body style="background-image: url('https://www.w3schools.com/images/colorpicker2000.png')">-->
+<body>
+<header>
+    <!--    <span style="position: fixed; top:0; left:0; background: linear-gradient(to right, #eaaeba, #ffffff, #7acdf6 ); font-size: 100px">This is Header</span>-->
+
+    <nav class="my-nav" id="navbox">
+        <a href="index.html" class="icon"></a>
+        <ul class="my-navbar" id="my-navbar">
+            <li id="project" onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="#" style="cursor:default;">Project</a>
+                <ul class="son">
+                    <li><a href="description">Description</a></li>
+                    <li><a href="design">Design</a></li>
+                    <li><a href="contribution">Contribution</a></li>
+                    <li><a href="proof-of-concept" style="white-space:nowrap;">Proof of Concept</a></li>
+                    <li><a href="implementation">Implementation</a></li>
+                </ul>
+            </li>
+            <li onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="#" style="cursor:default;">Wet Lab</a>
+                <ul class="son">
+                    <li><a href="engineering">Engineering</a></li>
+                    <li><a href="notebook">Notebook</a></li>
+                    <li><a href="protocol">Protocol</a></li>
+                    <li><a href="results">Results</a></li>
+                    <li><a href="parts">Parts</a></li>
+
+                </ul>
+            </li>
+            <li onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="#" style="cursor:default;">Dry Lab</a>
+                <ul class="son">
+                    <li><a href="model">Model</a></li>
+                    <li><a href="hardware">Hardware</a></li>
+                    <li><a href="measurement">Measurement</a></li>
+                </ul>
+            </li>
+            <li id="human-practice" onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="human-practices">Human Practices</a>
+            </li>
+            <li id="edu" onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="education">EDU</a>
+            </li>
+            <li onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="safety">Safety</a>
+            </li>
+            <li onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="#" style="cursor:default;">Team</a>
+                <ul class="son">
+                    <li><a href="team">Roster</a></li>
+                    <li><a href="attributions">Attributions</a></li>
+                    <li><a href="collaborations">Collaborations</a></li>
+                    <li><a href="partnership">Partnership</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        var navbox = document.getElementById("navbox");
+        let navbar = document.getElementById("my-navbar");
+        let items = navbar.children;
+
+        function over(el) {
+            for (i = 0; i < 7; i++) {
+                items[i].children[0].style.color = "#2B5D6F";
+            }
+            el.children[0].style.color = "rgba(248,240,232,1)";
+            if (el.children.length > 1) {
+                let son = el.children[1];
+                if (getComputedStyle(son, null)["display"] == "none") {
+                    setTimeout(function () {
+                        son.style.opacity = 1;
+                    }, 1);
+                    son.style.display = "block";
+                }
+                if (document.documentElement.clientWidth > 1400) {
+                    navbox.style.height = "320px";
+                } else if (document.documentElement.clientHeight < 1120) {
+                    navbox.style.height = "245px";
+                } else {
+                    navbox.style.height = "280px";
+                }
+            }
+        }
+
+        function leave(el) {
+            for (i = 0; i < 7; i++) {
+                items[i].children[0].style.color = "rgba(248,240,232,1)";
+            }
+            if (el.children.length > 1) {
+                let son = el.children[1];
+                if (getComputedStyle(son, null)["display"] == "block") {
+                    son.style.opacity = 0;
+                    setTimeout(function () {
+                        son.style.display = "none";
+                    }, 350);
+                }
+                navbox.style.height = "78px";
+            }
+        }
+    </script>
+
+</header>
+<div style="top: 0px">
+    <h1 title="I'm a tooltip">This is heading 1</h1>
+    <h4>This is heading 4</h4>
+    <h5>This is heading 5</h5>
+    <h1 style="background-color:powderblue;">This is a heading</h1>
+    <h1 style="font-family:verdana;">This is a heading</h1>
+    <p style="font-family:courier;">This is a paragraph.</p>
+
+
+    <h6 style="color:red;">This is heading 6</h6>
+    <a href="https://www.w3schools.com">a</a>
+    <!--<img src="https://www.w3schools.com/images/img_girl.jpg" alt="W3Schools.com" width="104" height="142">-->
+
+    <br>
+    <p>This is a paragraph.</p>
+    <b>This text is bold</b><br>
+    <strong>This text is important!</strong><br>
+    <i>This text is italic</i><br>
+    <em>This text is emphasized</em><br>
+    <small>This is some smaller text.</small><br>
+    <p>Do not forget to buy
+        <mark style="font-family: 'Courier'">milk</mark>
+        today.
+    </p>
+    <p>My favorite color is
+        <del>blue</del>
+        red.
+    </p>
+    <p>My favorite color is
+        <del>blue</del>
+        <ins>red</ins>
+        .
+    </p>
+    <p>This is <sub>subscripted</sub> text.</p>
+    <p>This is <sup>superscripted</sup> text.</p>
+    <p>I am so <q>cool</q>.</p>
+    <p>Here is a quote from WWF's website:</p>
+    <blockquote cite="http://www.worldwildlife.org/who/index.html">
+        For 60 years, WWF has worked to help people and nature thrive. As the world's leading conservation organization,
+        WWF works in nearly 100 countries. At every level, we collaborate with people around the world to develop and
+        deliver innovative solutions that protect communities, wildlife, and the places in which they live.
+    </blockquote>
+    <p>WWF's goal is to: <q>Build a future where people live in harmony with nature.</q></p>
+    <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+    <address>
+        Written by John Doe.<br>
+        Visit us at:<br>
+        Example.com<br>
+        Box 564, Disneyland<br>
+        USA
+    </address>
+    <p><cite>The Scream</cite> by Edvard Munch. Painted in 1893.</p>
+    <bdo dir="rtl">This text will be written from right to left</bdo>
+    <h1 style="border: 12px solid fuchsia;">Hello World</h1>
+    <p style="color: hsla(0, 100%, 50%, 0.5)">This is a paragraph.</p>
+</div>
+</body>
+</html>

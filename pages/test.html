@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Button</title>
+    <style>
+        .animated-button {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            overflow: hidden;
+        }
+
+        .animated-button::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+        }
+
+        .animated-button:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<button class="animated-button">Hover Me</button>
+
+<script src="script.js"></script>
+</body>
+</html>

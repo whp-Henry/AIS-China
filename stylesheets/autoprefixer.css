@@ -1,0 +1,341 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: AlibabaPuHuiTi;
+    src: url(https://static.igem.wiki/teams/4594/wiki/alibabafont.ttf);
+}
+
+body {
+    background: black;
+}
+
+span.ais-china {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: deepskyblue;
+    margin-top: -10px
+}
+
+.my-nav {
+    top: 0;
+    width: 100%;
+    height: 78px;
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 10;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.my-nav .icon {
+    -ms-flex-preferred-size: 200px;
+    flex-basis: 200px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: 7px;
+    text-decoration: none;
+    background-repeat: no-repeat;
+}
+
+.my-nav .icon img {
+    width: auto;
+    height: 100%;
+    /*transition: 2s;*/
+}
+
+.icon-over {
+    height: 50%;
+}
+
+.my-navbar {
+    height: 67px;
+    margin-left: 20px;
+    margin-right: 70px;
+    margin-top: 24px;
+    list-style: none;
+}
+
+.my-active-navbar {
+    border-bottom: #4CAF50;
+    border-width: 0px 0px 3px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(0, 128, 157);
+    /*border-radius: 0px;*/
+}
+
+.my-navbar > li {
+    float: left;
+    width: 120px;
+    height: 110%;
+}
+
+#human-practice {
+    width: 250px;
+}
+
+#edu {
+    width: 90px;
+}
+
+.my-navbar > li a {
+    color: var(--text, var(--text, #F8F0E8));
+    font-family: AlibabaPuHuiTi;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    -webkit-transition: color 0.15s linear;
+    -o-transition: color 0.15s linear;
+    transition: color 0.15s linear;
+}
+
+.son {
+    margin-top: 30px;
+    list-style: none;
+    display: none;
+    text-align: left;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 0;
+}
+
+.bottomright {
+    position: fixed;
+    bottom: -10px;
+    right: -10px;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(5px);
+    border-radius: 100px;
+}
+
+
+@media screen and (min-width: 1800px) {
+    .my-navbar > li {
+        width: 150px;
+    }
+
+    #human-practice {
+        width: 280px;
+    }
+
+    .my-nav > ul > li a {
+        font-size: 30px;
+    }
+
+    .my-navbar {
+        margin-top: 25px;
+    }
+
+    .my-nav .icon {
+        -ms-flex-preferred-size: 240px;
+        flex-basis: 240px;
+        margin-left: 25px;
+        margin-top: 15px;
+    }
+
+    .my-nav {
+        height: 84px;
+    }
+}
+
+@media screen and (max-width: 1450px) and (min-width: 1280px) {
+    .my-navbar > li {
+        width: 100px;
+    }
+
+    #human-practice {
+        width: 210px;
+    }
+
+    .my-nav > ul > li a {
+        font-size: 22px;
+    }
+
+    .my-navbar {
+        margin-top: 23px;
+    }
+
+    .my-nav .icon {
+        -ms-flex-preferred-size: 200px;
+        flex-basis: 200px;
+        margin-left: 18px;
+    }
+
+    .my-nav {
+        height: 74px;
+    }
+}
+
+@media screen and (max-width: 1280px) and (min-width: 1120px) {
+    .my-navbar > li {
+        width: 88px;
+    }
+
+    #human-practice {
+        width: 190px;
+    }
+
+    #edu {
+        width: 80px;
+    }
+
+    .my-nav > ul > li a {
+        font-size: 20px;
+    }
+
+    .my-navbar {
+        margin-top: 21px;
+    }
+
+    .my-nav .icon {
+        -ms-flex-preferred-size: 150px;
+        flex-basis: 150px;
+        margin-left: 5px;
+        background-position-x: -25px;
+        background-position-y: 5px;
+        background-size: 130%;
+    }
+
+    .my-nav {
+        height: 70px;
+    }
+}
+
+@media screen and (max-width: 1130px) {
+    .my-navbar > li {
+        width: 78px;
+    }
+
+    #human-practice {
+        width: 160px;
+    }
+
+    #edu {
+        width: 70px;
+    }
+
+    .my-nav > ul > li a {
+        font-size: 18px;
+    }
+
+
+    .my-navbar {
+        margin-top: 15px;
+        margin-left: 20px;
+        margin-right: 0px;
+    }
+
+    .my-nav .icon {
+        -ms-flex-preferred-size: 0px;
+        flex-basis: 0px;
+        margin: 0;
+    }
+
+    .my-nav {
+        height: 55px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .son {
+        margin-top: 20px;
+    }
+}
+
+/* hide the navigation */
+@media screen and (max-width: 830px) {
+    .my-navbar {
+        display: none;
+    }
+
+    .my-nav .icon {
+        -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+        height: 100%;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*background: -webkit-gradient(linear, left top, left bottom, from(lawngreen), color-stop(lightseagreen), to(midnightblue));*/
+    background: linear-gradient(lawngreen, lightseagreen, midnightblue);
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    /*background: #888;*/
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+::-webkit-scrollbar-button {
+    background: transparent;
+}
+
+
+.animated-button {
+    position: relative;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+}
+
+.animated-button::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2B5D6F;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.animated-button:hover::after {
+    width: 100%;
+    left: 0;
+}
