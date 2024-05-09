@@ -4,28 +4,73 @@
     box-sizing: border-box;
 }
 
-@font-face {
+/*@font-face {
     font-family: AlibabaPuHuiTi;
     src: url(https://static.igem.wiki/teams/4594/wiki/alibabafont.ttf);
+}*/
+
+
+/*Mosquito Cursor*/
+body{
+    /*cursor: url(/resources/pointer_x.png) 2 2, auto;*/
+    cursor: none;
+}
+a:hover {
+    cursor: url(/resources/pointer_x.png) 2 2, auto;
+}
+p{
+    cursor: url(https://static.igem.wiki/teams/4805/wiki/select-words2.png) 10 20, auto;
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 40px;
+    height: 60px;
+    background-image: url('/resources/pointer_x.png');
+    background-size: cover;
+    pointer-events: none; /* Ensure that the cursor doesn't interfere with mouse events */
+    z-index: 9999; /* Ensure the cursor appears on top of other elements */
+}
+.blood {
+    z-index: 10000;
+    position: absolute;
+    transition: opacity 2s ease; /* Transition for opacity */
 }
 
 body {
     background: black;
+    /*background-image: url('https://www.w3schools.com/images/colorpicker2000.png');*/
 }
 
-span.ais-china {
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: deepskyblue;
-    margin-top: -10px
+/* Scroll Indicator */
+#progress-container {
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 6px;
+    left: 0;
+}
+
+#progress-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #f7e4ba, #f47971);
+    width: 0%;
+    border-radius: 5px;
 }
 
 .my-nav {
     top: 0;
     width: 100%;
     height: 78px;
-    background: rgba(0, 0, 0, 0.2);
+    /*background: rgba(0, 0, 0, 0.2);*/
+    /*background: #aadbe6;*/
+    /*background: rgba(170, 219, 230, 1);*/
+    background-color: hsl(191, 55%, 78%);
+    /*background-color: linear-gradient(#aadbe6, #5d7c9e, #010f49);*/
+
+
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     display: flex;
     justify-content: space-between;
@@ -59,15 +104,9 @@ span.ais-china {
     margin-right: 70px;
     margin-top: 24px;
     list-style: none;
+    text-wrap: normal;
 }
 
-.my-active-navbar {
-    border-bottom: #4CAF50;
-    border-width: 0px 0px 3px;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(0, 128, 157);
-    /*border-radius: 0px;*/
-}
 
 .my-navbar > li {
     float: left;
@@ -84,7 +123,7 @@ span.ais-china {
 }
 
 .my-navbar > li a {
-    color: var(--text, var(--text, #F8F0E8));
+    color: var(--text, var(--text, white));
     font-family: AlibabaPuHuiTi;
     font-size: 25px;
     font-style: normal;
@@ -102,6 +141,19 @@ span.ais-china {
     transition: all 0.3s ease-out;
     opacity: 0;
 }
+
+.bottomright {
+    position: fixed;
+    bottom: -10px;
+    color: #010f49;
+    right: -10px;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(5px);
+    border-radius: 100px;
+}
+
 
 @media screen and (min-width: 1800px) {
     .my-navbar > li {
@@ -209,6 +261,7 @@ span.ais-china {
         font-size: 18px;
     }
 
+
     .my-navbar {
         margin-top: 15px;
         margin-left: 20px;
@@ -235,6 +288,7 @@ span.ais-china {
     .my-navbar {
         display: none;
     }
+
     .my-nav .icon {
         align-self: center;
         height: 100%;
@@ -243,7 +297,8 @@ span.ais-china {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 10px
+    /*display: none;*/
 }
 
 /* Track */
@@ -251,19 +306,47 @@ span.ais-china {
     background: linear-gradient(lawngreen, lightseagreen, midnightblue);
 }
 
-/* Handle */
+ /*Handle*/
 ::-webkit-scrollbar-thumb {
-    /*background: #888;*/
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
+background: #888;
+background: rgba(0, 0, 0, 0.2);
+-webkit-backdrop-filter: blur(5px);
+backdrop-filter: blur(5px);
+border-radius: 10px;
 }
 
-/* Handle on hover */
+ /*Handle on hover*/
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
+background: rgba(0, 0, 0, 0.4);
+-webkit-backdrop-filter: blur(5px);
+backdrop-filter: blur(5px);
 }
-::-webkit-scrollbar-button{
+
+::-webkit-scrollbar-button {
     background: transparent;
+}
+
+
+.animated-button {
+    position: relative;
+    border: none;
+    /*cursor: pointer;*/
+    outline: none;
+    overflow: hidden;
+}
+
+.animated-button::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2B5D6F;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.animated-button:hover::after {
+    width: 100%;
+    left: 0;
 }

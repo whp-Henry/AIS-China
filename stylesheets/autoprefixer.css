@@ -12,28 +12,54 @@
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: AlibabaPuHuiTi;
-    src: url(https://static.igem.wiki/teams/4594/wiki/alibabafont.ttf);
+/*@font-face {*/
+/*    font-family: AlibabaPuHuiTi;*/
+/*    src: url(https://static.igem.wiki/teams/4594/wiki/alibabafont.ttf);*/
+/*}*/
+
+*{
+	cursor: url(/resources/pointer.png), auto;
 }
+
+/*body{*/
+/*	cursor: url(../resources/pointer.png), auto;*/
+/*}*/
+/*p:hover h:hover{*/
+/*    cursor: url(https://static.igem.wiki/teams/4805/wiki/select-words2.png), auto;*/
+/*}*/
 
 body {
     background: black;
+    /*background-image: url('https://www.w3schools.com/images/colorpicker2000.png');*/
 }
 
-span.ais-china {
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: deepskyblue;
-    margin-top: -10px
+/* Scroll Indicator */
+#progress-container {
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 6px;
+    left: 0;
+}
+#progress-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #f7e4ba, #f47971);
+    width: 0%;
+    border-radius: 5px;
 }
 
 .my-nav {
     top: 0;
     width: 100%;
     height: 78px;
-    background: rgba(0, 0, 0, 0.2);
+    /*background: rgba(0, 0, 0, 0.2);*/
+    /*background: #aadbe6;*/
+    /*background: rgba(170, 219, 230, 1);*/
+    background-color: hsl(191, 55%, 78%);
+    /*background-color: linear-gradient(#aadbe6, #5d7c9e, #010f49);*/
+
+
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     display: -webkit-box;
@@ -77,13 +103,6 @@ span.ais-china {
     list-style: none;
 }
 
-.my-active-navbar {
-    border-bottom: #4CAF50;
-    border-width: 0px 0px 3px;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(0, 128, 157);
-    /*border-radius: 0px;*/
-}
 
 .my-navbar > li {
     float: left;
@@ -100,7 +119,7 @@ span.ais-china {
 }
 
 .my-navbar > li a {
-    color: var(--text, var(--text, #F8F0E8));
+    color: var(--text, var(--text, white));
     font-family: AlibabaPuHuiTi;
     font-size: 25px;
     font-style: normal;
@@ -285,41 +304,42 @@ span.ais-china {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px
+    /*width: 10px*/
+    display: none;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
-    /*background: -webkit-gradient(linear, left top, left bottom, from(lawngreen), color-stop(lightseagreen), to(midnightblue));*/
-    background: linear-gradient(lawngreen, lightseagreen, midnightblue);
-}
+/*::-webkit-scrollbar-track {*/
+/*background: linear-gradient(#aadbe6, #5d7c9e, #010f49);*/
+/*    display: none;*/
+/*}*/
 
 
 /* Handle */
-::-webkit-scrollbar-thumb {
-    /*background: #888;*/
-    background: rgba(0, 0, 0, 0.2);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-}
+/*::-webkit-scrollbar-thumb {*/
+/*background: #888;*/
+/*background: rgba(0, 0, 0, 0.2);*/
+/*-webkit-backdrop-filter: blur(5px);*/
+/*backdrop-filter: blur(5px);*/
+/*border-radius: 10px;*/
+/*}*/
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.4);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-}
+/*::-webkit-scrollbar-thumb:hover {*/
+/*background: rgba(0, 0, 0, 0.4);*/
+/*-webkit-backdrop-filter: blur(5px);*/
+/*backdrop-filter: blur(5px);*/
+/*}*/
 
-::-webkit-scrollbar-button {
-    background: transparent;
-}
+/*::-webkit-scrollbar-button {*/
+/*    background: transparent;*/
+/*}*/
 
 
 .animated-button {
     position: relative;
     border: none;
-    cursor: pointer;
+    /*cursor: pointer;*/
     outline: none;
     overflow: hidden;
 }
