@@ -16,7 +16,8 @@ body{
     cursor: none;
 }
 a:hover {
-    cursor: url(/resources/pointer_x.png) 2 2, auto;
+    /*cursor: url(/resources/pointer_x.png) 2 2, auto;*/
+    cursor: none;
 }
 p{
     cursor: url(https://static.igem.wiki/teams/4805/wiki/select-words2.png) 10 20, auto;
