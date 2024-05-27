@@ -55,10 +55,10 @@ function to_top() {
 window.onscroll = function () {
     if (window.scrollY <= 100) document.getElementById("to-top").style.visibility = "hidden";
     else document.getElementById("to-top").style.visibility = "";
-    var scrollPosition = window.scrollY;
-    var opacity = 14.4 + scrollPosition / 80;
+    // var scrollPosition = window.scrollY;
+    // var opacity = 14.4 + scrollPosition / 80;
     // navbox.style.background = 'linear-gradient(to right, hsl(191, 50%, 78%), hsl(191, 50%, ' + opacity + '%)';
-    navbox.style.background = 'linear-gradient(to right, hsl(191, 50%, ' + opacity + '%), hsl(228, 97%, 14.4%)';
+    // navbox.style.background = 'linear-gradient(to right, hsl(191, 50%, ' + opacity + '%), hsl(228, 97%, 14.4%)';
 
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     ScrollFunction(winScroll);
@@ -68,13 +68,35 @@ window.onscroll = function () {
 // window.addEventListener('scroll', ScrollFunction);
 
 // progress bar
-function ScrollFunction(winScroll) {
-    let height =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-    let scrolled = (winScroll / height) * 100;
-    document.getElementById("progress-bar").style.width = scrolled + "%";
-};
+// function ScrollFunction(winScroll) {
+//     let height =
+//         document.documentElement.scrollHeight -
+//         document.documentElement.clientHeight;
+//     let scrolled = (winScroll / height) * 100;
+//     document.getElementById("progress-bar").style.width = scrolled + "%";
+// };
+
+const progressBar = document.getElementById('progress-bar');
+const progressGif = document.getElementById('progress-gif');
+
+function updateProgressBar() {
+    const windowHeight = document.documentElement.clientHeight;
+    const documentHeight = document.documentElement.scrollHeight - windowHeight;
+    const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    const scrollPercentage = (scrollTop / documentHeight) * 100;
+
+    // Update progress bar width based on the scroll position
+
+    progressBar.style.width = scrollPercentage + '%';
+
+    const progressBarWidth = progressBar.offsetWidth;
+    progressGif.style.left = (progressBarWidth - 20) + 'px';  // Adjust the '-20' value if necessary to set the GIF's position correctly on the edge.
+    if (scrollPercentage > 50) {
+        progressGif.style.transform="rotateX(0deg) rotateY(180deg) rotate(-60deg);";
+    }
+}
+
+window.addEventListener('scroll', updateProgressBar);
 
 window.onmousemove = function (event) {
 
@@ -82,35 +104,40 @@ window.onmousemove = function (event) {
 
 document.addEventListener('DOMContentLoaded', function () {
     const customCursor = document.querySelector('.custom-cursor');
+    // const customSelector = document.querySelector('.custom-select');
 
     document.addEventListener('mousemove', function (e) {
         // Check if the mouse is not hovering over a <p> element
         if (!e.target.matches('p')) {
             customCursor.style.visibility = "";
             customCursor.style.left = e.clientX + 'px';
-            customCursor.style.top = e.clientY + 'px';
+            var yloc = e.clientY - 5;
+            customCursor.style.top = yloc + 'px';
         } else {
             customCursor.style.visibility = "hidden";
+            // customSelector.style.visibility = "";
+            // customSelector.style.left = e.clientX + 'px';
+            // customSelector.style.top = e.clientY + 'px';
         }
     });
 
     document.addEventListener('click', function (e) {
         // Create a new blood element
         const blood = document.createElement('img');
-        blood.src = '/resources/blood.png';
+        blood.src = '/resources/blood_final.png';
         blood.classList.add('blood');
 
         // Set the dimensions for the blood image
-        const bloodWidth = 100;
-        const bloodHeight = 100;
+        const bloodWidth = 50;
+        const bloodHeight = 50;
         blood.width = bloodWidth;
         blood.height = bloodHeight;
 
         // Calculate the position for the blood image, considering scroll position
         const offsetX = bloodWidth / 2;
         const offsetY = bloodHeight / 2;
-        const posX = e.clientX + window.pageXOffset - offsetX + 20;
-        const posY = e.clientY + window.pageYOffset - offsetY + 20;
+        const posX = e.clientX + window.pageXOffset - offsetX + 18;
+        const posY = e.clientY + window.pageYOffset - offsetY + 13;
 
         // Set the position for the blood image
         blood.style.left = posX + 'px';

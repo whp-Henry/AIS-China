@@ -1,0 +1,15 @@
+/*.cursor-style {*/
+/*  cursor: url('/resources/pointer_x.png'), auto;*/
+/*}*/
+
+body {
+    /*cursor: url('../resources/pointer_final.png'), auto; !* Default cursor *!*/
+}
+
+p:hover {
+    cursor: url('../resources/text_select.png') 5 25, auto; /* Text cursor for specific element */
+}
+
+a:hover {
+    cursor: url('../resources/pointer_final.png'), pointer; /* Hover cursor for specific element */
+}

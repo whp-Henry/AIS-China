@@ -9,32 +9,49 @@
     src: url(https://static.igem.wiki/teams/4594/wiki/alibabafont.ttf);
 }*/
 
+::selection {
+    color: red;
+    background: yellow;
+}
 
 /*Mosquito Cursor*/
-body{
+body {
     /*cursor: url(/resources/pointer_x.png) 2 2, auto;*/
     cursor: none;
+
 }
+
 a:hover {
-    /*cursor: url(/resources/pointer_x.png) 2 2, auto;*/
+    /*cursor: url(/resources/pointer_final.png) 2 2, auto;*/
     cursor: none;
 }
-p{
-    cursor: url(https://static.igem.wiki/teams/4805/wiki/select-words2.png) 10 20, auto;
+
+p {
+    /*cursor: url(https://static.igem.wiki/teams/4805/wiki/select-words2.png), auto;*/
+    cursor: url('../resources/text_select.png') 5 25, auto; /* Text cursor for specific element */
+    /*cursor: url("/resources/pointer.png") auto;*/
+    /*cursor: default;*/
 }
 
 .custom-cursor {
     position: fixed;
     width: 40px;
-    height: 60px;
-    background-image: url('/resources/pointer_x.png');
+    /*height: 60px;*/
+    height: 33px;
+    /*background-image: url('/resources/pointer_x.png');*/
+    background-image: url('/resources/pointer_final.png');
     background-size: cover;
     pointer-events: none; /* Ensure that the cursor doesn't interfere with mouse events */
     z-index: 9999; /* Ensure the cursor appears on top of other elements */
 }
+
 .blood {
+    opacity: 80%;
+    transform: rotate(90deg);
     z-index: 10000;
     position: absolute;
+    pointer-events: none;
+    user-select: none;
     transition: opacity 2s ease; /* Transition for opacity */
 }
 
@@ -56,8 +73,25 @@ body {
 #progress-bar {
     height: 6px;
     background: linear-gradient(90deg, #f7e4ba, #f47971);
-    width: 0%;
+    width: 0;
     border-radius: 5px;
+}
+
+#progress-gif {
+    background-image: url('/resources/pointer_final.png');
+    position: absolute;
+    transform: rotateX(0deg) rotateY(180deg) rotate(-60deg);
+    top: -5px; /* Adjust based on half the height of the gif minus half the height of the progress bar. */
+    right: -20px; /* This shifts the GIF to the left, so it sits on the edge of the progress bar. Adjust as needed. */
+    width: 40px; /* Adjust to your desired size. */
+    height: 40px; /* Adjust to maintain the GIF's aspect ratio. */
+    z-index: 100000;
+}
+
+#progress-attract {
+    position: absolute;
+    right: 0;
+    transform: rotateY(180deg) rotate(90deg);
 }
 
 .my-nav {
@@ -68,8 +102,8 @@ body {
     /*background: #aadbe6;*/
     /*background: rgba(170, 219, 230, 1);*/
     /*background-color: hsl(191, 55%, 78%);*/
-    background-color: hsl(228, 97%, 14.4%);
-
+    /*background-color: hsl(228, 97%, 14.4%);*/
+    background: #7180b7;
     /*background-color: linear-gradient(#aadbe6, #5d7c9e, #010f49);*/
 
 
@@ -136,9 +170,20 @@ body {
     transition: color 0.15s linear;
 }
 
+.my-navbar > li a:hover {
+    color: var(--text, var(--text, yellow));
+}
+
+a:hover {
+    color: yellow;
+    transition: color 0.15s linear;
+}
+
 .son {
     margin-top: 30px;
-    list-style: none;
+    /*list-style: none;*/
+    list-style-image: url('../resources/pointer.png');
+    list-style-position: outside;
     display: none;
     text-align: left;
     transition: all 0.3s ease-out;
@@ -298,42 +343,41 @@ body {
     }
 }
 
-/* width */
+/*!* width *!*/
 ::-webkit-scrollbar {
-    width: 10px
-    /*display: none;*/
+    /*width: 10px*/
+    display: none;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: linear-gradient(lawngreen, lightseagreen, midnightblue);
-}
+/*!* Track *!*/
+/*::-webkit-scrollbar-track {*/
+/*    background: linear-gradient(lawngreen, lightseagreen, midnightblue);*/
+/*}*/
 
- /*Handle*/
+/*!*Handle*!*/
 ::-webkit-scrollbar-thumb {
-background: #888;
-background: rgba(0, 0, 0, 0.2);
--webkit-backdrop-filter: blur(5px);
-backdrop-filter: blur(5px);
-border-radius: 10px;
-}
+/*    background: #888;*/
+/*    background: rgba(0, 0, 0, 0.5);*/
+/*    -webkit-backdrop-filter: blur(5px);*/
+/*    backdrop-filter: blur(5px);*/
+/*    border-radius: 10px;*/
+/*}*/
 
- /*Handle on hover*/
-::-webkit-scrollbar-thumb:hover {
-background: rgba(0, 0, 0, 0.4);
--webkit-backdrop-filter: blur(5px);
-backdrop-filter: blur(5px);
-}
+/*!*Handle on hover*!*/
+/*::-webkit-scrollbar-thumb:hover {*/
+/*    background: rgba(0, 0, 0, 0.8);*/
+/*    -webkit-backdrop-filter: blur(5px);*/
+/*    backdrop-filter: blur(5px);*/
+/*}*/
 
-::-webkit-scrollbar-button {
-    background: transparent;
-}
+/*::-webkit-scrollbar-button {*/
+/*    background: transparent;*/
+/*}*/
 
 
 .animated-button {
     position: relative;
     border: none;
-    /*cursor: pointer;*/
     outline: none;
     overflow: hidden;
 }
