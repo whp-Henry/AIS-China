@@ -91,8 +91,8 @@ function updateProgressBar() {
 
     const progressBarWidth = progressBar.offsetWidth;
     progressGif.style.left = (progressBarWidth - 20) + 'px';  // Adjust the '-20' value if necessary to set the GIF's position correctly on the edge.
-    if (scrollPercentage > 50) {
-        progressGif.style.transform="rotateX(0deg) rotateY(180deg) rotate(-60deg);";
+    if (scrollPercentage > 95) {
+        progressGif.style.backgroundImage = "url('./resources/blood_final.png')";
     }
 }
 
@@ -122,39 +122,41 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.addEventListener('click', function (e) {
-        // Create a new blood element
-        const blood = document.createElement('img');
-        blood.src = '/resources/blood_final.png';
-        blood.classList.add('blood');
+        if (!e.target.matches('p')) {
+            // Create a new blood element
+            const blood = document.createElement('img');
+            blood.src = '/resources/blood_final.png';
+            blood.classList.add('blood');
 
-        // Set the dimensions for the blood image
-        const bloodWidth = 50;
-        const bloodHeight = 50;
-        blood.width = bloodWidth;
-        blood.height = bloodHeight;
+            // Set the dimensions for the blood image
+            const bloodWidth = 50;
+            const bloodHeight = 50;
+            blood.width = bloodWidth;
+            blood.height = bloodHeight;
 
-        // Calculate the position for the blood image, considering scroll position
-        const offsetX = bloodWidth / 2;
-        const offsetY = bloodHeight / 2;
-        const posX = e.clientX + window.pageXOffset - offsetX + 18;
-        const posY = e.clientY + window.pageYOffset - offsetY + 13;
+            // Calculate the position for the blood image, considering scroll position
+            const offsetX = bloodWidth / 2;
+            const offsetY = bloodHeight / 2;
+            const posX = e.clientX + window.pageXOffset - offsetX + 18;
+            const posY = e.clientY + window.pageYOffset - offsetY + 13;
 
-        // Set the position for the blood image
-        blood.style.left = posX + 'px';
-        blood.style.top = posY + 'px';
+            // Set the position for the blood image
+            blood.style.left = posX + 'px';
+            blood.style.top = posY + 'px';
 
-        // Append the blood element to the document body
-        document.body.appendChild(blood);
+            // Append the blood element to the document body
+            document.body.appendChild(blood);
 
-        // Gradually fade out the blood element
-        setTimeout(function () {
-            blood.style.opacity = '0';
-        }, 100);
+            // Gradually fade out the blood element
+            setTimeout(function () {
+                blood.style.opacity = '0';
+            }, 100);
 
-        // Remove the blood element from the DOM after it fades out
-        setTimeout(function () {
-            blood.remove();
-        }, 1100); // Adjust the timing based on the transition duration
+            // Remove the blood element from the DOM after it fades out
+            setTimeout(function () {
+                blood.remove();
+            }, 1100); // Adjust the timing based on the transition duration
+        }
     });
 });
 
