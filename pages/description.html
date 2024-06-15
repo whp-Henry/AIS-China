@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>AIS-China</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../stylesheets/ais-china.css" rel="stylesheet">
+    <link href="../stylesheets/description.css" rel="stylesheet">
+
+    <link rel="icon" href="../resources/icon_rmbg.png">
+</head>
+<body>
+
+<!--Custom Cursor div that follows mouse by js-->
+<div class="custom-cursor"></div>
+
+<!--Back to Top Button-->
+<img src="../resources/to_top.png" id="to-top" style="visibility: hidden" class="bottomright" onclick="to_top()">
+
+<!--<div id="loading">-->
+<!--    <img src="../resources/loading.gif"/>-->
+<!--</div>-->
+
+<!--Navigation Bar-->
+<nav class="my-nav" id="navbox">
+    <a id="icon" href="index.html" class="icon">
+        <!--<img src="https://static.igem.wiki/teams/4805/wiki/team-name1.png">-->
+        <img src="../resources/icon_2.png">
+    </a>
+    <ul class="my-navbar" id="my-navbar">
+        <li id="project" onmouseover="over(this)" onmouseleave="leave(this)">
+            <a href="#" class="animated-button">Project</a>
+            <ul class="son">
+                <li><a href="description">Description</a></li>
+                <li><a href="engineering_success">Engineering Success</a></li>
+                <li><a href="contribution">Contribution</a></li>
+            </ul>
+        </li>
+        <li onmouseover="over(this)" onmouseleave="leave(this)">
+            <a href="#" class="animated-button">Wet Lab</a>
+            <ul class="son">
+                <li><a href="parts">Parts</a></li>
+                <li><a href="experiments">Experiments</a></li>
+                <li><a href="notebook">Notebook</a></li>
+                <li><a href="safety">Safety</a></li>
+            </ul>
+        </li>
+        <li onmouseover="over(this)" onmouseleave="leave(this)">
+            <a href="#" class="animated-button">Dry Lab</a>
+            <ul class="son">
+                <li><a href="hardware">Hardware</a></li>
+                <li><a href="measurement">Measurement</a></li>
+            </ul>
+        </li>
+        <li id="human-practice" onmouseover="over(this)" onmouseleave="leave(this)">
+            <a href="#" class="animated-button">Human Practices</a>
+            <ul class="son">
+                <li><a href="integrated-human-practices">Integrated&nbsp;Human&nbsp;Practices</a></li>
+                <li><a href="entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="communication">Communication</a></li>
+                <li><a href="education">Education</a></li>
+                <li><a href="sustainable">Sustainable</a></li>
+
+            </ul>
+        </li>
+        <li onmouseover="over(this)" onmouseleave="leave(this)">
+            <a href="#" class="animated-button">Team</a>
+            <ul class="son">
+                <li><a href="members">Members</a></li>
+                <li><a href="attributions">Attributions</a></li>
+                <li><a href="collaborations">Collaborations</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<!--Top Progress Bar-->
+<div id="progress-container">
+    <div id="progress-bar">
+        <div id="progress-gif"></div>
+        <!--        <img id="progress-gif" src="resources/flying.gif">-->
+    </div>
+    <img src="../resources/text_select.png" id="progress-attract">
+</div>
+
+
+<!--main text-->
+<style>
+    .normal_texts h1 {
+        font-size: 2em;
+        color: #000000;
+        z-index: 5;
+        font-weight: 1pt;
+        line-height: 1.2;
+        letter-spacing: 0.6px;
+        margin-left: 2vw;
+        margin-right: 4.5vw;
+    }
+
+    .normal_texts h2 {
+        font-size: 20pt;
+        font-weight: 520;
+        margin-left: 2.4vw;
+        margin-right: 2.4vw;
+        line-height: 2.3vw;
+    }
+
+    .normal_texts h3 {
+        font-size: 18pt;
+        font-weight: 500;
+        margin-left: 2.4vw;
+        margin-right: 2.4vw;
+        line-height: 2.0vw;
+        /*color: #555; !* Slightly lighter color for differentiation *!*/
+    }
+
+
+    .normal_texts {
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-left: 3.0vw;
+        margin-right: 2vw;
+        font-family: Verdana;
+        padding: 3vw;
+    }
+
+    .normal_texts p {
+        margin: 1.6vw 2.5vw;
+        font-size: 1.3em;
+        font-weight: 300;
+        line-height: 1.4;
+    }
+
+    .normal_texts ol {
+        margin: 1.4vw 4.5vw;
+        font-size: 1em;
+        font-weight: 300;
+    }
+
+    .normal_texts li {
+        margin: 0.7vw;
+        font-weight: 300;
+    }
+
+    blockquote {
+        font-size: 1em;
+        line-height: 1.6;
+        margin: 20px 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-left: 10px solid #ccc;
+        margin-left: 30px;
+    }
+
+    blockquote:before {
+        content: "\201C";
+        font-size: 4em;
+        color: #ccc;
+        vertical-align: -0.4em;
+        line-height: 0;
+        margin-right: 10px;
+    }
+
+    blockquote:after {
+        content: "\201D";
+        font-size: 4em;
+        color: #ccc;
+        vertical-align: -0.4em;
+        line-height: 0;
+        margin-left: 10px;
+    }
+
+    blockquote p {
+        display: inline;
+        font-style: italic;
+    }
+
+    blockquote cite {
+        display: block;
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: #555;
+        text-align: right;
+    }
+
+    blockquote cite:before {
+        content: "\2014 \00A0"; /* em dash and non-breaking space */
+        color: #555;
+    }
+
+    /*--------------------------------------IMAGES AND EXPLANATIONS------------------------------------------*/
+    .picture_and_explanation {
+        text-align: center;
+    }
+
+    .picture_and_explanation img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .picture_and_explanation p {
+        font-size: 1em !important;
+        font-family: Arial;
+        color: grey;
+        text-align: center;
+        margin-left: 5vw !important;
+        margin-right: 5vw !important;
+    }
+</style>
+
+<!-- Page Content -->
+<div class="container-page">
+    <style>
+        .container-page {
+            width: 100%;
+            padding-right: .75rem;
+            padding-left: .75rem;
+            margin-right: 0;
+            margin-left: 0;
+            margin-top: 80px;
+        }
+
+        .container-everything {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .sidebar {
+            /*margin-top: 30px;*/
+            margin-bottom: 30px;
+            margin-left: 2vw;
+            margin-right: 0px;
+            padding: 0;
+            width: calc(300px + 2.7vw);
+            position: sticky;
+            height: auto;
+            overflow: visible;
+            top: 80px;
+            border-radius: 0px 20px 20px 0px;
+            align-self: flex-start; /* <-- this is the fix */
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 16px;
+            text-decoration: none;
+            font-size: 18px !important;
+            font-family: "Kanit", sans-serif;
+        }
+
+        .sidebarTab {
+            margin-top: 2vw;
+            margin-bottom: 2vw;
+            margin-left: 2em;
+            margin-right: 20px;
+            font-family: Verdana;
+            /* font-size: min(1vw); */
+            font-size: 18px;
+            transition: font-weight 0.0000001s, color 0.0000001s;
+            cursor: pointer;
+        }
+
+        .sidebarTab::before {
+            content: "• ";
+            color: #e3f2c1;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .sidebarTab:hover {
+            text-shadow: 0px 0px 1px black;
+        }
+
+        .sidebarTabActive {
+            text-shadow: 0px 0px 1px black;
+        }
+
+        .sidebar a.active {
+            text-shadow: 0px 0px 1px black;
+        }
+
+        .sidebar a:hover:not(.active) {
+            text-shadow: 0px 0px 1px black;
+        }
+    </style>
+
+    <!--Switch sidebar display-->
+    <img src="../resources/to_top.png" id="display_sidebar" class="bottomleft" onclick="display_sidebar()">
+
+
+    <div class="container-everything">
+        <div class="sidebar" id="sidebar">
+            <!---<p style="font-family: 'Kanit', sans-serif; text-align: center; font-size: 25px;">Description</p>--->
+            <img src="https://static.igem.wiki/teams/4805/wiki/template.png" height="90" width="185" style="margin:auto"
+                 onclick="toTop()">
+
+            <div onclick="location.href='#Overview'" class="sidebarTab" id="whatIsFixative" style="margin-top: 1vw">
+                Overview
+            </div>
+
+            <div onclick="location.href='#Problem'" class="sidebarTab" id="whatIsFixative" style="margin-top: 1vw">
+                Problem With Mosquitoes
+            </div>
+
+            <div onclick="location.href='#Inspiration'" class="sidebarTab" id="ambergrisAndAmbrein">
+                Inspiration
+            </div>
+
+            <div onclick="location.href='#Solution'" class="sidebarTab" id="sandalwoodOilAndSantalol">
+                Our Solution: <em>Moskilla</em>
+            </div>
+        </div>
+
+
+        <!--text-->
+        <div id="main" style="width: 100%;">
+            <div id="Overview">
+                <div class="normal_texts">
+                    <h2 id="Overview">Overview</h2>
+                    <div id="Overview">
+                        <p>
+                            Mosquitoes are the major transmitting agents of various diseases, including malaria, yellow
+                            fever, and dengue fever. Such mosquito-borne diseases lead to global as well as local
+                            problems, leading to many deaths and negative economic impacts. Though mosquito control
+                            methods exist, the efficacy remains unsatisfactory. Many researchers worldwide have been
+                            therefore trying to use a more promising solution, namely the attractive targeted sugar
+                            baits (ATSBs) containing sugar and chemical toxins, to attract and kill mosquitos. However,
+                            limitations exist, disease-carrying female mosquitos mainly feed on blood instead of sugar,
+                            and therefore cannot be effectively attracted by ATSBs.
+                        </p>
+                        <p>
+                            This year, AIS-China has made optimization on the traditional ATSBs. We've introduced
+                            (E)-4-Hydroxy-3-methyl-but-2-enyl pyrophosphate (HMBPP), a compound proven to enhance
+                            attractiveness of ATSBs to blood-feeding mosquitoes.
+                        </p>
+                        <p>
+                            Additionally, we have integrated small hairpin RNAs (shRNAs) that are specifically designed
+                            to target and silence vital mosquito survival genes like 5-HTR1 and Rbfox1. Once digested,
+                            shRNAs can activate the RNA interference (RNAi) mechanism and lead to the death of
+                            mosquitoes.
+                        </p>
+                        <p>
+                            The fusion of ATSBs with RNAi techniques has given rise to Moskilla, a novel mosquito
+                            control method that is not only eco-friendly and safe but also effective and specific to
+                            mosquito populations. Moskilla will provide a promising new solution for the prevention and
+                            control of vector borne diseases.
+                        </p></div>
+                    <div class="picture_and_explanation">
+                        <img src="https://placehold.co/800x400">
+                        <p>
+                            <font size="1">
+                                Figure 1. Overall design of Aroma Anchor
+                            </font>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+
+            <!--<div id="main" style="width: 100%;">-->
+            <div id="Problem">
+                <div class="normal_texts">
+                    <h2 id="problem-title">Problems with mosquitoes</h2>
+                    <div id="Problems with mosquitoes-paragraph">
+                        <blockquote>
+                            <p>There are very few winners in the climate crisis, but scientists are pretty sure
+                                there's going to be at least one: <b>Mosquitoes</b>.</p>
+                            <cite>CNN</cite>
+                        </blockquote>
+                        <br>
+                        <h3>∙ Global Issue</h3>
+                        <p>
+                            In summer, along with the rising temperature, people's daily lives and sleep are troubled by
+                            active mosquitoes, and the demand for mosquito repellent products is also increasing.
+                            However, people rarely realize that mosquitoes are the deadliest animals in the world
+                            through transmitting diseases.
+                        </p>
+                        <p>
+                            Nowadays, mosquitoes have highly affected the human race through transmitting diseases.
+                            According to researches, dengue fever, transmitted by mosquitoes, is prevalent all over the
+                            world: about 400 million people are infected and 21,000 deaths are caused by it annually
+                            (CDC,&nbsp;2018).
+                        </p>
+                        <div class="picture_and_explanation">
+                            <img src="../resources/exp_globe.png"/>
+                            <p>
+                                <font size="1">
+                                    Figure 1. Global distribution of Dengue Fever in 2018
+                                </font>
+                            </p>
+                        </div>
+                        <p>
+                            However, mosquitoes transmit not only dengue, but also malaria and many others. An estimated
+                            249 million cases of malaria occurred in 85 malaria-endemic countries in 2022 (CDC, 2024).
+                            Of the 249 million, approximately 608,000 died of malaria. Taking all mosquito-borne
+                            diseases into account, mosquito-borne diseases contribute to 17% deaths among all infectious
+                            diseases (WHO, 2020).
+                        </p>
+                        <p>
+                            Furthermore, mosquito-borne diseases also lead to massive economical losses: the estimated
+                            cost of medical care for the West Nile virus diseases, transmitted by mosquitos, are over
+                            $56 million dollars per year in the U.S. alone (West Baton Rouge Museum, 2019). These
+                            statistics demonstrates that the danger of mosquitoes’ prevalence is extremely obvious and
+                            needs to be dealt with.
+                        </p>
+                        <hr style="">
+                        <br>
+                        <h3>∙ Local Issue</h3>
+                        <p>
+                            China has always been heavily impacted by mosquito-borne diseases. China was once strongly
+                            affected by malaria, reporting over 24 million cases in the early 1970s (WHO, 2024). In
+                            2010, the government launched the National Malaria Elimination Programme, effectively
+                            mitigated the problem. Starting from 2017, China reported zero malaria cases, making itself
+                            a malaria-free country recognized by the WHO.
+                        </p>
+                        <p>
+                            However, while malaria is eliminated, dengue remains its significance in China. In 2023
+                            alone, over 5,000 cases of Dengue Fever were reported in China (National Disease Control and
+                            Prevention Administration, 2023). In the post-COVID era, the transmission of various
+                            mosquito-borne diseases, especially Dengue Fever, is likely to rise in China, posing new
+                            challenges in disease control. Novel prevention and control methods need to be developed to
+                            improve the current situation.
+                        </p>
+                        <div class="picture_and_explanation">
+                            <img src="../resources/exp_local.png"/>
+                            <p>
+                                <font size="1">
+                                    Figure 2. Dengue prevalance in China 2005-2020
+                                </font>
+                            </p>
+                        </div>
+                        <hr>
+                        <br>
+                        <h3>∙ Significance of mosquitoes control</h3>
+                        <p>
+                            Mosquito-borne diseases pose serious threats to health of the humanity. However, many
+                            mosquito-borne diseases are preventable. Through strategies eliminating or controlling the
+                            mosquito population and the contact between humans and mosquitos, the spread of these
+                            infectious diseases could be restricted. Therefore, the authorities are now endorsing
+                            mosquito control, encouraging people to actively kill mosquitoes. For instance, the Centers
+                            of Disease Control and Prevention (CDC) encourages individuals and community directors to
+                            kill mosquitoes, and provides guidance for mosquito control.
+                        </p>
+                        <div class="picture_and_explanation">
+                            <img src="../resources/exp_control.png"/>
+                            <p>
+                                <font size="1">
+                                    Figure 3. CDC's guidance for mosquito control
+                                </font>
+                            </p>
+                        </div>
+                        <p>
+                            However, mosquitoes transmit not only dengue, but also malaria and many others. An estimated
+                            249 million cases of malaria occurred in 85 malaria-endemic countries in 2022 (CDC, 2024).
+                            Of the 249 million, approximately 608,000 died of malaria. Taking all mosquito-borne
+                            diseases into account, mosquito-borne diseases contribute to 17% deaths among all infectious
+                            diseases (WHO, 2020).
+                        </p>
+                        <p>
+                            Furthermore, mosquito-borne diseases also lead to massive economical losses: the estimated
+                            cost of medical care for the West Nile virus diseases, transmitted by mosquitos, are over
+                            $56 million dollars per year in the U.S. alone (West Baton Rouge Museum, 2019). These
+                            statistics demonstrates that the danger of mosquitoes’ prevalence is extremely obvious and
+                            needs to be dealt with.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <div id="Inspiration">
+                <div class="normal_texts">
+                    <h2 id="Inspiration-title">Problems with mosquitoes</h2>
+                    <br>
+                    <div id="Inspiration-paragraph">
+                        <h3>∙ HMBPP attracts blood seeking mosquitoes</h3>
+                        <p>
+                            <i>(E)-4-hydroxy-3-methyl-but-2-enyl pyrophosphate (HMBPP)</i>, known as an isoprenoid
+                            precursor,
+                            has been revealed also a phagostimulant for blood-feeding mosquitoes. It was first found
+                            that the parasite Plasmodium falciparum produces HMBPP during malaria infection to
+                            indirectly increase the release of carbon dioxide, aldehydes, and monoterpenes in red blood
+                            cells. It enhances attraction and feeding behaviors of mosquito vectors. (Emami et al.,
+                            2017) Based on its phagostimulatory effect, the addition of 10 uM HMBPP to plant-based
+                            solution in combination with chemical toxins has been shown to have potential as an
+                            environmentally friendly ATSB for mosquito control (Viktoria E. S. et al., 2021).
+                        </p>
+                        <p>
+                            This inspired us to use HMBPP to attract those blood-feeding mosquitoes. However, HMBPP can
+                            not yet be chemically synthesized. Therefore, we have decided to choose E. coli as the
+                            chasis cell producing HMBPP, as it has the same natural MEP pathway as Plasmodium. Also, E.
+                            coli is a type strain which can be easily engineered to increase the yield of HMBPP. (Zhou&nbsp;et&nbsp;al.,&nbsp;2017)
+                        </p>
+                        <div class="picture_and_explanation">
+                            <img src="https://placehold.co/600x400?text=incomplete"/>
+                            <p>
+                                <font size="1">
+                                    Figure 4. 需要一张图比较加了E.coli生产的HMBPP+sugar baits比单一的sugar
+                                    baits吸引更多爱吸血的蚊子
+                                </font>
+                            </p>
+                        </div>
+                        <hr>
+                        <br>
+                        <h3>∙ RNAi yeast for mosquito control</h3>
+                        <p>
+                            <i>RNA interference (RNAi)</i> is a post-transcriptional gene silencing mechanism that
+                            operates
+                            through the sequence-specific degradation of target mRNA transcripts, mediated by small RNA
+                            molecules (sRNA). Given the increase of reported chemical insecticide resistance and the
+                            rising concern for negative effects of broad spectrum toxic mosquitocides on non-target
+                            organisms, there is an urgent need for the development of novel, environmentally-friendly
+                            mosquitoicide. To this end, RNAi approaches are pursued as a promising strategy for mosquito
+                            control.
+                        </p>
+                        <p>
+                            Whereas, both application in ATSB and large-scale production require the stability and
+                            efficient uptake by mosquitoes. In this regard, dried and inactivated yeast short hairpin
+                            RNA (shRNA) pellets has been identified as an optimal approach to deliver shRNA
+                            mosquitosicide. This method has demonstrated the highest efficacy in inducing mortality
+                            across various mosquito species, while simultaneously achieving the silence of targeted
+                            genes. (Molly D. S., 2019)
+                        </p>
+                        <p>
+                            For the purpose of gene silencing, genes that are pivotal to mosquito fecundity, behavioral
+                            patterns, survival, and vector competence are prioritized. In our study, we have selected
+                            the 5-HT1 receptor (5-HTR1) gene, which encodes serotonin receptors present on neuronal and
+                            other cellular membranes, and the Rbfox1 gene, encoding an evolutionarily conserved
+                            RNA-binding protein. The previous researches indicate that silencing either the 5-HT1
+                            receptor or Rbfox1 leads to the death of mosquitoes, with negligible impacts on non-target
+                            organisms. (Keshava et al., 2021; Keshava et al., 2023)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <div id="Solution">
+                <div class="normal_texts">
+                    <h2 id="Solution-title">Our solution: Moskilla</h2>
+                    <div id="Solution-paragraph">
+                        <p>
+                            Now, let us introduce a novel solution, Moskilla, which is an optimized ATSB containing two
+                            main components: engineered E. coli to attract mosquitoes and targeted shRNA to kill
+                            mosquitoes. Our objective is to develop an <em>eco-friendly, safe, effective, and highly
+                            specific</em> method for mosquito control. Moskilla is mainly composed of the following 2
+                            components.
+                        </p>
+                        <p>
+                            <b>HMBPP and sugar bait</b>: Except traditional sugar bait, HMBPP producing E. coli is also
+                            added.
+                            The presence of HMBPP and sugar in Moskilla can optimize its attractiveness to both sugar-
+                            and blood-feeding mosquitoes. To reduce the risk of E. coli leakage, the engineered E. coli
+                            has been constructed to a nutrient-deficient strain, thereby limiting its survival outside
+                            our controlled application context.
+                        </p>
+                        <p>
+                            <b>shRNA mosquitosicide</b>: : shRNA mosquitosicide of Moskilla is
+                            encapsulated within dried, inactivated yeast cell pellets that express the targeted shRNA
+                            sequences. This formulation is designed to initiate the RNA interference (RNAi) mechanism
+                            upon ingestion, effectively silencing vital mosquito survival genes, such as 5-HTR1 and
+                            Rbfox1. Our shRNA sequences are rigorously designed to minimize off-target effects, thereby
+                            significantly reducing the toxicity to other non-targeted organisms compared to conventional
+                            chemical mosquitocides. This innovation renders Moskilla a more sustainable, safe, and
+                            highly targeted approach to mosquito control.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                }
+
+                .references {
+                    margin: 20px;
+                }
+
+                .references h2 {
+                    font-size: 24pt;
+                    font-weight: 520;
+                }
+
+                .references ol {
+                    margin: 0;
+                    padding: 0;
+                    list-style-position: inside;
+                }
+
+                .references li {
+                    margin-bottom: 10px;
+                }
+
+                .references a {
+                    color: #1a0dab;
+                    text-decoration: none;
+                }
+
+                .references a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+            <br><br>
+            <div id="Reference">
+                <div class="normal_texts">
+                    <h2 id="Reference-title">References</h2>
+                    <br>
+                    <div id="Reference-paragraph">
+                        <div class="references">
+                            <ol>
+                                <li>
+                                    Flores, H.A., O’Neill, S.L. Controlling vector-borne diseases by releasing modified
+                                    mosquitoes. Nat Rev Microbiol 16, 508–518 (2018).
+                                    <a href="https://doi.org/10.1038/s41579-018-0025-0">https://doi.org/10.1038/s41579-018-0025-0</a>
+                                </li>
+                                <li>
+                                    Centres for Disease Control and Prevention, July 2018.
+                                    <a href="https://www.cdc.gov/dengue/training/cme/ccm/page51440.html">https://www.cdc.gov/dengue/training/cme/ccm/page51440.html</a>
+                                </li>
+                                <li>
+                                    Centres for Disease Control and Prevention, April 1, 2024.
+                                    <a href="https://www.cdc.gov/malaria/php/impact/index.html">https://www.cdc.gov/malaria/php/impact/index.html</a>
+                                </li>
+                                <li>
+                                    World Health Organization. Vector-Borne Diseases. (2020-5-2).
+                                    <a href="https://www.who.int/news-room/fact-sheets/detail/vector-borne-diseases">https://www.who.int/news-room/fact-sheets/detail/vector-borne-diseases</a>
+                                </li>
+                                <li>
+                                    West Baton Rouge Museum. Why Mosquitoes Are a Serious Threat | West Baton Rouge
+                                    Parish, LA. (2019).
+                                    <a href="https://westbatonrougemuseum.org/245/Mosquito-Borne-Disease">https://westbatonrougemuseum.org/245/Mosquito-Borne-Disease</a>
+                                </li>
+                                <li>
+                                    Int. J. Environ. Res. Public Health 2022, 19(7), 3910;
+                                    <a href="https://doi.org/10.3390/ijerph19073910">https://doi.org/10.3390/ijerph19073910</a>
+                                </li>
+                                <li>
+                                    World Health Organization. From 30 million cases to zero: China is certified
+                                    malaria-free by WHO. (2021-6-30).
+                                    <a href="https://www.who.int/news/item/30-06-2021-from-30-million-cases-to-zero-china-is-certified-malaria-free-by-who">https://www.who.int/news/item/30-06-2021-from-30-million-cases-to-zero-china-is-certified-malaria-free-by-who</a>
+                                </li>
+                                <li>
+                                    National Disease Control and Prevention Administration, 2023.
+                                    <a href="https://www.ndcpa.gov.cn/jbkzzx/c100016/common/content/content_1725494140437131264.html">https://www.ndcpa.gov.cn/jbkzzx/c100016/common/content/content_1725494140437131264.html</a>
+                                </li>
+                                <li>
+                                    CDC, Mosquito Control, 2024.
+                                    <a href="https://www.cdc.gov/mosquitoes/mosquito-control/index.html">https://www.cdc.gov/mosquitoes/mosquito-control/index.html</a>
+                                </li>
+                                <li>
+                                    Emami, S. N., Lindberg, B. G., Hua, S., Hill, S. R., Mozuraitis, R., Lehmann, P.,
+                                    Birgersson, G., Borg-Karlson, A.-K., Ignell, R., & Faye, I. (2017). A key malaria
+                                    metabolite modulates vector blood seeking, feeding, and susceptibility to infection.
+                                    Sci. , 355(6329), 1076-1080.
+                                    <a href="https://doi.org/10.1126/science.aah4563">https://doi.org/10.1126/science.aah4563</a>
+                                </li>
+                                <li>
+                                    Viktoria, E. S., Melika, H., Elizabeth, V., Raimondas, M., S. Noushin, E. (2021).
+                                    Plasmodium metabolite HMBPP stimulates feeding of main mosquito vectors on blood and
+                                    artificial toxic sources. Commun. Biol. , 4(1), 1161.
+                                    <a href="https://www.nature.com/articles/s42003-021-02689-8">https://www.nature.com/articles/s42003-021-02689-8</a>
+                                </li>
+                                <li>
+                                    Zhou, J., Yang, L., Wang, C., Choi, E. S., & Kim, S. W. (2017). Enhanced performance
+                                    of the methylerythritol phosphate pathway by manipulation of redox reactions
+                                    relevant to IspC, IspG, and IspH. J Biotechnol, 248, 1-8.
+                                    <a href="https://doi.org/10.1016/j.jbiotec.2017.03.005">https://doi.org/10.1016/j.jbiotec.2017.03.005</a>
+                                </li>
+                                <li>
+                                    Molly, D. S. (2019). Saccharomyces cerevisiae (Baker's Yeast) as an interfering RNA
+                                    Expression and Delivery System. Curr. Drug Targets, 20, 942-952.
+                                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6700756/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6700756/</a>
+                                </li>
+                                <li>
+                                    Mysore, K., Longhua, S., Limb, K.H. et al. (2022). A broad-based mosquito yeast
+                                    interfering RNA pesticide targeting Rbfox1 represses Notch signaling and kills both
+                                    larvae and adult mosquitoes. Pathogens, 11(9), 956.
+                                    <a href="https://doi.org/10.3390/pathogens11090956">https://doi.org/10.3390/pathogens11090956</a>
+                                </li>
+                                <li>
+                                    Mysore, K., Njoroge, T.M., Stewart, A.T.M. et al. (2023). Characterization of a
+                                    novel RNAi yeast insecticide that silences mosquito 5-HT1 receptor genes. Sci Rep
+                                    13, 22511.
+                                    <a href="https://doi.org/10.1038/s41598-023-49799-3">https://doi.org/10.1038/s41598-023-49799-3</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+                var div = document.querySelector("#Overview")
+
+                function toTop() {
+                    var top = div.offsetTop - 76
+                    window.scrollTo(0, top)
+                    console.log(top)
+                }
+            </script>
+
+            <!--        </div>-->
+
+            <!-- Page Content -->
+            <div class="container">
+
+            </div>
+
+            <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
+            <style>
+                #footer-img2 {
+                    width: 110px;
+                }
+
+                #footer-img3 {
+                    height: 50px;
+                }
+
+                #footer-img {
+                    height: 30px;
+                }
+            </style>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+<script src="../script.js"></script>
+</body>
+</html>

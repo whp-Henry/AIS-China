@@ -1,13 +1,10 @@
-
 var navbox = document.getElementById("navbox");
 let navbar = document.getElementById("my-navbar");
-
 let items = navbar.children;
 
 function over(el) {
     // document.getElementById("icon-txt").style.visibility = "hidden";
     // document.getElementById("icon").classList.add("icon-over");
-
     for (i = 0; i < 5; i++) {
         items[i].children[0].style.color = "#010f49";
     }
@@ -28,7 +25,7 @@ function over(el) {
         son.style.background = "blue";
         // navbox.style.height = "280px";
     }
-        // else if (document.documentElement.clientHeight < 1120) {
+    // else if (document.documentElement.clientHeight < 1120) {
     //     navbox.style.height = "245px";
     // } else {
     //     navbox.style.height = "280px";
@@ -62,6 +59,14 @@ function to_top() {
     if (window.scrollY != 0) setTimeout(to_top, 1);
 }
 
+function display_sidebar() {
+    if (document.getElementById("sidebar").style.display === "") {
+        document.getElementById("sidebar").style.display = "none";
+    } else {
+        document.getElementById("sidebar").style.display = "";
+    }
+}
+
 window.onscroll = function () {
     if (window.scrollY <= 100) document.getElementById("to-top").style.visibility = "hidden";
     else document.getElementById("to-top").style.visibility = "";
@@ -70,14 +75,14 @@ window.onscroll = function () {
     // navbox.style.background = 'linear-gradient(to right, hsl(191, 50%, 78%), hsl(191, 50%, ' + opacity + '%)';
     // navbox.style.background = 'linear-gradient(to right, hsl(191, 50%, ' + opacity + '%), hsl(228, 97%, 14.4%)';
 
-    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    ScrollFunction(winScroll);
+    // let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    // ScrollFunction(winScroll);
 
 
 };
 // window.addEventListener('scroll', ScrollFunction);
-
-// progress bar
+//
+// // progress bar
 // function ScrollFunction(winScroll) {
 //     let height =
 //         document.documentElement.scrollHeight -
@@ -90,7 +95,6 @@ const progressBar = document.getElementById('progress-bar');
 const progressGif = document.getElementById('progress-gif');
 const progressAttr = document.getElementById('progress-attract');
 
-
 function updateProgressBar() {
     const windowHeight = document.documentElement.clientHeight;
     const documentHeight = document.documentElement.scrollHeight - windowHeight;
@@ -98,13 +102,12 @@ function updateProgressBar() {
     const scrollPercentage = (scrollTop / documentHeight) * 100;
 
     // Update progress bar width based on the scroll position
-
     progressBar.style.width = scrollPercentage + '%';
-
     const progressBarWidth = progressBar.offsetWidth;
     progressGif.style.left = (progressBarWidth - 20) + 'px';  // Adjust the '-20' value if necessary to set the GIF's position correctly on the edge.
     if (scrollPercentage > 95) {
-        progressGif.style.backgroundImage = "url('./resources/caught.png')";
+        progressGif.style.backgroundImage = "url('../resources/caught.png')";
+        //!!!
         progressAttr.style.visibility = "hidden";
     }
 }
@@ -115,63 +118,69 @@ window.onmousemove = function (event) {
 
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const customCursor = document.querySelector('.custom-cursor');
-    // const customSelector = document.querySelector('.custom-select');
+document.addEventListener("DOMContentLoaded", (event) => {
+    console.log("DOM fully loaded and parsed");
+    // document.getElementById("loading").style.display = "none";
+});
+document.addEventListener("load", (event) => {
+    console.log("All contents loaded and parsed");
+        document.getElementById("loading").style.display = "none";
+});
 
-    document.addEventListener('mousemove', function (e) {
+// document.addEventListener('DOMContentLoaded', function () {
+const customCursor = document.querySelector('.custom-cursor');
+    // const customSelector = document.querySelector('.custom-select');
+// });
+document.addEventListener('mousemove', function (e) {
         // Check if the mouse is not hovering over a <p> element
         if (!e.target.matches('p')) {
             customCursor.style.visibility = "";
             customCursor.style.left = e.clientX + 'px';
-            var yloc = e.clientY - 5;
-            customCursor.style.top = yloc + 'px';
+            customCursor.style.top = e.clientY - 5 + 'px';
         } else {
             customCursor.style.visibility = "hidden";
-            // customSelector.style.visibility = "";
-            // customSelector.style.left = e.clientX + 'px';
-            // customSelector.style.top = e.clientY + 'px';
         }
-    });
+    }
+);
 
-    document.addEventListener('click', function (e) {
-        if (!e.target.matches('p')) {
-            // Create a new blood element
-            const blood = document.createElement('img');
-            blood.src = '/resources/blood_final.png';
-            blood.classList.add('blood');
+document.addEventListener('click', function (e) {
+    if (!e.target.matches('p')) {
+        // Create a new blood element
+        const blood = document.createElement('img');
+        blood.src = '/resources/blood_final.png';
+        blood.classList.add('blood');
 
-            // Set the dimensions for the blood image
-            const bloodWidth = 50;
-            const bloodHeight = 50;
-            blood.width = bloodWidth;
-            blood.height = bloodHeight;
+        // Set the dimensions for the blood image
+        const bloodWidth = 50;
+        const bloodHeight = 50;
+        blood.width = bloodWidth;
+        blood.height = bloodHeight;
 
-            // Calculate the position for the blood image, considering scroll position
-            const offsetX = bloodWidth / 2;
-            const offsetY = bloodHeight / 2;
-            const posX = e.clientX + window.pageXOffset - offsetX + 18;
-            const posY = e.clientY + window.pageYOffset - offsetY + 13;
+        // Calculate the position for the blood image, considering scroll position
+        const offsetX = bloodWidth / 2;
+        const offsetY = bloodHeight / 2;
+        const posX = e.clientX + window.pageXOffset - offsetX + 18;
+        const posY = e.clientY + window.pageYOffset - offsetY + 13;
 
-            // Set the position for the blood image
-            blood.style.left = posX + 'px';
-            blood.style.top = posY + 'px';
+        // Set the position for the blood image
+        blood.style.left = posX + 'px';
+        blood.style.top = posY + 'px';
 
-            // Append the blood element to the document body
-            document.body.appendChild(blood);
+        // Append the blood element to the document body
+        document.body.appendChild(blood);
 
-            // Gradually fade out the blood element
-            setTimeout(function () {
-                blood.style.opacity = '0';
-            }, 100);
+        // Gradually fade out the blood element
+        setTimeout(function () {
+            blood.style.opacity = '0';
+        }, 100);
 
-            // Remove the blood element from the DOM after it fades out
-            setTimeout(function () {
-                blood.remove();
-            }, 1100); // Adjust the timing based on the transition duration
-        }
-    });
-});
+        // Remove the blood element from the DOM after it fades out
+        setTimeout(function () {
+            blood.remove();
+        }, 1100); // Adjust the timing based on the transition duration
+    }
+})
+;
 
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -183,3 +192,6 @@ document.addEventListener('DOMContentLoaded', function () {
 //     // Event listener for mouse click
 //     document.addEventListener("click", changeCursor);
 // });
+
+
+
