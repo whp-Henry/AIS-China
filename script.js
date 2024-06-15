@@ -1,30 +1,40 @@
+
 var navbox = document.getElementById("navbox");
 let navbar = document.getElementById("my-navbar");
+
 let items = navbar.children;
 
 function over(el) {
     // document.getElementById("icon-txt").style.visibility = "hidden";
     // document.getElementById("icon").classList.add("icon-over");
+
     for (i = 0; i < 5; i++) {
         items[i].children[0].style.color = "#010f49";
     }
     el.children[0].style.color = "#f47971";
-    if (el.children.length > 1) {
-        let son = el.children[1];
-        if (getComputedStyle(son, null)["display"] == "none") {
-            setTimeout(function () {
-                son.style.opacity = "1";
-            }, 10);
-            son.style.display = "block";
-        }
-        if (document.documentElement.clientWidth > 1400) {
-            navbox.style.height = "280px";
-        } else if (document.documentElement.clientHeight < 1120) {
-            navbox.style.height = "245px";
-        } else {
-            navbox.style.height = "280px";
-        }
+
+    // if (el.children.length > 1) {
+    let son = el.children[1];
+    if (getComputedStyle(son, null)["display"] == "none") {
+        setTimeout(function () {
+            son.style.opacity = "1";
+        }, 10);
+        son.style.display = "block";
     }
+
+    if (document.documentElement.clientWidth > 1400) {
+        son.style.height = "auto";
+        son.style.width = "160%";
+        son.style.background = "blue";
+        // navbox.style.height = "280px";
+    }
+        // else if (document.documentElement.clientHeight < 1120) {
+    //     navbox.style.height = "245px";
+    // } else {
+    //     navbox.style.height = "280px";
+    // }
+
+    // }
 }
 
 function leave(el) {
@@ -41,7 +51,7 @@ function leave(el) {
                 son.style.display = "none";
             }, 350);
         }
-        navbox.style.height = "78px";
+        navbox.style.height = "72px";
     }
     // document.getElementById("icon-txt").style.visibility = "";
 }
@@ -78,6 +88,8 @@ window.onscroll = function () {
 
 const progressBar = document.getElementById('progress-bar');
 const progressGif = document.getElementById('progress-gif');
+const progressAttr = document.getElementById('progress-attract');
+
 
 function updateProgressBar() {
     const windowHeight = document.documentElement.clientHeight;
@@ -92,7 +104,8 @@ function updateProgressBar() {
     const progressBarWidth = progressBar.offsetWidth;
     progressGif.style.left = (progressBarWidth - 20) + 'px';  // Adjust the '-20' value if necessary to set the GIF's position correctly on the edge.
     if (scrollPercentage > 95) {
-        progressGif.style.backgroundImage = "url('./resources/blood_final.png')";
+        progressGif.style.backgroundImage = "url('./resources/caught.png')";
+        progressAttr.style.visibility = "hidden";
     }
 }
 

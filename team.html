@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://2022.igem.wiki/leiden/static/bootstrap.css" rel="stylesheet"/>
+
+    <!-- jQuery development version -->
+    <script src="https://2022.igem.wiki/leiden/static/jquery-3.6.0.js"></script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://2022.igem.wiki/leiden/static/mathjax/tex-chtml.js"></script>
+
+    <!-- Animate CSS-->
+    <link rel="stylesheet" href="https://2022.igem.wiki/leiden/static/animate.min.css"/>
+
+    <!-- Animate on Scroll -->
+    <link rel="stylesheet" href="https://2022.igem.wiki/leiden/static/aos.css"/>
+    <script src="https://2022.igem.wiki/leiden/static/aos.js"></script>
+
+
+    <!-- Slick CSS -->
+    <link href="https://2022.igem.wiki/leiden/static/slick.css" rel="stylesheet"/>
+
+    <link href="https://2022.igem.wiki/leiden/static/slick-theme.css" rel="stylesheet"/>
+
+    <!-- Font Awesome 6.1.2 -->
+    <script defer src="https://2022.igem.wiki/leiden/static/font_awesome_free_all.js"></script>
+
+    <!-- Twemoji icons -->
+    <script defer src="https://2022.igem.wiki/leiden/static/twemoji.min.js"></script>
+    <link href="https://2022.igem.wiki/leiden/static/twemoji-amazing.css" rel="stylesheet"/>
+
+    <!-- Magnific Popup CSS -->
+    <!--    <link href="https://2022.igem.wiki/leiden/static/magnific-popup.css" rel="stylesheet"/>-->
+
+    <!-- Custom CSS -->
+    <link href="stylesheets/team_style.css" rel="stylesheet"/>
+
+    <link href="stylesheets/ais-china.css" rel="stylesheet">
+    <link href="stylesheets/team.css" rel="stylesheet">
+    <link rel="icon" href="resources/icon_rmbg.png">
+
+</head>
+
+<body id="stuff" data-bs-spy="scroll" data-bs-target="#sidenav-wrapper" data-bs-offset="50">
+
+
+<!--Custom Cursor div that follows mouse by js-->
+<div class="custom-cursor"></div>
+
+<!--Back to Top Button-->
+<img src="resources/to_top.png" id="to-top" style="visibility: hidden" class="bottomright" onclick="to_top()">
+
+<!--Navigation Bar-->
+<nav class="my-nav" id="navbox">
+    <a id="icon" href="index.html" class="icon">
+        <!--<img src="https://static.igem.wiki/teams/4805/wiki/team-name1.png">-->
+        <img src="resources/icon_2.png">
+    </a>
+    <ul class="my-navbar" id="my-navbar">
+        <li id="project" onmouseover="over(this)" onmouseleave="leave(this)">
+            <a href="#" class="animated-button">Project</a>
+            <ul class="son" id="project-list">
+                <li class="hovercolor"><a href="description">Description</a></li>
+                <li><a href="engineering_success">Engineering&nbsp;Success</a></li>
+                <li><a href="contribution">Contribution</a></li>
+            </ul>
+        </li>
+        <li onmouseover="over(this)" onmouseleave="leave(this)">
+            <a href="#" class="animated-button">Wet Lab</a>
+            <ul class="son">
+                <li><a href="parts">Parts</a></li>
+                <li><a href="experiments">Experiments</a></li>
+                <li><a href="notebook">Notebook</a></li>
+                <li><a href="safety">Safety</a></li>
+            </ul>
+        </li>
+        <li onmouseover="over(this)" onmouseleave="leave(this)">
+            <a href="#" class="animated-button">Dry Lab</a>
+            <ul class="son">
+                <li><a href="hardware">Hardware</a></li>
+                <li><a href="measurement">Measurement</a></li>
+            </ul>
+        </li>
+        <li id="human-practice" onmouseover="over(this)" onmouseleave="leave(this)">
+            <a href="#" class="animated-button">Human Practices</a>
+            <ul class="son">
+                <li><a href="integrated-human-practices">Integrated&nbsp;Human&nbsp;Practices</a></li>
+                <li><a href="entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="communication">Communication</a></li>
+                <li><a href="education">Education</a></li>
+                <li><a href="sustainable">Sustainable</a></li>
+
+            </ul>
+        </li>
+        <li onmouseover="over(this)" onmouseleave="leave(this)">
+            <a href="#" class="animated-button">Team</a>
+            <ul class="son">
+                <li><a href="members">Members</a></li>
+                <li><a href="attributions">Attributions</a></li>
+                <li><a href="collaborations">Collaborations</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<!--Top Progress Bar-->
+<div id="progress-container">
+    <div id="progress-bar">
+        <div id="progress-gif"></div>
+        <!--        <img id="progress-gif" src="resources/flying.gif">-->
+    </div>
+    <img src="resources/text_select.png" id="progress-attract">
+</div>
+
+
+<!-- Header and Page Content -->
+<div class="container mw-100">
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="bg-hero col-lg-12 mx-auto">
+                    <div>
+                        <h1 id="header-title">Team Members</h1>
+                    </div>
+                </div>
+                <!--                <div class="header-zigzag"></div>-->
+            </div>
+        </div>
+    </header>
+    <div class="row mt-5 relative">
+        <h1 class="text-center">
+            Click the cards to read more about us!
+        </h1>
+        <h1 class="team_name text-center">Support Team</h1>
+    </div>
+    <div class="row mt-3 d-flex justify-content-evenly relative">
+        <img class="d-none d-lg-inline" style="position: absolute; left: 83%; width: 10%; top: -15%"
+             src="https://static.igem.wiki/teams/4259/wiki/hp-page/arrowz1.svg">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/mv-2.gif" alt=""/>
+                            <h2>Member 1</h2>
+                            <h3>Job 1</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-maxim-60.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Member 1</h2>
+                                        <h3>Job 1</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>This is your description This is your description This is your description This is
+                                    your description This is your description This is your description This is your
+                                    description This is your description </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/mirthe.gif" alt=""/>
+                            <h2>Mirthe Zandbelt</h2>
+                            <h3>Team & Finance Manager</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-mirthe-6.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Mirthe Zandbelt</h2>
+                                        <h3>Team & Finance Manager</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>Mirthe is doing a Bachelor’s degree in Life, Science and Technology. She loves being
+                                    involved with all parts of the project, and brainstorming with team members and
+                                    experts in the field. That is why she is our Team & Finance manager. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <h1 class="team_name text-center">Science Team</h1>
+    </div>
+
+    <div class="row mt-3 d-flex justify-content-evenly">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/jennifer.gif" alt=""/>
+                            <h2>Jennifer Adami</h2>
+                            <h3>Experimental Design Manager</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-jennifer.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Jennifer Adami</h2>
+                                        <h3>Experimental Design Manager</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>Jennifer is currently following a Master's degree in Molecular Genetics and
+                                    Biotechnology, with a focus on genetic engineering. If she could she would have a
+                                    lab at home, which is why she is our experimental design manager.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/nadine.gif" alt=""/>
+                            <h2>Nadine van de Brug</h2>
+                            <h3>Data Analysis Manager</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-nadine-6.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Nadine van de Brug</h2>
+                                        <h3>Data Analysis Manager</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>Nadine is doing a Master’s degree in Biopharmaceutical Sciences and is mainly
+                                    interested in data science and bioengineering. She aims to learn more about
+                                    computational sciences and their application to biological problems. During iGEM she
+                                    fulfills the role of data analysis manager.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mt-2 mt-lg-0 mb-2 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/th-3.gif" alt=""/>
+                            <h2>Tino Hoeksma</h2>
+                            <h3>Lab & Safety Manager</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-tino-600.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Tino Hoeksma</h2>
+                                        <h3>Lab & Safety Manager</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>Tino is in his 3rd year of BSc Biology. He is going to do an internship involving
+                                    plant microbe interactions in halophilic plants. However, his other intrests lie
+                                    deeper in molecular/quantum biology. Bacteriophages and human aging keep him awake
+                                    at night! iGEM has taught him lots about how to manage multiple aspects of a project
+                                    and the fun of networking.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-evenly mt-3 p-0">
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+                <div class="card_team">
+                    <div class="card__inner">
+                        <div class="card__face card__face--front">
+                            <div>
+                                <img class="image_card-front"
+                                     src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/anna.gif" alt=""/>
+                                <h2>Anna Golova</h2>
+                                <h3>Modeling Manager</h3>
+                            </div>
+                        </div>
+                        <div class="card__face card__face--back">
+                            <div class="card__content">
+                                <div class="card__header">
+                                    <div class="row align-middle">
+                                        <div class="col-4">
+                                            <img class="w-100 image_card-back"
+                                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-anna-600.jpg"
+                                                 alt=""/>
+                                        </div>
+                                        <div class="col-8">
+                                            <h2>Anna Golova</h2>
+                                            <h3>Modeling Manager</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card__body">
+                                    <p>Anna is doing a bachelor’s degree in mathematics. With her extensive knowledge of
+                                        equations she’s making a model for the team.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+                <div class="card_team">
+                    <div class="card__inner">
+                        <div class="card__face card__face--front">
+                            <div>
+                                <img class="image_card-front"
+                                     src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/jr.gif" alt=""/>
+                                <h2>J.R. Quant</h2>
+                                <h3>Wet Lab Manager</h3>
+                            </div>
+                        </div>
+                        <div class="card__face card__face--back">
+                            <div class="card__content">
+                                <div class="card__header">
+                                    <div class="row align-middle">
+                                        <div class="col-4">
+                                            <img class="w-100 image_card-back"
+                                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-jr-600x9.jpg"
+                                                 alt=""/>
+                                        </div>
+                                        <div class="col-8">
+                                            <h2>J.R. Quant</h2>
+                                            <h3>Wet Lab Manager</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card__body">
+                                    <p>J.R. is finishing up his Master’s degree in Molecular Genetics and Biotechnology.
+                                        He loves molecular biology, cloning, and doing lab work in general. As he likes
+                                        to put it, he likes playing with bacteria. This is why he is our Wet Lab
+                                        Manager.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <h1 class="team_name text-center">Communications Team</h1>
+    </div>
+    <div class="row mt-3 d-flex justify-content-evenly p-0">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/windi.gif" alt=""/>
+                            <h2>Windi Putri Wulandari</h2>
+                            <h3>Communications Manager</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-windi-60.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Windi Putri Wulandari</h2>
+                                        <h3>Communications Manager</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>Windi (you can pronounce her name like "windy", the weather), is currently
+                                    studying Molecular Genetics and Biotechnology Master Program at Leiden
+                                    University. She is really interested in biotechnology especially related to
+                                    human health and the development of new medicine or treatment. In our team,
+                                    Windi has a role as the Communication Manager.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/moor.gif" alt=""/>
+                            <h2>Moor de Waal</h2>
+                            <h3>Design Manager</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-moor-600.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Moor de Waal</h2>
+                                        <h3>Design Manager</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>Moor finished her Bachelor’s Life Science & Technology. She loves learning about
+                                    life on a molecular level and applying this in her bachelor’s thesis, where she
+                                    developed an assay to measure DNA bridging. During iGEM she developed her
+                                    creative side as the design manager of the team.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/matthijs.gif" alt=""/>
+                            <h2>Matthijs Hamstra</h2>
+                            <h3>Programming Manager</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-matthijs.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Matthijs Hamstra</h2>
+                                        <h3>Programming Manager</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>Matthijs is doing his Bachelor’s degree in Biology. He is a third year Biology
+                                    student who is very interested in synthetic biology and genetic engineering.
+                                    Understanding how and why things work is what he loves. He also really likes
+                                    working with new technologies, computers and software. This makes him a perfect
+                                    fit for the Programming manager of the team.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/zainab2.gif" alt=""/>
+                            <h2>Zainab Rashid</h2>
+                            <h3>Wiki Manager</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-zainab-6.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Zainab Rashid</h2>
+                                        <h3>Wiki Manager</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>Zainab is pursuing a Master’s Degree in Molecular Genetics and Biotechnology. For
+                                    her first internship, she focused on the interaction between wall-less bacteria
+                                    and the immune system. She is currently working on studying archaeal
+                                    hypernucleosomes. She enjoys writing about science and is our wiki manager.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <h1 class="team_name text-center">Human Practices Team</h1>
+    </div>
+    <div class="row mt-3 d-flex justify-content-evenly p-0">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/elise.gif"
+                                 alt=""/>
+                            <h2>Elise Stengs</h2>
+                            <h3>Human Practices Manager</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-elise-60.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Elise Stengs</h2>
+                                        <h3>Human Practices Manager</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>Elise is currently a Master’s student in Molecular Genetics and
+                                    Biotechnology. She has a very diverse background due to her wide interest,
+                                    which is why she had taken on the role of human practices manager.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/olivier.gif"
+                                 alt=""/>
+                            <h2>Olivier Muzerie</h2>
+                            <h3>Public Engagement Manager</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-olivier.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Olivier Muzerie</h2>
+                                        <h3>Public Engagement Manager</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>Olivier is studying Life Science & Technology and for his bachelor’s thesis
+                                    looked at bimetallic nanoparticle surface chemistry. He loves interacting
+                                    with people about biotechnology and is our team’s Public Engagement
+                                    Manager.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team">
+                <div class="card__inner">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/eva.gif" alt=""/>
+                            <h2>Eva Pakvis</h2>
+                            <h3>Entrepreneurship & Product Design Manager</h3>
+                        </div>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <div class="card__content">
+                            <div class="card__header">
+                                <div class="row align-middle">
+                                    <div class="col-4">
+                                        <img class="w-100 image_card-back"
+                                             src="https://static.igem.wiki/teams/4259/wiki/team-page/igem-leiden-eva-600x.jpg"
+                                             alt=""/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h2>Eva Pakvis</h2>
+                                        <h3>Entrepreneurship Manager</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>Eva is a Biology Bachelor student, with a preference for Microbiology.
+                                    Currently, she is doing the minor Molecular Biotechnology. She loves to
+                                    think ahead and to put things into practice, which is why she is our
+                                    Entrepreneurship & product design manager.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <h1 class="team_name text-center">Principle Investigators</h1>
+    </div>
+    <div class="row mt-3 d-flex justify-content-evenly p-0">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/dennis.jpeg"
+                                 alt=""/>
+                            <h2>Dennis Claessen</h2>
+                            <h3>Principle Investigator</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/han.jpeg"
+                                 alt=""/>
+                            <h2>Han de Winde</h2>
+                            <h3>Principle Investigator</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 d-flex justify-content-evenly">
+        <h1 class="team_name text-center">Supervisors</h1>
+    </div>
+    <div class="row mt-3 d-flex justify-content-evenly">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/aukje.jpg"
+                                 alt=""/>
+                            <h2>Aukje Beers</h2>
+                            <h3>Supervisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/tijn.jpeg"
+                                 alt=""/>
+                            <h2>Tijn Delzenne</h2>
+                            <h3>Supervisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/bas.jpeg"
+                                 alt=""/>
+                            <h2>Bas van Woudenberg</h2>
+                            <h3>Supervisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 d-flex justify-content-evenly">
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+                <div class="card_team_wo">
+                    <div class="card__inner_wo">
+                        <div class="card__face card__face--front">
+                            <div>
+                                <img class="image_card-front"
+                                     src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/ehsan.jpeg"
+                                     alt=""/>
+                                <h2>Ehsan Razaghi Siahroudi</h2>
+                                <h3>Supervisor</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+                <div class="card_team_wo">
+                    <div class="card__inner_wo">
+                        <div class="card__face card__face--front">
+                            <div>
+                                <img class="image_card-front"
+                                     src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/floor.jpeg"
+                                     alt=""/>
+                                <h2>Floor Stel</h2>
+                                <h3>Supervisor</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <h1 class="team_name text-center">Advisors</h1>
+    </div>
+    <div class="row mt-3 d-flex justify-content-evenly">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/maarten.jpg"
+                                 alt=""/>
+                            <h2>Maarten Lubbers</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/david.jpg"
+                                 alt=""/>
+                            <h2>David Foschepoth</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 d-flex justify-content-evenly">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/hoda.jpeg"
+                                 alt=""/>
+                            <h2>Hoda Ekhlasi</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/igor.jpeg"
+                                 alt=""/>
+                            <h2>Igor van der Meulen</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/jetse.jpeg"
+                                 alt=""/>
+                            <h2>Jetse van Os</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 d-flex justify-content-evenly">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/jonah.jpg"
+                                 alt=""/>
+                            <h2>Jonah Anderson</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/lisa.jpg"
+                                 alt=""/>
+                            <h2>Lisa Kleinjan</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 d-flex justify-content-evenly">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/sebastiaan.jpg"
+                                 alt=""/>
+                            <h2>Sebastiaan Ketelaar</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/chanel.jpeg"
+                                 alt=""/>
+                            <h2>Chanel Naar</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/siheng.jpeg"
+                                 alt=""/>
+                            <h2>Siheng Li</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 d-flex justify-content-evenly">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/violette.jpeg"
+                                 alt=""/>
+                            <h2>Violette Defourt</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+
+            <div class="card_team_wo">
+                <div class="card__inner_wo">
+                    <div class="card__face card__face--front">
+                        <div>
+                            <img class="image_card-front"
+                                 src="https://static.igem.wiki/teams/4259/wiki/team-page/gifs/daniel.jpeg"
+                                 alt=""/>
+                            <h2>Daniel Tan</h2>
+                            <h3>Advisor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
+<footer class="pt-5 pb-3 mt-5 text-white">
+    <div class="container mw-100">
+        <div class="d-flex flex-row mb-4 mx-4">
+            <div class="flex-row order-1 flex-shrink-1 flex-grow-1 w-100">
+                <p id="contact-info">
+                    Binanox - iGEM Leiden 2022
+                    <br/>
+                    Sylviusweg 72
+                    <br/>
+                    2333BE Leiden
+                </p>
+            </div>
+            <div
+                    id="social-media"
+                    class="flex-row order-2 flex-shrink-1 flex-grow-1 align-self-center w-100"
+                    role="region"
+                    aria-label="Social media links"
+            >
+                <a id="mail" href="mailto:igem@science.leidenuniv.nl" target="_blank">
+          <span class="fa-stack fa-1x">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i class="fa-solid fa-envelope fa-stack-1x footer-bg-color"></i>
+          </span>
+                </a>
+                <a href="https://www.facebook.com/igemleiden/" target="_blank">
+          <span class="fa-stack fa-1x">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i class="fa-brands fa-facebook-f fa-stack-1x footer-bg-color"></i>
+          </span>
+                </a>
+                <a href="https://twitter.com/igem_leiden" target="_blank">
+          <span class="fa-stack fa-1x">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i class="fa-brands fa-twitter fa-stack-1x footer-bg-color"></i>
+          </span>
+                </a>
+                <a href="http://www.instagram.com/igemleiden" target="_blank">
+          <span class="fa-stack fa-1x">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i class="fa-brands fa-instagram fa-stack-1x footer-bg-color"></i>
+          </span>
+                </a>
+                <a href="https://www.linkedin.com/company/18582150/" target="_blank">
+          <span class="fa-stack fa-1x">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i class="fa-brands fa-linkedin-in fa-stack-1x footer-bg-color"></i>
+          </span>
+                </a>
+            </div>
+            <div id="nav-to-top" class="flex-column order-3 flex-shrink-1 flex-grow-1 w-100">
+                <a href="#top"><p>Back to top<i class="fa-solid fa-arrow-up ps-1"></i></p>
+                </a>
+            </div>
+        </div>
+        <div class="d-flex flex-row mb-4 mx-4">
+            <div class="carousel">
+                <a target="_blank" href="https://promega.com"><img class="footer-logos"
+                                                                   src="https://static.igem.wiki/teams/4259/wiki/sponsors-page/2017-promegalogo-horizontal-black-nb.png"></a>
+                <a target="_blank" href="https://www.dsm.com/corporate/home.html"><img class="footer-logos"
+                                                                                       src="https://static.igem.wiki/teams/4259/wiki/sponsors-page/2021-dsm.png"></a>
+                <a target="_blank" href="https://chdr.nl/"><img class="footer-logos"
+                                                                src="https://static.igem.wiki/teams/4259/wiki/sponsors-page/chdr-logo-rgb-alt.png"></a>
+                <a target="_blank" href="http://idtdna.com/"><img class="footer-logos"
+                                                                  src="https://static.igem.wiki/teams/4259/wiki/sponsors-page/idt-logo-tm-19-rgb.png"></a>
+                <a target="_blank" href="https://inbiome.com/"><img class="footer-logos"
+                                                                    src="https://static.igem.wiki/teams/4259/wiki/sponsors-page/inbiome-logo-rgb.png"></a>
+                <a target="_blank" href="https://itility.nl/"><img class="footer-logos"
+                                                                   src="https://static.igem.wiki/teams/4259/wiki/sponsors-page/itility-logo-color.svg"></a>
+                <a target="_blank" href="https://www.medicaldelta.nl/en"><img class="footer-logos"
+                                                                              src="https://static.igem.wiki/teams/4259/wiki/sponsors-page/medical-delta-logo-mb.png"></a>
+                <a target="_blank" href="https://international.neb.com/"><img class="footer-logos"
+                                                                              src="https://static.igem.wiki/teams/4259/wiki/sponsors-page/new-england-biolabs.png"></a>
+                <a target="_blank" href="https://www.ovbsp.nl/en/"><img class="footer-logos"
+                                                                        src="https://static.igem.wiki/teams/4259/wiki/sponsors-page/ovbsp-logo-landscape.png"></a>
+                <a target="_blank" href="https://www.snapgene.com/"><img class="footer-logos"
+                                                                         src="https://static.igem.wiki/teams/4259/wiki/sponsors-page/snapgene-logo.png"></a>
+                <a target="_blank" href="https://www.universiteitleiden.nl/en"><img class="footer-logos"
+                                                                                    src="https://static.igem.wiki/teams/4259/wiki/sponsors-page/universiteit-leiden.png"></a>
+            </div>
+        </div>
+        <hr/>
+        <!-- The following MUST be on every page: license information and link to the repository on gitlab.igem.org -->
+        <div id="footer-source" class="row mt-4 mx-4">
+            <div class="col">
+                <p class="mb-0">
+                    <small
+                    >© 2022 - Content on this site is licensed under a
+                        <a
+                                class="subfoot"
+                                href="https://creativecommons.org/licenses/by/4.0/"
+                                rel="license"
+                        >Creative Commons Attribution 4.0 International license</a
+                        >.</small
+                    >
+                </p>
+                <p>
+                    <small
+                    >The repository used to create this website is available at
+                        <a href="https://gitlab.igem.org/2022/leiden"
+                        >gitlab.igem.org/2022/leiden</a
+                        >.</small
+                    >
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap Bundle with Popper -->
+<script type="text/javascript" src="https://2022.igem.wiki/leiden/static/bootstrap.bundle.js"></script>
+
+<!-- Slick development version -->
+<script type="text/javascript" src="https://2022.igem.wiki/leiden/static/slick.js"></script>
+
+<!-- CanvasJS-->
+<script type="text/javascript" src="https://2022.igem.wiki/leiden/static/canvasjs.min.js"></script>
+
+<!-- Magnific Popup -->
+<script type="text/javascript"
+        src="https://2022.igem.wiki/leiden/static/jquery.magnific-popup.min.js"></script>
+
+<!-- Konami-code -->
+<script type="text/javascript" src="https://2022.igem.wiki/leiden/static/konami.js"></script>
+
+<!-- Custom scripts -->
+<script type="text/javascript" src="https://2022.igem.wiki/leiden/static/main.js"></script>
+
+<script src="script.js"></script>
+</div>
+</div>
+</div>
+</body>
+</html>
