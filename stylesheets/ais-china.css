@@ -127,10 +127,9 @@ p {
 }
 
 .my-nav .icon {
-    flex-basis: 200px;
     margin-top: 10px;
     margin-left: 15px;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
     text-decoration: none;
     background-repeat: no-repeat;
 }
@@ -139,10 +138,6 @@ p {
     width: auto;
     height: 100%;
     /*transition: 2s;*/
-}
-
-.icon-over {
-    height: 50%;
 }
 
 .my-navbar {
@@ -214,17 +209,20 @@ p {
 
 .bottomleft {
     position: fixed;
-    bottom: -10px;
+    bottom: 10px;
     color: #010f49;
-    left: -10px;
-    width: 100px;
-    height: 100px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(5px);
     border-radius: 100px;
 }
 
 @media screen and (min-width: 1800px) {
+    #sidebar{
+        display: initial;
+    }
     .my-navbar > li {
         width: 150px;
     }
@@ -253,6 +251,9 @@ p {
 }
 
 @media screen and (max-width: 1450px) and (min-width: 1280px) {
+    #sidebar{
+        display: initial;
+    }
     .my-navbar > li {
         width: 100px;
     }
@@ -279,6 +280,9 @@ p {
 }
 
 @media screen and (max-width: 1280px) and (min-width: 1120px) {
+    #sidebar{
+        display: initial;
+    }
     .my-navbar > li {
         width: 88px;
     }
@@ -313,6 +317,9 @@ p {
 }
 
 @media screen and (max-width: 1130px) {
+    #sidebar{
+        display: initial;
+    }
     .my-navbar > li {
         width: 78px;
     }
@@ -356,11 +363,14 @@ p {
     .my-navbar {
         display: none;
     }
-
+    #sidebar{
+        display: none;
+    }
     .my-nav .icon {
         align-self: center;
-        height: 100%;
+        width: 100%;
     }
+
 }
 
 /*!* width *!*/

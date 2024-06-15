@@ -124,12 +124,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 document.addEventListener("load", (event) => {
     console.log("All contents loaded and parsed");
-        document.getElementById("loading").style.display = "none";
+    document.getElementById("loading").style.display = "none";
 });
 
 // document.addEventListener('DOMContentLoaded', function () {
 const customCursor = document.querySelector('.custom-cursor');
-    // const customSelector = document.querySelector('.custom-select');
+// const customSelector = document.querySelector('.custom-select');
 // });
 document.addEventListener('mousemove', function (e) {
         // Check if the mouse is not hovering over a <p> element
@@ -192,6 +192,5 @@ document.addEventListener('click', function (e) {
 //     // Event listener for mouse click
 //     document.addEventListener("click", changeCursor);
 // });
-
 
 
