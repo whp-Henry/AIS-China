@@ -17,7 +17,7 @@
 /*Custom Cursor Hidden except for <p>*/
 body {
     background: white;
-    /*cursor: url(../resources/pointer_final.png) 2 2, auto;*/
+    /*cursor: url(../resources/pointer-final.png) 2 2, auto;*/
     cursor: none;
 }
 
@@ -25,8 +25,12 @@ a:hover {
     cursor: none;
 }
 
+.sidebarTab:hover {
+    cursor: none;
+}
+
 p {
-    cursor: url('../resources/text_select.png') 5 25, auto; /* Text cursor for text */
+    cursor: url('../resources/text-select.png') 5 25, auto; /* Text cursor for text */
 }
 
 #loading {
@@ -55,7 +59,7 @@ p {
     position: fixed;
     width: 40px;
     height: 33px;
-    background-image: url('/resources/pointer_final.png');
+    background-image: url('/resources/pointer-final.png');
     background-size: cover;
     pointer-events: none; /* Ensure that the cursor doesn't interfere with mouse events */
     z-index: 100000; /* Ensure the cursor appears on top of other elements */

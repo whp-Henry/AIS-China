@@ -1,50 +1,97 @@
-body{
-		/* background-color: #f6ffde; */
-		/*background: url(https://static.igem.wiki/teams/4805/wiki/background.png); cover*/
-		background-color: #c9f2fd;
+body {
+    /* background-color: #f6ffde; */
+    /*background: url(https://static.igem.wiki/teams/4805/wiki/background.png); cover*/
+    background-color: #c9f2fd;
 }
-h1{
-		font-size: 28px;
-		font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+h1 {
+    font-size: 28px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
-h2{
-		font-size: 23px;
-		font-family: 'Times New Roman', Times, serif;
-	}
 
-h3{
-		font-size: 23px;
-		font-family: 'Times New Roman', Times, serif;
-	}
+h2 {
+    font-size: 23px;
+    font-family: 'Times New Roman', Times, serif;
+}
 
-p{
-		font-size: 18px;
-		font-family: Arial, Helvetica, sans-serif;
-	}
-.captions{
-		font-size: 15px;
-    }
+h3 {
+    font-size: 23px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.captions {
+    font-size: 15px;
+}
+
 .left-aligned {
     margin-left: auto;
-    }
-.head{
-	margin-left: 0;
-	margin-right: 0;
 }
-.bg-dark { background-color: #343a40 !important; }
-.bg-info { background-color: #bfe2e9; }
+
+.head {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.bg-dark {
+    background-color: #343a40 !important;
+}
+
+.bg-info {
+    background-color: #bfe2e9;
+}
 
 /* CALLOUT */
-.bd-callout { padding:1.25rem; margin-top:1.25rem; margin-bottom:1.25rem; border:1px solid #e9ecef; border-left-width:.25rem; border-radius:.25rem }
-.bd-callout h4 { margin-bottom:.25rem }
-.bd-callout p:last-child { margin-bottom:0 }
-.bd-callout code { border-radius:.25rem }
-.bd-callout+.bd-callout { margin-top:-.25rem }
-.bd-callout-info { border-left-color:rgb(175, 235, 253) }
-.bd-callout-warning { border-left-color:#f0ad4e }
-.bd-callout-danger { border-left-color:#d9534f }
+.bd-callout {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #e9ecef;
+    border-left-width: .25rem;
+    border-radius: .25rem
+}
+
+.bd-callout h4 {
+    margin-bottom: .25rem
+}
+
+.bd-callout p:last-child {
+    margin-bottom: 0
+}
+
+.bd-callout code {
+    border-radius: .25rem
+}
+
+.bd-callout + .bd-callout {
+    margin-top: -.25rem
+}
+
+.bd-callout-info {
+    border-left-color: rgb(175, 235, 253)
+}
+
+.bd-callout-warning {
+    border-left-color: #f0ad4e
+}
+
+.bd-callout-danger {
+    border-left-color: #d9534f
+}
 
 /* footer */
-footer a { color: rgba(126, 57, 0, 0.877); font-weight: bold; text-decoration: none; }
-footer a:hover { color: rgb(29, 122, 0); text-decoration: underline; }
+footer a {
+    color: rgba(126, 57, 0, 0.877);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: rgb(29, 122, 0);
+    text-decoration: underline;
+}
 

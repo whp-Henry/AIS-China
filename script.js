@@ -120,12 +120,12 @@ window.onmousemove = function (event) {
 
 document.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM fully loaded and parsed");
-    // document.getElementById("loading").style.display = "none";
-});
-document.addEventListener("load", (event) => {
-    console.log("All contents loaded and parsed");
     document.getElementById("loading").style.display = "none";
 });
+// document.addEventListener("load", (event) => {
+//     console.log("All contents loaded and parsed");
+//     document.getElementById("loading").style.display = "none";
+// });
 
 // document.addEventListener('DOMContentLoaded', function () {
 const customCursor = document.querySelector('.custom-cursor');
@@ -147,7 +147,7 @@ document.addEventListener('click', function (e) {
     if (!e.target.matches('p')) {
         // Create a new blood element
         const blood = document.createElement('img');
-        blood.src = '/resources/blood_final.png';
+        blood.src = '/resources/blood-final.png';
         blood.classList.add('blood');
 
         // Set the dimensions for the blood image

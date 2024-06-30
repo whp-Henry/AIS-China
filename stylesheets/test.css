@@ -7,9 +7,9 @@ body {
 }
 
 p:hover {
-    cursor: url('../resources/text_select.png') 5 25, auto; /* Text cursor for specific element */
+    cursor: url('../resources/text-select.png') 5 25, auto; /* Text cursor for specific element */
 }
 
 a:hover {
-    cursor: url('../resources/pointer_final.png'), pointer; /* Hover cursor for specific element */
+    cursor: url('../resources/pointer-final.png'), pointer; /* Hover cursor for specific element */
 }
