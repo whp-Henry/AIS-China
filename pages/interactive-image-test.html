@@ -31,7 +31,7 @@
         display: none;
         position: fixed;
         z-index: 1;
-        padding-top: 100px;
+        /*padding-top: 100px;*/
         left: 0;
         top: 0;
         width: 100%;
@@ -53,7 +53,7 @@
     /* The Close Button */
     .close {
         color: white;
-        position: absolute;
+        position: fixed;
         top: 10px;
         right: 25px;
         font-size: 35px;
@@ -70,6 +70,8 @@
     .mySlides {
         display: none;
         position: relative;
+        width: 100%;
+        height: 100%;
     }
 
     .cursor {
@@ -126,22 +128,38 @@
     }
 
     .slide-description {
-        color: white;
-        font-size: 30px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
-        text-align: justify;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: auto;
+    color: red;
+    font-size: 40px;
+    padding: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-height: 60%;
+    text-align: justify;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    overflow-y: auto;
+    border-radius: 10px;
+}
 
+@media (max-width: 768px) {
+    .slide-description {
+        font-size: 16px;
+        padding: 12px;
     }
+}
+
+@media (max-width: 480px) {
+    .slide-description {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
 
 
     img {
@@ -159,6 +177,9 @@
 
     .demo {
         opacity: 0.6;
+        height: 150px;
+        object-fit: contain;
+        border: 5px solid #555;
     }
 
     .active,
@@ -172,6 +193,60 @@
 
     .hover-shadow:hover {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .image-map {
+        position: relative;
+        width: 80%;
+        margin: auto;
+        cursor: pointer;
+    }
+
+    .image-map img {
+        width: 100%;
+        height: auto;
+    }
+
+    .image-map .area {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+
+    .area-1 {
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 50%;
+    }
+
+    .area-2 {
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 50%;
+    }
+
+    .area-3 {
+        top: 50%;
+        left: 0;
+        width: 50%;
+        height: 50%;
+    }
+
+    .area-4 {
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        height: 50%;
+    }
+
+    .area-5 {
+        top: 25%;
+        left: 30%;
+        width: 40%;
+        height: 50%;
     }
 
     /*@media only screen and (max-width: 768px) {*/
@@ -191,9 +266,15 @@
 <h2 style="text-align:center">Click to View More</h2>
 
 <div class="row">
-    <div style="width: 100%; display: flex; justify-content: center;">
-        <img src="../resources/test/modal-0t.png" style="width:80%" onclick="openModal();currentSlide(1)"
-             class="hover-shadow cursor">
+    <!--    <div style="width: 100%; display: flex; justify-content: center;">-->
+    <div class="image-map">
+        <img src="../resources/test/modal-0t.png" onclick="openModal();currentSlide(1)">
+        <div class="area area-1" onclick="openModal();currentSlide(1)"></div>
+        <div class="area area-2" onclick="openModal();currentSlide(2)"></div>
+        <div class="area area-3" onclick="openModal();currentSlide(3)"></div>
+        <div class="area area-4" onclick="openModal();currentSlide(4)"></div>
+        <div class="area area-5" onclick="openModal();currentSlide(5)"></div>
+
     </div>
 
     <div id="myModal" class="modal">
@@ -202,18 +283,22 @@
             <div>
                 <div class="mySlides">
                     <div class="slide_title">Biological method</div>
-                    <img src="../resources/test/modal-1c.png" style="width:100%">
+                    <img src="../resources/test/modal-1c.png" style="width: 80%; object-fit: contain;">
                     <div class="slide-description">
-<!--                        <div style="font-size: 40px; transform: rotate(-90deg)">Biological Method</div>-->
+                        <!--                        <div style="font-size: 40px; transform: rotate(-90deg)">Biological Method</div>-->
                         Mosquitofish, Gambusia Affinins, is one of the most classic examples of
-                        biological control. Supported by research, a mature mosquitofish can consume about 100 larvae
+                        biological control. Supported by research, a mature mosquitofish can consume about 100
+                        larvae
                         per
-                        day for two to three years under various temperatures and salinities (ABILITY Magazine, 2017).
+                        day for two to three years under various temperatures and salinities (ABILITY Magazine,
+                        2017).
                         The
-                        ease in raising mosquitofish grants such a method a huge advantage. However, given the witnessed
+                        ease in raising mosquitofish grants such a method a huge advantage. However, given the
+                        witnessed
                         aggressiveness of mosquitofish, the local ecosystem may be disturbed in the presence of
                         mosquitofish
-                        which tend to kill local organisms (Brand et al., 2018). Also, since mosquitofish can only live
+                        which tend to kill local organisms (Brand et al., 2018). Also, since mosquitofish can only
+                        live
                         in
                         water, the effectiveness of this method is limited to conditions where water is sufficient.
                     </div>
@@ -221,19 +306,24 @@
 
                 <div class="mySlides">
                     <div class="slide_title">Physical method</div>
-                    <img src="../resources/test/modal-2c.png" style="width:100%">
-                    <div class="slide-description">Compared with mosquitofish, physical mosquito control measures are
+                    <img src="../resources/test/modal-2c.png" style="width:100%; object-fit: contain;">
+                    <div class="slide-description">Compared with mosquitofish, physical mosquito control measures
+                        are
                         more
                         widely applied. For example, bug zappers and electric mosquito swatters with light bulbs and
                         electrified wire nets are the most common ones currently being used by the public. With the
-                        ultraviolet (UV) light emitted by the lightbulbs within these devices, certain insects will be
+                        ultraviolet (UV) light emitted by the lightbulbs within these devices, certain insects will
+                        be
                         attracted and direct themselves toward the device. As they are approaching the light source,
                         they
                         will touch the power grid first and be killed by high voltage electricity. With the lack of
-                        chemicals and the ease of use of such devices, these are the most widely used mosquito control
-                        methods. Unfortunately, such a method is less than effective since mosquitoes are not sensitive
+                        chemicals and the ease of use of such devices, these are the most widely used mosquito
+                        control
+                        methods. Unfortunately, such a method is less than effective since mosquitoes are not
+                        sensitive
                         to
-                        UV light and therefore can hardly be attracted by it. Instead, thousands of non-target insects
+                        UV light and therefore can hardly be attracted by it. Instead, thousands of non-target
+                        insects
                         are
                         killed because of their positive phototaxis. (How Bug Zappers Work, 2001)
                     </div>
@@ -242,15 +332,20 @@
                 <div class="mySlides">
                     <div class="slide_title">Chemical method</div>
                     <img src="../resources/test/modal-3c.png" style="width:100%">
-                    <div class="slide-description">Apart from zappers and swatters, chemical methods are also a popular
-                        mosquito control option. The main components of adulticides include organophosphate, sumithrin,
+                    <div class="slide-description">Apart from zappers and swatters, chemical methods are also a
+                        popular
+                        mosquito control option. The main components of adulticides include organophosphate,
+                        sumithrin,
                         permethrin etc. Though different insecticides may differ subtly, most of them target the
                         receptors
                         in insects' nervous systems, whose misfunction will then lead to the death of the impacted
                         insects
-                        (Uragayala et al., 2015). While immediate effects can be achieved by using insecticides, other
-                        beneficial insects may also be affected apart from mosquitoes. Also, some negative influences on
-                        both humans and other animals due to the use of insecticides have been reported. For instance,
+                        (Uragayala et al., 2015). While immediate effects can be achieved by using insecticides,
+                        other
+                        beneficial insects may also be affected apart from mosquitoes. Also, some negative
+                        influences on
+                        both humans and other animals due to the use of insecticides have been reported. For
+                        instance,
                         long-term exposure to insecticides can lead to defects in olfaction, and a higher risk of
                         development of Parkinson’s disease (Mendoza et al., 2023).
                     </div>
@@ -261,15 +356,19 @@
                     <img src="../resources/test/modal-4c.png" style="width:100%">
                     <div class="slide-description">Top-to-bottom methods are also used for mosquito control. For
                         instance,
-                        genetically modified male mosquitos are raised in the laboratory released to mate with female
+                        genetically modified male mosquitos are raised in the laboratory released to mate with
+                        female
                         mosquitoes, leading to the situation where only non-blood-feeding male offsprings can be
                         produced
-                        (CDC, 2024). With only non-blooding-feeding male offsprings, diseases can hardly be transmitted
+                        (CDC, 2024). With only non-blooding-feeding male offsprings, diseases can hardly be
+                        transmitted
                         as
-                        the main way of mosquito-borne disease transmission is through the exchange of blood. Compared
+                        the main way of mosquito-borne disease transmission is through the exchange of blood.
+                        Compared
                         with
                         other techniques, this measure is targeted only on mosquitos, minimizing negative impacts on
-                        non-target organisms. Nonetheless, this measure is still being studied in the laboratory without
+                        non-target organisms. Nonetheless, this measure is still being studied in the laboratory
+                        without
                         being implemented. Therefore, considering the undiscovered possible ecological and health
                         impacts,
                         such method is still inaccessible for large-scale usage.
@@ -280,20 +379,25 @@
                     <div class="slide_title">ATSB</div>
                     <img src="../resources/test/modal-5c.png" style="width:100%">
                     <div class="slide-description">Attractive targeted sugar baits (ATSBs) are introduced as a novel
-                        mosquito control method combining chemical and physical elements. Specifically, ATSBs are the
-                        mixture of sugar suspension containing poison (Njoroge et al., 2023). Since carbohydrates are a
+                        mosquito control method combining chemical and physical elements. Specifically, ATSBs are
+                        the
+                        mixture of sugar suspension containing poison (Njoroge et al., 2023). Since carbohydrates
+                        are a
                         kind
                         of essential nutrient for insects' development, mating, and reproduction, sugars in ATSB can
                         attract
                         mosquitoes (Fiorenzano et al., 2017). After the ingestion of sugar baits in the ATSBs,
                         mosquitoes
-                        can be killed. With their cost-effectiveness and less ethical concerns, ATSBs can be more easily
+                        can be killed. With their cost-effectiveness and less ethical concerns, ATSBs can be more
+                        easily
                         approved by the authorities and used by the public (Rochlin et al., 2022). Additionally,
                         experiments
                         under various settings all prove a remarkable success in reducing the mosquito population
                         (Rochlin
-                        et al., 2022). Disappointingly, not all the blood-feeding mosquitoes are attracted by ATSBs, and
-                        mosquitoes will not die within a short time (Maia et al., 2018). It may take from 24 hours to 10
+                        et al., 2022). Disappointingly, not all the blood-feeding mosquitoes are attracted by ATSBs,
+                        and
+                        mosquitoes will not die within a short time (Maia et al., 2018). It may take from 24 hours
+                        to 10
                         days for ATSBs to achieve a nearly 100% death rate. Therefore, within this range of time,
                         escaped
                         mosquitoes can still transmit the diseases (Rochlin et al., 2022).
@@ -307,32 +411,32 @@
 
             <!-- Caption text -->
             <div style="display: flex;">
-<!--                <div class="caption-container" style="position: fixed">-->
-<!--                    <p id="caption"></p>-->
-<!--                </div>-->
+                <!--                <div class="caption-container" style="position: fixed">-->
+                <!--                    <p id="caption"></p>-->
+                <!--                </div>-->
                 <div style="position: fixed; bottom: 0px; width:50%; display:flex; justify-items: center; left: 25%; background-color: #55555555; border-radius: 10px">
                     <div class="column">
-                        <img class="demo cursor" src="../resources/test/modal-1c.png" style="width:100%"
+                        <img class="demo cursor" src="../resources/test/modal-1c-icon.png"
                              onclick="currentSlide(1)"
                              alt="Biological method">
                     </div>
                     <div class="column">
-                        <img class="demo cursor" src="../resources/test/modal-2c.png" style="width:100%"
+                        <img class="demo cursor" src="../resources/test/modal-2c-icon.png"
                              onclick="currentSlide(2)"
                              alt="Physical method">
                     </div>
                     <div class="column">
-                        <img class="demo cursor" src="../resources/test/modal-3c.png" style="width:100%"
+                        <img class="demo cursor" src="../resources/test/modal-3c-icon.png"
                              onclick="currentSlide(3)"
                              alt="Chemical method">
                     </div>
                     <div class="column">
-                        <img class="demo cursor" src="../resources/test/modal-4c.png" style="width:100%"
+                        <img class="demo cursor" src="../resources/test/modal-4c-icon.png"
                              onclick="currentSlide(4)"
                              alt="Genetic modification">
                     </div>
                     <div class="column">
-                        <img class="demo cursor" src="../resources/test/modal-5c.png" style="width:100%"
+                        <img class="demo cursor" src="../resources/test/modal-5c.png"
                              onclick="currentSlide(5)"
                              alt="ATSB">
                     </div>
@@ -343,6 +447,14 @@
 </div>
 
 <script>
+
+    // Close modal on ESC key press
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+
     function openModal() {
         document.getElementById("myModal").style.display = "block";
     }
@@ -383,6 +495,16 @@
         dots[slideIndex - 1].className += " active";
         captionText.innerHTML = dots[slideIndex - 1].alt;
     }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        showSlides(slideIndex);
+    });
+
+
 </script>
 
 </body>
