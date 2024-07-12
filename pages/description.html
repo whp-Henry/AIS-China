@@ -12,9 +12,15 @@
 
 <!--Custom Cursor div that follows mouse by js-->
 <div class="custom-cursor"></div>
+<!--<div id="fps-counter"></div>-->
+
 
 <!--Back to Top Button-->
-<img src="../resources/to-top.png" id="to-top" style="visibility: hidden" class="bottomright" onclick="to_top()">
+    <button id="toTopButton">
+        <img src="../resources/to-top-default.png" id="toTopImage">
+    </button>
+
+
 
 <div id="loading">
     <img src="https://static.igem.wiki/teams/5186/loading.gif"/>
@@ -206,7 +212,46 @@
         margin-left: 5vw !important;
         margin-right: 5vw !important;
     }
+
+
+    .header {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+    }
+
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../resources/description-header.png');
+        background-size: cover;
+        background-position: center;
+        filter: brightness(40%);
+        z-index: -1;
+    }
+
+    .header-title {
+        position: relative;
+        z-index: 1;
+        font-size: 4rem;
+        font-weight: bold;
+        padding-bottom: 100px;
+    }
 </style>
+
+<header class="header">
+    <h1 class="header-title">Description</h1>
+</header>
+
 
 <!-- Page Content -->
 <div class="container-page">

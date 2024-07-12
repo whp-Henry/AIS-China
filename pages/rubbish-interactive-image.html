@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            width: 600px;
+            height: 500px;
+            margin: 160px auto;
+        }
+
+        .image1 {
+            opacity: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .text {
+            color: black;
+            margin: 4px 2px;
+            border-radius: 12px;
+            opacity: 0;
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            border: 1px solid #000;
+            padding: 10px;
+            overflow: auto;
+            font-size: 15px;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+            word-spacing: 0px;
+            text-align: justify;
+            transition: all 0.5s ease;
+            background: rgba(255, 255, 255, 0.8);
+            font-family: Arial, sans-serif;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .text {
+            opacity: 0;
+            width: 200px;
+            height: 100px;
+            font-size: 15px;
+        }
+
+        .text:hover {
+            opacity: 1;
+            width: 300px;
+            height: 200px;
+            font-size: 20px;
+        }
+
+        h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .itext {
+            position: absolute;
+            top: 100px;
+            left: 500px;
+            width: 675px;
+            height: 60px;
+            border: 1px solid #000;
+            text-align: justify;
+            transition: opacity 0.5s ease;
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class='container'>
+    <img class='image1' src="https://static.igem.wiki/teams/5186/nonhover.jpg" alt="">
+</div>
+
+<div class="text" id="text1" style="top: 0">
+    <h6>Attractive targeted sugar baits (ATSBs) are introduced as a novel mosquito control method combining chemical and
+        physical elements. Specifically, ATSBs are the mixture of sugar suspension containing poison (Njoroge et al.,
+        2023). Since carbohydrates are a kind of essential nutrient for insects' development, mating, and reproduction,
+        sugars in ATSB can attract mosquitoes (Fiorenzano et al., 2017). After the ingestion of sugar baits in the
+        ATSBs, mosquitoes can be killed. With their cost-effectiveness and less ethical concerns, ATSBs can be more
+        easily approved by the authorities and used by the public (Rochlin et al., 2022). Additionally, experiments
+        under various settings all prove a remarkable success in reducing the mosquito population (Rochlin et al.,
+        2022). Disappointingly, not all the blood-feeding mosquitoes are attracted by ATSBs, and mosquitoes will not die
+        within a short time (Maia et al., 2018). It may take from 24 hours to 10 days for ATSBs to achieve a nearly 100%
+        death rate. Therefore, within this range of time, escaped mosquitoes can still transmit the diseases (Rochlin et
+        al., 2022).</h6>
+</div>
+<div class="text" id="text2">
+    <h6>Top-to-bottom methods are also used for mosquito control. For instance, genetically modified male mosquitos are
+        raised in the laboratory released to mate with female mosquitoes, leading to the situation where only
+        non-blood-feeding male offsprings can be produced (CDC, 2024). With only non-blooding-feeding male offsprings,
+        diseases can hardly be transmitted as the main way of mosquito-borne disease transmission is through the
+        exchange of blood. Compared with other techniques, this measure is targeted only on mosquitos, minimizing
+        negative impacts on non-target organisms. Nonetheless, this measure is still being studied in the laboratory
+        without being implemented. Therefore, considering the undiscovered possible ecological and health impacts, such
+        method is still inaccessible for large-scale usage.</h6>
+</div>
+<div class="text" id="text3">
+    <h6>Apart from zappers and swatters, chemical methods are also a popular mosquito control option. The main
+        components of adulticides include organophosphate, sumithrin, permethrin etc. Though different insecticides may
+        differ subtly, most of them target the receptors in insects' nervous systems, whose misfunction will then lead
+        to the death of the impacted insects (Uragayala et al., 2015). While immediate effects can be achieved by using
+        insecticides, other beneficial insects may also be affected apart from mosquitoes. Also, some negative
+        influences on both humans and other animals due to the use of insecticides have been reported. For instance,
+        long-term exposure to insecticides can lead to defects in olfaction, and a higher risk of development of
+        Parkinson's disease (Mendoza et al., 2023).
+</div>
+<div class="text" id="text4">
+    <h6>
+        Compared with mosquitofish, physical mosquito control measures are more widely applied. For example, bug zappers
+        and electric mosquito swatters with light bulbs and electrified wire nets are the most common ones currently
+        being used by the public.
+        With the ultraviolet (UV) light emitted by the lightbulbs within these devices, certain insects will be
+        attracted and direct themselves toward the device. As they are approaching the light source, they will touch the
+        power grid first and be killed by high voltage electricity. With the lack of chemicals and the ease of use of
+        such devices, these are the most widely used mosquito control methods. Unfortunately, such a method is less than
+        effective since mosquitoes are not sensitive to UV light and therefore can hardly be attracted by it. Instead,
+        thousands of non-target insects are killed because of their positive phototaxis. (How Bug Zappers Work, 2001)
+    </h6>
+</div>
+<div class="text" id="text5">
+    <h6>
+        Mosquitofish, Gambusia Affinins, is one of the most classic examplés of biological control. Supported by
+        research, a mature mosquitofish can consume about 100 larvae per day for two to three years under various
+        temperatures and salinities (ABILITY Magazine, 2017). The ease in raising mosquitofish grants such a method a
+        huge advantage. However, given the witnessed aggressiveness of mosquitofish, the local ecosystem may be
+        disturbed in the presence of mosquitofish which tend to kill local organisms (Brand et al., 2018). Also, since
+        mosquitofish can only live in water, the effectiveness of this method is limited to conditions where water is
+        sufficient.
+    </h6>
+</div>
+<div id="intutext" class="itext">
+    <h3>
+        Hover to View More
+    </h3>
+</div>
+
+</body>
+</html>

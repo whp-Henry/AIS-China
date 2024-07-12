@@ -53,11 +53,42 @@ function leave(el) {
     // document.getElementById("icon-txt").style.visibility = "";
 }
 
-function to_top() {
-    // document.getElementById("to-top").style.visibility = "hidden";
-    window.scroll(window.scrollX, window.scrollY * 0.98);
-    if (window.scrollY != 0) setTimeout(to_top, 1);
-}
+document.getElementById('toTopButton').addEventListener('click', function() {
+    // Change image to clicked state
+    const toTopImage = document.getElementById('toTopImage');
+    toTopImage.src = '../resources/to-top-clicked.png';
+    toTopImage.classList.add('clicked');
+
+    // Create a shoot image
+    const shootImage = document.createElement('img');
+    shootImage.src = '../resources/to-top-shoot.png';
+    shootImage.style.position = 'fixed';
+    shootImage.style.bottom = '-50px';
+    shootImage.style.right = '-50px';
+    shootImage.style.width = '300px'; /* match button size */
+    shootImage.style.height = '300px'; /* match button size */
+    shootImage.style.animation = 'shoot 1s forwards';
+    document.body.appendChild(shootImage);
+
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+    // Reset image after some time
+    setTimeout(() => {
+        toTopImage.src = '../resources/to-top-default.png';
+        // toTopImage.style.visibility = 'hidden';
+        toTopImage.classList.remove('clicked');
+    }, 1000);
+
+    // Remove shoot image after animation ends
+    setTimeout(() => {
+        document.body.removeChild(shootImage);
+    }, 1000);
+});
+
 
 function display_sidebar() {
     if (document.getElementById("sidebar").style.display === "") {
@@ -68,8 +99,8 @@ function display_sidebar() {
 }
 
 window.onscroll = function () {
-    if (window.scrollY <= 100) document.getElementById("to-top").style.visibility = "hidden";
-    else document.getElementById("to-top").style.visibility = "";
+    if (window.scrollY <= 100) toTopImage.style.visibility = 'hidden';
+    else toTopImage.style.visibility = '';
     // var scrollPosition = window.scrollY;
     // var opacity = 14.4 + scrollPosition / 80;
     // navbox.style.background = 'linear-gradient(to right, hsl(191, 50%, 78%), hsl(191, 50%, ' + opacity + '%)';
@@ -181,6 +212,7 @@ document.addEventListener('click', function (e) {
     }
 })
 ;
+
 
 
 // document.addEventListener("DOMContentLoaded", function () {

@@ -21,12 +21,16 @@ body {
     cursor: none;
 }
 
+/** {*/
+/*    cursor: url(../resources/pointer-final.png) 2 2, auto;*/
+/*}*/
+
 a:hover {
-    cursor: none;
+    /*cursor: none;*/
 }
 
 .sidebarTab:hover {
-    cursor: none;
+    /*cursor: none;*/
 }
 
 p {
@@ -222,6 +226,51 @@ p {
     backdrop-filter: blur(5px);
     border-radius: 100px;
 }
+
+#toTopButton {
+    position: fixed;
+    bottom: -50px;
+    right: -50px;
+    width: 300px; /* adjust size as needed */
+    height: 300px; /* adjust size as needed */
+    background: none;
+    border: none;
+    cursor: pointer;
+    overflow: hidden; /* hide overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+#toTopButton img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+#toTopButton:hover img:not(.clicked) {
+    content: url('../resources/to-top-hover.png');
+}
+
+.clicked {
+    content: url('../resources/to-top-clicked.png');
+}
+
+@keyframes shoot {
+    0% {
+        bottom: 10px;
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
+
 
 @media screen and (min-width: 1800px) {
     #sidebar{
