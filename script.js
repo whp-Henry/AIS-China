@@ -53,9 +53,10 @@ function leave(el) {
     // document.getElementById("icon-txt").style.visibility = "";
 }
 
+const toTopImage = document.getElementById('toTopImage');
 document.getElementById('toTopButton').addEventListener('click', function() {
     // Change image to clicked state
-    const toTopImage = document.getElementById('toTopImage');
+    // const toTopImage = document.getElementById('toTopImage');
     toTopImage.src = '../resources/to-top-clicked.png';
     toTopImage.classList.add('clicked');
 
@@ -63,11 +64,15 @@ document.getElementById('toTopButton').addEventListener('click', function() {
     const shootImage = document.createElement('img');
     shootImage.src = '../resources/to-top-shoot.png';
     shootImage.style.position = 'fixed';
-    shootImage.style.bottom = '-50px';
-    shootImage.style.right = '-50px';
-    shootImage.style.width = '300px'; /* match button size */
-    shootImage.style.height = '300px'; /* match button size */
+    shootImage.style.overflow= "hidden"; /* hide overflow */
+    shootImage.style.bottom = '10px';
+    shootImage.style.right = '10px';
+    shootImage.style.width = '100px'; /* match button size */
+    shootImage.style.height = '130px'; /* match button size */
     shootImage.style.animation = 'shoot 1s forwards';
+    // shootImage.style.height= "135%";
+    shootImage.style.objectFit= "cover";
+
     document.body.appendChild(shootImage);
 
     // Scroll to top
@@ -99,8 +104,11 @@ function display_sidebar() {
 }
 
 window.onscroll = function () {
-    if (window.scrollY <= 100) toTopImage.style.visibility = 'hidden';
-    else toTopImage.style.visibility = '';
+    if (window.scrollY <= 100) {
+        sidebar = document.getElementById('toTopImage');
+        toTopImage.style.visibility = 'hidden';
+    }
+    // else toTopImage.style.visibility = '';
     // var scrollPosition = window.scrollY;
     // var opacity = 14.4 + scrollPosition / 80;
     // navbox.style.background = 'linear-gradient(to right, hsl(191, 50%, 78%), hsl(191, 50%, ' + opacity + '%)';

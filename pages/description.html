@@ -16,10 +16,9 @@
 
 
 <!--Back to Top Button-->
-    <button id="toTopButton">
-        <img src="../resources/to-top-default.png" id="toTopImage">
-    </button>
-
+<button id="toTopButton">
+    <img src="../resources/to-top-default.png" id="toTopImage">
+</button>
 
 
 <div id="loading">
@@ -242,14 +241,30 @@
     .header-title {
         position: relative;
         z-index: 1;
-        font-size: 4rem;
+        font-size: 6rem;
         font-weight: bold;
-        padding-bottom: 100px;
+        /*padding-bottom: 100px;*/
+
+        /*text-decoration: underline 25px #3b3d6b;*/
+    }
+
+    .header-title::after {
+        content: '';
+        display: block;
+        width: 120%;
+        left: -10%;
+        height: 30px;
+        background: #3b3d6b;
+        position: absolute;
+        bottom: 20px;
+        z-index: -1;
+        border-radius: 10px;
+        /*left: 0;*/
     }
 </style>
 
 <header class="header">
-    <h1 class="header-title">Description</h1>
+    <p class="header-title">Description</p>
 </header>
 
 

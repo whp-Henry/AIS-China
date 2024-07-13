@@ -229,13 +229,12 @@ p {
 
 #toTopButton {
     position: fixed;
-    bottom: -50px;
-    right: -50px;
-    width: 300px; /* adjust size as needed */
-    height: 300px; /* adjust size as needed */
+    bottom: 10px;
+    right: 10px;
+    width: 100px; /* adjust size as needed */
+    height: 100px; /* adjust size as needed */
     background: none;
     border: none;
-    cursor: pointer;
     overflow: hidden; /* hide overflow */
     display: flex;
     justify-content: center;
@@ -244,10 +243,10 @@ p {
 }
 
 #toTopButton img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
+    height: 135%;
+    object-fit: cover;
+    /*width: auto;*/
+    /*height: auto;*/
     transition: transform 0.3s ease-in-out;
 }
 
@@ -273,9 +272,10 @@ p {
 
 
 @media screen and (min-width: 1800px) {
-    #sidebar{
+    #sidebar {
         display: initial;
     }
+
     .my-navbar > li {
         width: 150px;
     }
@@ -304,9 +304,10 @@ p {
 }
 
 @media screen and (max-width: 1450px) and (min-width: 1280px) {
-    #sidebar{
+    #sidebar {
         display: initial;
     }
+
     .my-navbar > li {
         width: 100px;
     }
@@ -333,9 +334,10 @@ p {
 }
 
 @media screen and (max-width: 1280px) and (min-width: 1120px) {
-    #sidebar{
+    #sidebar {
         display: initial;
     }
+
     .my-navbar > li {
         width: 88px;
     }
@@ -370,9 +372,10 @@ p {
 }
 
 @media screen and (max-width: 1130px) {
-    #sidebar{
+    #sidebar {
         display: initial;
     }
+
     .my-navbar > li {
         width: 78px;
     }
@@ -416,13 +419,15 @@ p {
     .my-navbar {
         display: none;
     }
-    #sidebar{
+
+    #sidebar {
         display: none;
     }
-    .my-nav .icon {
-        align-self: center;
-        width: 100%;
-    }
+
+    /*.my-nav .icon {*/
+    /*    align-self: center;*/
+    /*    width: 100%;*/
+    /*}*/
 
 }
 
