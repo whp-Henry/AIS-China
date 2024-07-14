@@ -236,10 +236,11 @@ p {
     background: none;
     border: none;
     overflow: hidden; /* hide overflow */
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
     padding: 0;
+    display: none;
 }
 
 #toTopButton img {

@@ -54,6 +54,8 @@ function leave(el) {
 }
 
 const toTopImage = document.getElementById('toTopImage');
+const toTopButton = document.getElementById('toTopButton');
+
 document.getElementById('toTopButton').addEventListener('click', function() {
     // Change image to clicked state
     // const toTopImage = document.getElementById('toTopImage');
@@ -105,10 +107,9 @@ function display_sidebar() {
 
 window.onscroll = function () {
     if (window.scrollY <= 100) {
-        sidebar = document.getElementById('toTopImage');
-        toTopImage.style.visibility = 'hidden';
+        toTopButton.style.display = 'none';
     }
-    // else toTopImage.style.visibility = '';
+    else toTopButton.style.display = 'flex';
     // var scrollPosition = window.scrollY;
     // var opacity = 14.4 + scrollPosition / 80;
     // navbox.style.background = 'linear-gradient(to right, hsl(191, 50%, 78%), hsl(191, 50%, ' + opacity + '%)';
