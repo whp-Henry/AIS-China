@@ -3,62 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reactive Title with Sliding Underline</title>
-    <style>
-        .header {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('../resources/description-header.png');
-            background-size: cover;
-            background-position: center;
-            filter: brightness(40%);
-            z-index: -1;
-        }
-
-        .header-title {
-            position: relative;
-            z-index: 1;
-            font-size: 6rem;
-            font-weight: bold;
-        }
-
-        .underline {
-            position: absolute;
-            left: 50%;
-            bottom: -10px;
-            width: 0;
-            height: 5px;
-            background-color: #3b3d6b;
-            transition: width 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .header-title:hover .underline {
-            width: 100%;
-        }
-    </style>
+    <title>Scroll Animation</title>
 </head>
+
 <body>
-    <header class="header">
-        <div class="header-title">
-            Description
-            <div class="underline"></div>
-        </div>
-    </header>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200vh; /* Increase height to enable scrolling */
+        background-color: #f0f0f0;
+    }
+
+    .content {
+        text-align: center;
+        margin-top: 100vh; /* Ensure content is initially out of view */
+    }
+
+    .hidden {
+        opacity: 0;
+        transform: translateX(100px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+</style>
+<div class="content">
+    <p class="hidden">This is a paragraph that will slide into view as you scroll down the page. Scroll down to see the
+        effect!</p>
+    <img src="https://via.placeholder.com/300" alt="Placeholder Image" class="hidden">
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const hiddenElements = document.querySelectorAll('.hidden');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        hiddenElements.forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>
 </body>
 </html>

@@ -56,7 +56,7 @@ function leave(el) {
 const toTopImage = document.getElementById('toTopImage');
 const toTopButton = document.getElementById('toTopButton');
 
-document.getElementById('toTopButton').addEventListener('click', function() {
+document.getElementById('toTopButton').addEventListener('click', function () {
     // Change image to clicked state
     // const toTopImage = document.getElementById('toTopImage');
     toTopImage.src = '../resources/to-top-clicked.png';
@@ -66,14 +66,13 @@ document.getElementById('toTopButton').addEventListener('click', function() {
     const shootImage = document.createElement('img');
     shootImage.src = '../resources/to-top-shoot.png';
     shootImage.style.position = 'fixed';
-    shootImage.style.overflow= "hidden"; /* hide overflow */
+    shootImage.style.overflow = "hidden"; /* hide overflow */
     shootImage.style.bottom = '10px';
     shootImage.style.right = '10px';
     shootImage.style.width = '100px'; /* match button size */
     shootImage.style.height = '130px'; /* match button size */
     shootImage.style.animation = 'shoot 1s forwards';
-    // shootImage.style.height= "135%";
-    shootImage.style.objectFit= "cover";
+    shootImage.style.objectFit = "cover";
 
     document.body.appendChild(shootImage);
 
@@ -99,8 +98,10 @@ document.getElementById('toTopButton').addEventListener('click', function() {
 
 function display_sidebar() {
     if (document.getElementById("sidebar").style.display === "") {
+        document.getElementById("display_sidebar").src = "../resources/unfold.png";
         document.getElementById("sidebar").style.display = "none";
     } else {
+        document.getElementById("display_sidebar").src = "../resources/fold.png";
         document.getElementById("sidebar").style.display = "";
     }
 }
@@ -108,8 +109,7 @@ function display_sidebar() {
 window.onscroll = function () {
     if (window.scrollY <= 100) {
         toTopButton.style.display = 'none';
-    }
-    else toTopButton.style.display = 'flex';
+    } else toTopButton.style.display = 'flex';
     // var scrollPosition = window.scrollY;
     // var opacity = 14.4 + scrollPosition / 80;
     // navbox.style.background = 'linear-gradient(to right, hsl(191, 50%, 78%), hsl(191, 50%, ' + opacity + '%)';
@@ -171,38 +171,38 @@ document.addEventListener("DOMContentLoaded", (event) => {
 const customCursor = document.querySelector('.custom-cursor');
 // const customSelector = document.querySelector('.custom-select');
 // });
+// let lastMouseMoveTime = 0;
+// const throttleInterval = 12; // 60fps
+
 document.addEventListener('mousemove', function (e) {
+        // const currentTime = Date.now();
+        // if (currentTime - lastMouseMoveTime < throttleInterval) {
+        //     return;
+        // }
+        // lastMouseMoveTime = currentTime;
+
         // Check if the mouse is not hovering over a <p> element
-        if (!e.target.matches('p')) {
-            customCursor.style.visibility = "";
-            customCursor.style.left = e.clientX + 'px';
-            customCursor.style.top = e.clientY - 5 + 'px';
-        } else {
-            customCursor.style.visibility = "hidden";
-        }
+    if (!e.target.closest('p')) {
+        customCursor.style.visibility = "visible";
+        customCursor.style.left = e.clientX + 'px';
+        customCursor.style.top = (e.clientY - 5) + 'px';
+    } else {
+        customCursor.style.visibility = "hidden";
     }
-);
+});
 
 document.addEventListener('click', function (e) {
-    if (!e.target.matches('p')) {
+    if (!e.target.closest('p')) {
         // Create a new blood element
         const blood = document.createElement('img');
         blood.src = '/resources/blood-final.png';
         blood.classList.add('blood');
+        blood.width = 50;
+        blood.height = 50;
 
-        // Set the dimensions for the blood image
-        const bloodWidth = 50;
-        const bloodHeight = 50;
-        blood.width = bloodWidth;
-        blood.height = bloodHeight;
+        const posX = e.clientX + window.pageXOffset - 25 + 18;
+        const posY = e.clientY + window.pageYOffset - 25 + 13;
 
-        // Calculate the position for the blood image, considering scroll position
-        const offsetX = bloodWidth / 2;
-        const offsetY = bloodHeight / 2;
-        const posX = e.clientX + window.pageXOffset - offsetX + 18;
-        const posY = e.clientY + window.pageYOffset - offsetY + 13;
-
-        // Set the position for the blood image
         blood.style.left = posX + 'px';
         blood.style.top = posY + 'px';
 
@@ -210,20 +210,16 @@ document.addEventListener('click', function (e) {
         document.body.appendChild(blood);
 
         // Gradually fade out the blood element
-        setTimeout(function () {
+        setTimeout(() => {
             blood.style.opacity = '0';
         }, 100);
 
         // Remove the blood element from the DOM after it fades out
-        setTimeout(function () {
+        setTimeout(() => {
             blood.remove();
         }, 1100); // Adjust the timing based on the transition duration
     }
-})
-;
-
-
-
+});
 // document.addEventListener("DOMContentLoaded", function () {
 //     // Function to change cursor URL
 //     function changeCursor() {
