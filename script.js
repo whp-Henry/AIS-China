@@ -55,8 +55,9 @@ function leave(el) {
 
 const toTopImage = document.getElementById('toTopImage');
 const toTopButton = document.getElementById('toTopButton');
+const displaySidebar = document.getElementById('display_sidebar');
 
-document.getElementById('toTopButton').addEventListener('click', function () {
+toTopButton.addEventListener('click', function () {
     // Change image to clicked state
     // const toTopImage = document.getElementById('toTopImage');
     toTopImage.src = '../resources/to-top-clicked.png';
@@ -110,6 +111,9 @@ window.onscroll = function () {
     if (window.scrollY <= 100) {
         toTopButton.style.display = 'none';
     } else toTopButton.style.display = 'flex';
+    if (window.scrollY <= 750) {
+        displaySidebar.style.display = 'none';
+    } else displaySidebar.style.display = 'flex';
     // var scrollPosition = window.scrollY;
     // var opacity = 14.4 + scrollPosition / 80;
     // navbox.style.background = 'linear-gradient(to right, hsl(191, 50%, 78%), hsl(191, 50%, ' + opacity + '%)';
@@ -147,7 +151,6 @@ function updateProgressBar() {
     progressGif.style.left = (progressBarWidth - 20) + 'px';  // Adjust the '-20' value if necessary to set the GIF's position correctly on the edge.
     if (scrollPercentage > 95) {
         progressGif.style.backgroundImage = "url('../resources/caught.png')";
-        //!!!
         progressAttr.style.visibility = "hidden";
     }
 }
