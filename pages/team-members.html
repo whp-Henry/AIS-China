@@ -58,11 +58,12 @@
         <div class="modal-content">
             <div>
                 <div class="mySlides">
-                    <div class="slide_title">Lab</div>
+                    <div class="slide_title">Lab 随机实验室抽象行为大赏</div>
                     <div class="profile-container">
-                        <img src="../resources/fold.png" class="profile-picture">
-                        <div class="slide-description">
-                            随机实验室抽象行为大赏
+                        <button id="LabRandBTN">Random</button>
+<!--                        <img src="../resources/fold.png" class="profile-picture" id="LabRandIMG" alt="Random Image">-->
+                        <div class="slide-description" id="LabRandMSG">
+                            XXX
                         </div>
                     </div>
                 </div>
@@ -265,72 +266,7 @@
     </div>
 </div>
 
-<script>
-
-    // Close modal on ESC key press
-    document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
-            closeModal();
-        }
-        if (event.key === 'ArrowRight') {
-            plusSlides(1)
-        }
-        if (event.key === 'ArrowLeft') {
-            plusSlides(-1)
-        }
-    });
-
-    function openModal() {
-        document.getElementById("myModal").style.display = "flex";
-    }
-
-    function closeModal() {
-        document.getElementById("myModal").style.display = "none";
-    }
-
-    var slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
-        var captionText = document.getElementById("caption");
-        if (n > slides.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        captionText.innerHTML = dots[slideIndex - 1].alt;
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    document.addEventListener('DOMContentLoaded', (event) => {
-        showSlides(slideIndex);
-    });
-
-
-</script>
+<script src="team-members.js"></script>
 
 
 </body>
