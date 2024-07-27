@@ -25,6 +25,9 @@ var slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
+    if (slideIndex+n === 12) {
+        slideIndex += n;
+    }
     showSlides(slideIndex += n);
 }
 
@@ -130,7 +133,7 @@ GoBTN.addEventListener("click", function () {
             if (index === randomIndex) { //Activate
                 console.log("Open: " + index);
                 openModal();
-                currentSlide(randomIndex+1);
+                currentSlide(randomIndex + 1);
                 if (areas[index]) {
                     areas[index].classList.add("randomeding");
                 }
