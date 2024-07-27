@@ -59,7 +59,6 @@ const displaySidebar = document.getElementById('display_sidebar');
 
 toTopButton.addEventListener('click', function () {
     // Change image to clicked state
-    // const toTopImage = document.getElementById('toTopImage');
     toTopImage.src = '../resources/to-top-clicked.png';
     toTopImage.classList.add('clicked');
 
@@ -67,13 +66,10 @@ toTopButton.addEventListener('click', function () {
     const shootImage = document.createElement('img');
     shootImage.src = '../resources/to-top-shoot.png';
     shootImage.style.position = 'fixed';
-    shootImage.style.overflow = "hidden"; /* hide overflow */
-    shootImage.style.bottom = '10px';
-    shootImage.style.right = '10px';
-    shootImage.style.width = '100px'; /* match button size */
-    shootImage.style.height = '130px'; /* match button size */
+    shootImage.style.bottom = '50px';
+    shootImage.style.right = '40px';
+    shootImage.style.height = '120px';
     shootImage.style.animation = 'shoot 1s forwards';
-    shootImage.style.objectFit = "cover";
 
     document.body.appendChild(shootImage);
 
@@ -157,13 +153,12 @@ function updateProgressBar() {
 
 window.addEventListener('scroll', updateProgressBar);
 
-window.onmousemove = function (event) {
-
-}
 
 document.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM fully loaded and parsed");
-    document.getElementById("loading").style.display = "none";
+    setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+    }, 6000);
 });
 // document.addEventListener("load", (event) => {
 //     console.log("All contents loaded and parsed");
@@ -178,13 +173,13 @@ const customCursor = document.querySelector('.custom-cursor');
 // const throttleInterval = 12; // 60fps
 
 document.addEventListener('mousemove', function (e) {
-        // const currentTime = Date.now();
-        // if (currentTime - lastMouseMoveTime < throttleInterval) {
-        //     return;
-        // }
-        // lastMouseMoveTime = currentTime;
+    // const currentTime = Date.now();
+    // if (currentTime - lastMouseMoveTime < throttleInterval) {
+    //     return;
+    // }
+    // lastMouseMoveTime = currentTime;
 
-        // Check if the mouse is not hovering over a <p> element
+    // Check if the mouse is not hovering over a <p> element
     if (!e.target.closest('p')) {
         customCursor.style.visibility = "visible";
         customCursor.style.left = e.clientX + 'px';
@@ -195,6 +190,8 @@ document.addEventListener('mousemove', function (e) {
 });
 
 document.addEventListener('click', function (e) {
+    document.getElementById("loading").style.display = "none";
+
     if (!e.target.closest('p')) {
         // Create a new blood element
         const blood = document.createElement('img');

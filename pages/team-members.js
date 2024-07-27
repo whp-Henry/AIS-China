@@ -94,3 +94,77 @@ LabRandBTN.addEventListener("click", function () {
     // LabRandIMG.src = images[randomIndex];
     LabRandMSG.textContent = LabRand[randomIndex];
 });
+
+const GoBTN = document.getElementById("GoBTN");
+GoBTN.addEventListener("click", function () {
+
+        // Get all elements with the class "area"
+        const areas = document.getElementsByClassName("area");
+        // Remove the "randomeding" class from all elements
+        for (let i = 0; i < areas.length; i++) {
+            areas[i].classList.remove("randomeding");
+        }
+
+        // Generate a random index between 0 and 21
+        var randomIndex = Math.floor(Math.random() * 22);
+        if (randomIndex === 11) {
+            randomIndex = Math.floor(Math.random() * 22);
+        }
+        console.log("Random: " + randomIndex);
+
+
+        // randomIndex = 18;
+        var smallIndex;
+        var flag = false;
+
+        function addRemoveClassSequentially(index) {
+            console.log(index);
+            console.log("Target: " + randomIndex);
+
+            if (randomIndex <= 11 && flag === false) {
+                smallIndex = randomIndex;
+                randomIndex = 22;
+                console.log("Reset smallIndex: " + smallIndex + " --> " + randomIndex);
+            }
+
+            if (index === randomIndex) { //Activate
+                console.log("Open: " + index);
+                openModal();
+                currentSlide(randomIndex+1);
+                if (areas[index]) {
+                    areas[index].classList.add("randomeding");
+                }
+                return;
+            }
+
+            setTimeout(() => {
+                areas[index].classList.add("randomeding");
+                setTimeout(() => {
+                    areas[index].classList.remove("randomeding");
+                    if (index === 21) { //after 21 remove, make next be 1 and make randindex be smallindex
+                        console.log("Reset randomIndex: " + smallIndex);
+                        randomIndex = smallIndex;
+                        index = -1;
+                        flag = true;
+                    }
+                    //check if next index is randi or add class
+                    addRemoveClassSequentially(index + 1);
+                }, 100);
+            }, 5);
+        }
+
+        addRemoveClassSequentially(12);
+
+
+        // Call functions openModal and currentSlide
+        // openModal();
+        // currentSlide(randomIndex);
+
+        // Add the "randomeding" class to the specific area element
+        // const selectedArea = document.getElementsByClassName("area-" + randomIndex);
+        // if (selectedArea.length > 0) {
+        //     selectedArea[0].classList.add("randomeding");
+        // }
+    }
+)
+;
