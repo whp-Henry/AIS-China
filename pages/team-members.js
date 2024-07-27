@@ -25,7 +25,7 @@ var slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
-    if (slideIndex+n === 12) {
+    if (slideIndex + n === 12) {
         slideIndex += n;
     }
     showSlides(slideIndex += n);
@@ -137,6 +137,9 @@ GoBTN.addEventListener("click", function () {
                 if (areas[index]) {
                     areas[index].classList.add("randomeding");
                 }
+                setTimeout(() => {
+                    areas[index].classList.remove("randomeding");
+                },1000);
                 return;
             }
 
