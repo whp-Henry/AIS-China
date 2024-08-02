@@ -24,47 +24,41 @@
             height: 100%;
         }
 
-        .text {
-            color: black;
-            margin: 4px 2px;
-            border-radius: 12px;
-            opacity: 0;
+        .method-short {
+            opacity: 1;
             position: absolute;
-            width: 200px;
-            height: 100px;
-            border: 1px solid #000;
-            padding: 10px;
-            overflow: auto;
-            font-size: 15px;
-            line-height: 1.5;
-            letter-spacing: 0.5px;
-            word-spacing: 0px;
-            text-align: justify;
-            transition: all 0.5s ease;
-            background: rgba(255, 255, 255, 0.8);
-            font-family: Arial, sans-serif;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.6s;
+            color: black;
+            font-size: 20px;
+            /*padding: 20px;*/
+            backdrop-filter: blur(5px);
+            /*border: gray solid;*/
+            margin: 5%;
+            text-align: left;
+
         }
 
-        h6 {
+        h6, .method-long {
             opacity: 0;
             transition: 0.5s;
-            color: white;
-            background-color: #55555588;
+            color: black;
             font-size: 20px;
             overflow-y: scroll;
             overflow-x: hidden;
-            height: 80%;
+            height: 30%;
             padding: 20px;
-        }
-
-        h6:hover {
-            opacity: 1;
-        }
-
-        h6 {
+            backdrop-filter: blur(10px);
+            border: gray solid;
             margin: 10%;
             text-align: left;
+        }
+
+        h6:hover, .method-long:hover {
+            height: 80%;
+            opacity: 1;
+        }
+        .method-biological:hover .method-short {
+            opacity: 0;
         }
 
 
@@ -74,6 +68,7 @@
             /*border: 1px solid rgba(0, 0, 0, 0.5);*/
             display: flex;
             align-items: center;
+
         }
 
 
@@ -119,13 +114,19 @@
 <div class='container'>
     <img src="https://static.igem.wiki/teams/5186/nonhover.jpg">
     <div class="method-biological">
-        <h6>Mosquitofish, Gambusia Affinins, is one of the most classic examples of biological control. Supported by
+        <div class="method-short">Certain mosquito-feeding organisms are exploited as a method for mosquito control.
+            However, such a method may bring ecological disturbances and the effectiveness is limited as organisms can
+            only work in fixed conditions.
+        </div>
+        <div class="method-long">Mosquitofish, Gambusia Affinins, is one of the most classic examples of biological
+            control. Supported by
             research, a mature mosquitofish can consume about 100 larvae per day for two to three years under various
             temperatures and salinities (ABILITY Magazine, 2017). The ease in raising mosquitofish grants such a method
             a huge advantage. However, given the witnessed aggressiveness of mosquitofish, the local ecosystem may be
             disturbed in the presence of mosquitofish which tend to kill local organisms (Brand et al., 2018). Also,
             since mosquitofish can only live in water, the effectiveness of this method is limited to conditions where
-            water is sufficient.</h6>
+            water is sufficient.
+        </div>
     </div>
     <div class="method-physical">
         <h6>Compared with mosquitofish, physical mosquito control measures are more widely applied. For example, bug

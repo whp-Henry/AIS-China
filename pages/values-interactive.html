@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Values</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .value-btn {
+            margin: 100px;
+            border: black solid 5px;
+            width: 150px;
+            cursor: pointer;
+        }
+
+        .value-title {
+            font-size: 3em;
+            margin: 1em 1em 1em 0;
+        }
+
+        .value-quote {
+            font-size: 2em;
+            margin: 1em 1em 1em 0;
+        }
+
+        .value-paragraph {
+            font-size: 1.5em;
+            margin: 1em 1em 1em 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body style="background-color: cornflowerblue">
+<div class="container">
+    <div>
+        Values
+        <div id="0" class="value-btn pop">Public health</div>
+        <div id="1" class="value-btn pop">Environmental safety</div>
+        <div id="2" class="value-btn pop">Innovation</div>
+        <div id="3" class="value-btn pop">Profitability</div>
+        <div id="4" class="value-btn pop">Privacy</div>
+    </div>
+    <div>
+        <div id="value-title" class="value-title op hidden">Value title</div>
+        <div id="value-quote" class="value-quote op hidden">Value quote</div>
+        <div id="value-paragraph" class="value-paragraph op hidden">Value paragraph</div>
+    </div>
+</div>
+
+<script>
+    const values = {
+        "0": {
+            title: "Public Health",
+            quote: "Noting the importance of public health functions as the most cost-effective, comprehensive and sustainable ways to enhance the health of populations and individuals and to reduce the burden of diseases.\n" + "World Health Organizations(WHO)",
+            paragraph: "Our team's mission is to provide a new solution for eliminating mosquito-borne diseases, thereby contributing to public health. In the process of communicating with stakeholders from the CDC and parks, we have found that urban parks, construction sites, and other environments prone to water accumulation all require a new mosquito control method, and a considerable amount of funds are spent on mosquito control and corresponding public education every year. It can be seen that in China, there is social and economic support for new mosquito control methods, and we are fortunate that the protection of public health does not conflict with economic interests."
+        },
+        "1": {
+            title: "Environmental Safety",
+            quote: "But man is a part of nature, and his war against nature is inevitably a war against himself.\n" +
+                "Rachel Carson, American marine biologist.",
+            paragraph: "One of the innovative points of our proposed Moskilla is the use of shRNA as a mosquitocide, which is more environmentally friendly compared to traditional chemical broad-spectrum insecticides, reducing harm to non-target organisms. To achieve our goal, we have communicated with SZU-China 2023 to refine the design of highly specific shRNA.\n" +
+                "In addition, to enhance the effectiveness of the HMBPP mosquito attractant, the design of our Moskilla devices has considered the use of live bacteria E. coli. We have learned about citizens' safety concerns regarding live bacteria through surveys, so we have selected an applicable kill switch through literature research and experimental design.\n" +
+                "In addition to truthfully reporting the above situation in the safety form, we have also strictly followed the requirements of the iGEM headquarters, filled out the check-in form, to obtain the qualification for mosquito experiments. Ultimately, Alonso also agreed to our application."
+        },
+        "2": {
+            title: "Innovation",
+            quote: "Innovation is the key to the United Nations Sustainable Development Goals (SDGs) success. \n" +
+                "World Intellectual Property Organizations (WIPO)",
+            paragraph: "Our Moskilla, as a novel solution for eliminating mosquito-borne diseases, innovatively selects HMBPP as a lure and shRNA mosquitocide as part of the ATSBs, which will create favorable conditions for public health. The proposal of these innovative designs is based on literature research and further confirmed through communication with experts such as teams 2024 Tsinghua-M and 2024 SZU-China."
+        },
+        "3": {
+            title: "Profitability",
+            quote: "Entrepreneurs with passion and innovation alone are not enough. They need a good system, regulation, team, and a good profit model. This world is not about what you can do, but what you should do.\n" +
+                "Jack Ma, Alibaba founder",
+            paragraph: "Our Moskilla is designed with profitability in mind, capitalizing on the significant market demand for innovative mosquito control solutions in environments prone to water accumulation. Our innovative approach, combining HMBPP as a lure with shRNA mosquitocide, provides a competitive advantage in the market, while our commitment to intellectual property protection ensures the safeguarding of our technology for sustainable economic growth. We believe that strategic partnerships and regulatory compliance can further enhance our market access and potential for profitability, aligning our social mission to eliminate mosquito-borne diseases with economic interests for a mutually beneficial outcome. "
+        },
+        "4": {
+            title: "Privacy",
+            quote: "In digital era, privacy must be a priority. Is it just me, or is secret blanket surveillance obscenely outrageous? \n" +
+                "Al Gore, the 45th vice president of USA",
+            paragraph: "Protecting the personal privacy of stakeholders is an essential part of safety. As iGEMers, we are committed to prioritizing the safety and interests of stakeholders. Under the supervision of our instructor, all public questionnaires and records of information during communication are confirmed by the parties involved. For example, the park administrators and one expert worked in CDC we interviewed could not be presented with their photos, names, workplaces, and positions to everyone out of full respect and understanding for his/her disapproval."
+        }
+    };
+
+    var pop3 = document.querySelectorAll(".pop");
+    var title = document.getElementById("value-title");
+    var quote = document.getElementById("value-quote");
+    var paragraph = document.getElementById("value-paragraph");
+
+    pop3.forEach((item) => {
+        item.addEventListener('mouseenter', (e) => {
+            const value = values[e.currentTarget.id];
+            title.innerText = value.title;
+            quote.innerText = value.quote;
+            paragraph.innerText = value.paragraph;
+
+            title.classList.add("show");
+            quote.classList.add("show");
+            paragraph.classList.add("show");
+        });
+
+        // item.addEventListener('mouseleave', (e) => {
+        //     title.classList.remove("show");
+        //     quote.classList.remove("show");
+        //     paragraph.classList.remove("show");
+        // });
+    });
+</script>
+</body>
+</html>
