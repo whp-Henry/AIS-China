@@ -56,8 +56,10 @@
         h6:hover, .method-long:hover {
             height: 80%;
             opacity: 1;
+            z-index: 100;
         }
-        .method-biological:hover .method-short {
+
+        .method:hover .method-short {
             opacity: 0;
         }
 
@@ -113,57 +115,83 @@
 
 <div class='container'>
     <img src="https://static.igem.wiki/teams/5186/nonhover.jpg">
-    <div class="method-biological">
-        <div class="method-short">Certain mosquito-feeding organisms are exploited as a method for mosquito control.
+    <div class="method method-biological">
+        <div class="method-short">
+            Certain mosquito-feeding organisms are exploited as a method for mosquito control.
             However, such a method may bring ecological disturbances and the effectiveness is limited as organisms can
             only work in fixed conditions.
         </div>
-        <div class="method-long">Mosquitofish, Gambusia Affinins, is one of the most classic examples of biological
-            control. Supported by
-            research, a mature mosquitofish can consume about 100 larvae per day for two to three years under various
-            temperatures and salinities (ABILITY Magazine, 2017). The ease in raising mosquitofish grants such a method
-            a huge advantage. However, given the witnessed aggressiveness of mosquitofish, the local ecosystem may be
-            disturbed in the presence of mosquitofish which tend to kill local organisms (Brand et al., 2018). Also,
-            since mosquitofish can only live in water, the effectiveness of this method is limited to conditions where
-            water is sufficient.
+        <div class="method-long">
+            Mosquitofish, Gambusia Affinins, is one of the most classic examples of biological
+            control. Supported by research, a mature mosquitofish can consume about 100 larvae per day for two to three
+            years under various temperatures and salinities (ABILITY Magazine, 2017). The ease in raising mosquitofish
+            grants such a method a huge advantage. However, given the witnessed aggressiveness of mosquitofish, the
+            local ecosystem may be disturbed in the presence of mosquitofish which tend to kill local organisms (Brand
+            et al., 2018). Also, since mosquitofish can only live in water, the effectiveness of this method is limited
+            to conditions where water is sufficient.
         </div>
     </div>
-    <div class="method-physical">
-        <h6>Compared with mosquitofish, physical mosquito control measures are more widely applied. For example, bug
-            zappers and electric mosquito swatters with light bulbs and electrified wire nets are the most common ones
-            currently being used by the public. With the ultraviolet (UV) light emitted by the lightbulbs within these
-            devices, certain insects will be attracted and direct themselves toward the device. As they are approaching
-            the light source, they will touch the power grid first and be killed by high voltage electricity. With the
-            lack of chemicals and the ease of use of such devices, these are the most widely used mosquito control
-            methods. Unfortunately, such a method is less than effective since mosquitoes are not sensitive to UV light
-            and therefore can hardly be attracted by it. Instead, thousands of non-target insects are killed because of
-            their positive phototaxis. (How Bug Zappers Work, 2001) </h6>
+    <div class="method method-physical">
+        <div class="method-short">
+            Several devices for mosquito control are invented for personal usage, including bug
+            zappers and electric swatters. Nonetheless, such devices cannot effectively attract mosquitoes, and bear the
+            risk of harming non-target organisms.
+        </div>
+        <div class="method-long">
+            Compared with mosquitofish, physical mosquito control measures are more widely applied.
+            For example, bug zappers and electric mosquito swatters with light bulbs and electrified wire nets are the
+            most common ones currently being used by the public. With the ultraviolet (UV) light emitted by the
+            lightbulbs within these devices, certain insects will be attracted and direct themselves toward the device.
+            As they are approaching the light source, they will touch the power grid first and be killed by high voltage
+            electricity. With the lack of chemicals and the ease of use of such devices, these are the most widely used
+            mosquito control methods. Unfortunately, such a method is less than effective since mosquitoes are not
+            sensitive to UV light and therefore can hardly be attracted by it. Instead, thousands of non-target insects
+            are killed because of their positive phototaxis. (How Bug Zappers Work, 2001)
+        </div>
     </div>
-    <div class="method-chemical">
-        <h6>Apart from zappers and swatters, chemical methods are also a popular mosquito control option. The main
-            components of adulticides include organophosphate, sumithrin, permethrin etc. Though different insecticides
-            may differ subtly, most of them target the receptors in insects’ nervous systems, whose misfunction will
-            then lead to the death of the impacted insects (Uragayala et al., 2015). While immediate effects can be
-            achieved by using insecticides, other beneficial insects may also be affected apart from mosquitoes. Also,
-            some negative influences on both humans and other animals due to the use of insecticides have been reported.
-            For instance, long-term exposure to insecticides can lead to defects in olfaction, and a higher risk of
-            development of Parkinson’s disease (Mendoza et al., 2023).
-        </h6>
+    <div class="method method-chemical">
+        <div class="method-short">
+            While chemical insecticides are also widely used for killing mosquitoes given the
+            immediate effects and the ease of use, long-term exposure to these insecticides can bring irreversible
+            impacts to both humans and other animals.
+        </div>
+        <div class="method-long">
+            Apart from zappers and swatters, chemical methods are also a popular mosquito control
+            option. The main components of adulticides include organophosphate, sumithrin, permethrin etc. Though
+            different insecticides may differ subtly, most of them target the receptors in insects’ nervous systems,
+            whose misfunction will then lead to the death of the impacted insects (Uragayala et al., 2015). While
+            immediate effects can be achieved by using insecticides, other beneficial insects may also be affected apart
+            from mosquitoes. Also, some negative influences on both humans and other animals due to the use of
+            insecticides have been reported. For instance, long-term exposure to insecticides can lead to defects in
+            olfaction, and a higher risk of development of Parkinson’s disease (Mendoza et al., 2023).
+        </div>
     </div>
-    <div class="method-genetical">
-        <h6>
-            Top-to-bottom methods are also used for mosquito control. For instance, genetically modified male mosquitos
-            are raised in the laboratory released to mate with female mosquitoes, leading to the situation where only
-            non-blood-feeding male offsprings can be produced (CDC, 2024). With only non-blooding-feeding male
-            offsprings, diseases can hardly be transmitted as the main way of mosquito-borne disease transmission is
-            through the exchange of blood. Compared with other techniques, this measure is targeted only on mosquitos,
-            minimizing negative impacts on non-target organisms. Nonetheless, this measure is still being studied in the
-            laboratory without being implemented. Therefore, considering the undiscovered possible ecological and health
-            impacts, such method is still inaccessible for large-scale usage.
-        </h6>
+    <div class="method method-genetical">
+        <div class="method-short">
+            Raising and releasing genetically modified mosquitoes is a top-to-bottom mosquito
+            control method. However, since such a method is still being investigated, the possible ecological and health
+            consequences are still not fully discovered, thus making it currently inaccessible to the market.
+        </div>
+        <div class="method-long">
+            Top-to-bottom methods are also used for mosquito control. For instance, genetically
+            modified male mosquitos are raised in the laboratory released to mate with female mosquitoes, leading to
+            the situation where only non-blood-feeding male offsprings can be produced (CDC, 2024). With only
+            non-blooding-feeding male offsprings, diseases can hardly be transmitted as the main way of
+            mosquito-borne disease transmission is through the exchange of blood. Compared with other techniques,
+            this measure is targeted only on mosquitos, minimizing negative impacts on non-target organisms.
+            Nonetheless, this measure is still being studied in the laboratory without being implemented. Therefore,
+            considering the undiscovered possible ecological and health impacts, such method is still inaccessible
+            for large-scale usage.
+        </div>
     </div>
-    <div class="method-atsb">
-        <h6>
+    <div class="method method-atsb">
+        <div class="method-short">
+            Attractive targeted sugar baits (ATSBs) incorporate the use of chemical and physical means, acting as a
+            promising means of mosquito control considering its cost-effectiveness. However, since the attractants in
+            ATSBs can rarely attract blood-feeding mosquitoes, the main culprit for mosquito-borne diseases,
+            improvements should still be made.
+        </div>
+        <div class="method-long">
             Attractive targeted sugar baits (ATSBs) are introduced as a novel mosquito control method combining chemical
             and physical elements. Specifically, ATSBs are the mixture of sugar suspension containing poison (Njoroge et
             al., 2023). Since carbohydrates are a kind of essential nutrient for insects' development, mating, and
@@ -175,7 +203,7 @@
             mosquitoes will not die within a short time (Maia et al., 2018). It may take from 24 hours to 10 days for
             ATSBs to achieve a nearly 100% death rate. Therefore, within this range of time, escaped mosquitoes can
             still transmit the diseases (Rochlin et al., 2022).
-        </h6>
+        </div>
     </div>
 </div>
 
