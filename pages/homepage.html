@@ -85,13 +85,19 @@
         font-size: 1.0em !important;
     }
 
-    #page5person {
+    .page5person {
         position: absolute;
         left: 5%;
         bottom: 15%;
-        width: 8em;
-        height: 8em;
+        width: 8em !important;
+        height: 8em !important;
         z-index: 5;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .opac1 {
+        opacity: 1;
     }
 
     .phone-container {
@@ -147,41 +153,41 @@
     <div id="warning" style="border: black solid 1px">Continue>>><br></div>
 </div>
 <div class="comic-container">
-    <!--    <div class="comic-page">-->
-    <!--        <div class="comic-content">-->
-    <!--            <img src="https://static.igem.wiki/teams/5186/homepage/home-0.png" alt="Page 0">-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--    <div class="comic-page">-->
-    <!--        <div class="comic-content">-->
-    <!--            <img src="https://static.igem.wiki/teams/5186/homepage/home-1.png" alt="Page 1">-->
-    <!--            <div class="text-box" style="left: 53%; top: 40%;">You may think that<br>-->
-    <!--                mosquitoes are annoying,<br>-->
-    <!--                disturbing your sleep and daily life.-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--    <div class="comic-page">-->
-    <!--        <div class="comic-content">-->
-    <!--            <img src="https://static.igem.wiki/teams/5186/homepage/home-2.png" alt="Page 2">-->
-    <!--            <div class="text-box" style="text-align: right; right: 37%; top: 24%">-->
-    <!--                But<br>-->
-    <!--                mosquitoes are also the vectors for pathogens<br>-->
-    <!--                such as Plasmodium, which causes malaria<br>-->
-    <!--                and the Dengue virus, leading to dengue fever-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--    <div class="comic-page">-->
-    <!--        <div class="comic-content">-->
-    <!--            <img src="https://static.igem.wiki/teams/5186/homepage/home-3.png" alt="Page 3">-->
-    <!--            <div class="text-box" style="text-align: center; top: 75%;">-->
-    <!--                About <span style="color: red">725000</span> people lose their lives annually to mosquito-borne-->
-    <!--                diseases,<br>-->
-    <!--                establishing mosquitoes as <span style="color: red">No. 1</span> assassin to humans.-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+        <div class="comic-page">
+            <div class="comic-content">
+                <img src="https://static.igem.wiki/teams/5186/homepage/home-0.png" alt="Page 0">
+            </div>
+        </div>
+        <div class="comic-page">
+            <div class="comic-content">
+                <img src="https://static.igem.wiki/teams/5186/homepage/home-1.png" alt="Page 1">
+                <div class="text-box" style="left: 53%; top: 40%;">You may think that<br>
+                    mosquitoes are annoying,<br>
+                    disturbing your sleep and daily life.
+                </div>
+            </div>
+        </div>
+        <div class="comic-page">
+            <div class="comic-content">
+                <img src="https://static.igem.wiki/teams/5186/homepage/home-2.png" alt="Page 2">
+                <div class="text-box" style="text-align: right; right: 37%; top: 24%">
+                    But<br>
+                    mosquitoes are also the vectors for pathogens<br>
+                    such as Plasmodium, which causes malaria<br>
+                    and the Dengue virus, leading to dengue fever
+                </div>
+            </div>
+        </div>
+        <div class="comic-page">
+            <div class="comic-content">
+                <img src="https://static.igem.wiki/teams/5186/homepage/home-3.png" alt="Page 3">
+                <div class="text-box" style="text-align: center; top: 75%;">
+                    About <span style="color: red">725000</span> people lose their lives annually to mosquito-borne
+                    diseases,<br>
+                    establishing mosquitoes as <span style="color: red">No. 1</span> assassin to humans.
+                </div>
+            </div>
+        </div>
     <div class="comic-page">
         <div class="comic-content">
             <img src="https://static.igem.wiki/teams/5186/homepage/home-4.png" alt="Page 4">
@@ -212,7 +218,13 @@
     <div class="comic-page">
         <div class="comic-content">
             <img src="https://static.igem.wiki/teams/5186/homepage/home-5-0.png" alt="Page 5 Border">
-            <img src="https://static.igem.wiki/teams/5186/homepage/home-5-0-1.png" alt="Page 5 Person" id="page5person">
+            <img class="page5person opac1" src="https://static.igem.wiki/teams/5186/homepage/home-5-0-1.png"
+                 alt="Page 5 Person 1" id="page5person1">
+            <img class="page5person" src="https://static.igem.wiki/teams/5186/homepage/home-5-0-2.png"
+                 alt="Page 5 Person 2" id="page5person2">
+            <img class="page5person" src="https://static.igem.wiki/teams/5186/homepage/home-5-0-3.png"
+                 alt="Page 5 Person 3" id="page5person3">
+
             <!--            <div class="text-box">Horizontal Page 1</div>-->
             <div class="phone-container">
                 <div class="phone-screen">
@@ -252,54 +264,54 @@
             </div>
         </div>
     </div>
-    <!--    <div class="comic-page">-->
-    <!--        <div class="comic-content">-->
-    <!--            <img src="https://static.igem.wiki/teams/5186/homepage/home-8.png" alt="Page 8">-->
-    <!--            <div class="text-box" style="text-align: center; left: 6%; font-size: 2.5em; transform: translateY(-2%)">-->
-    <!--                Embrace<br>-->
-    <!--                our<br>-->
-    <!--                Moskilla!-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--    <style>-->
-    <!--        .text-box-fire {-->
-    <!--            background-color: red;-->
-    <!--            background-image: url("https://static.igem.wiki/teams/5186/homepage/fire-background.png");-->
-    <!--            background-repeat: repeat;-->
-    <!--            background-position: center;-->
-    <!--            background-size: 135%;-->
-    <!--            -webkit-background-clip: text;-->
-    <!--            -webkit-text-fill-color: transparent;-->
-    <!--            text-align: center;-->
-    <!--            /* text-transform: uppercase; */-->
-    <!--            /* -webkit-font-smoothing: antialiased; */-->
-    <!--            transform: rotateZ(-53deg);-->
-    <!--            left: 15%;-->
-    <!--        }-->
-    <!--    </style>-->
-    <!--    <div class="comic-page">-->
-    <!--        <div class="comic-content">-->
-    <!--            <img src="https://static.igem.wiki/teams/5186/homepage/home-9.png" alt="Page 9">-->
-    <!--            <div class="text-box text-box-fire">-->
-    <!--                <span style="font-size: 2.7em;margin-right: 1em;">Undoubtedly,</span><br>-->
-    <!--                <span style="font-size: 2em">we will</span><br>-->
-    <!--                <span style="font-size: 1.5em;margin-left: 1.5em;line-height: 1.5;">triumph over mosquitoes!</span>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--    <div class="comic-page">-->
-    <!--        <div class="comic-content">-->
-    <!--            <img src="https://static.igem.wiki/teams/5186/homepage/home-10.png" alt="Page 10">-->
-    <!--            <div class="text-box" style="left: 64%">-->
-    <!--                Our aspiration is to<br>-->
-    <!--                be your guardian,<br>-->
-    <!--                crafting a world free<br>-->
-    <!--                of mosquitoes for<br>-->
-    <!--                your peace and well-being.-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+        <div class="comic-page">
+            <div class="comic-content">
+                <img src="https://static.igem.wiki/teams/5186/homepage/home-8.png" alt="Page 8">
+                <div class="text-box" style="text-align: center; left: 6%; font-size: 2.5em; transform: translateY(-2%)">
+                    Embrace<br>
+                    our<br>
+                    Moskilla!
+                </div>
+            </div>
+        </div>
+        <style>
+            .text-box-fire {
+                background-color: red;
+                background-image: url("https://static.igem.wiki/teams/5186/homepage/fire-background.png");
+                background-repeat: repeat;
+                background-position: center;
+                background-size: 135%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-align: center;
+                /* text-transform: uppercase; */
+                /* -webkit-font-smoothing: antialiased; */
+                transform: rotateZ(-53deg);
+                left: 15%;
+            }
+        </style>
+        <div class="comic-page">
+            <div class="comic-content">
+                <img src="https://static.igem.wiki/teams/5186/homepage/home-9.png" alt="Page 9">
+                <div class="text-box text-box-fire">
+                    <span style="font-size: 2.7em;margin-right: 1em;">Undoubtedly,</span><br>
+                    <span style="font-size: 2em">we will</span><br>
+                    <span style="font-size: 1.5em;margin-left: 1.5em;line-height: 1.5;">triumph over mosquitoes!</span>
+                </div>
+            </div>
+        </div>
+        <div class="comic-page">
+            <div class="comic-content">
+                <img src="https://static.igem.wiki/teams/5186/homepage/home-10.png" alt="Page 10">
+                <div class="text-box" style="left: 64%">
+                    Our aspiration is to<br>
+                    be your guardian,<br>
+                    crafting a world free<br>
+                    of mosquitoes for<br>
+                    your peace and well-being.
+                </div>
+            </div>
+        </div>
 </div>
 <div class="links">
 
@@ -315,7 +327,9 @@
         const container = document.querySelector('.comic-container');
         const pageHeight = window.innerHeight;
         const phoneContainer = document.querySelector('.phone-container');
-        const page5person = document.getElementById('page5person');
+        const page5person1 = document.getElementById('page5person1');
+        const page5person2 = document.getElementById('page5person2');
+        const page5person3 = document.getElementById('page5person3');
 
 
         let isInView = false;
@@ -363,21 +377,27 @@
 
             if (scrollPosition >= 0 && scrollPosition < 0.8 * screenWidth) {
                 // First screen is in view
-                if (page5person.src !== "https://static.igem.wiki/teams/5186/homepage/home-5-0-1.png") {
+                if (!page5person1.classList.contains("opac1")) {
                     console.log("1");
-                    page5person.src = "https://static.igem.wiki/teams/5186/homepage/home-5-0-1.png";
+                    page5person1.classList.add("opac1")
+                    page5person2.classList.remove("opac1")
+                    page5person3.classList.remove("opac1")
                 }
             } else if (scrollPosition >= 0.8 * screenWidth && scrollPosition < 1.8 * screenWidth) {
                 // Second screen is in view
-                if (page5person.src !== "https://static.igem.wiki/teams/5186/homepage/home-5-0-2.png") {
+                if (!page5person2.classList.contains("opac1")) {
                     console.log("2");
-                    page5person.src = "https://static.igem.wiki/teams/5186/homepage/home-5-0-2.png";
+                    page5person1.classList.remove("opac1")
+                    page5person2.classList.add("opac1")
+                    page5person3.classList.remove("opac1")
                 }
             } else if (scrollPosition >= 1.8 * screenWidth && scrollPosition < 3 * screenWidth) {
                 // Third screen is in view
-                if (page5person.src !== "https://static.igem.wiki/teams/5186/homepage/home-5-0-3.png") {
+                if (!page5person3.classList.contains("opac1")) {
                     console.log("3");
-                    page5person.src = "https://static.igem.wiki/teams/5186/homepage/home-5-0-3.png";
+                    page5person1.classList.remove("opac1")
+                    page5person2.classList.remove("opac1")
+                    page5person3.classList.add("opac1")
                 }
             }
         });
