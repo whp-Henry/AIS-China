@@ -376,17 +376,17 @@
 
             if (scrollPosition >= 0 && scrollPosition < 0.8 * screenWidth) {
                 // First screen is in view
-                if (!page5person1.classList.contains("opac1")) {
+                // if (!page5person1.classList.contains("opac1")) {
                     console.log("1");
                     page5person1.classList.add("opac1")
                     page5person2.classList.remove("opac1")
                     page5person3.classList.remove("opac1")
-                }
+                // }
             } else if (scrollPosition >= 0.8 * screenWidth && scrollPosition < 1.8 * screenWidth) {
                 // Second screen is in view
                 if (!page5person2.classList.contains("opac1")) {
                     console.log("2");
-                    page5person1.classList.remove("opac1")
+                    // page5person1.classList.remove("opac1")
                     page5person2.classList.add("opac1")
                     page5person3.classList.remove("opac1")
                 }
@@ -394,7 +394,7 @@
                 // Third screen is in view
                 if (!page5person3.classList.contains("opac1")) {
                     console.log("3");
-                    page5person1.classList.remove("opac1")
+                    // page5person1.classList.remove("opac1")
                     page5person2.classList.remove("opac1")
                     page5person3.classList.add("opac1")
                 }
