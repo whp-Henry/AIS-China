@@ -5,199 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Timeline</title>
+    <link rel="stylesheet" href="../static/tl-style.css">
 </head>
-<style>
-    :root {
-        --primary-color: #ffffff;
-        --background-color: #c9f2fd;
-        --font: sans-serif;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        background: var(--background-color);
-        font-family: var(--font);
-        display: flex;
-        justify-content: center;
-    }
-
-    /* Timeline Container */
-    .timeline {
-        background: var(--primary-color);
-        /* margin: 20px auto; */
-        margin-left: 25%;
-        margin-right: 2%;
-        width: 70%;
-        padding: 20px;
-    }
-
-    /* Card container */
-    .card {
-        position: relative;
-        max-width: 100%;
-    }
-
-    /* setting padding based on even or odd */
-    .card:nth-child(odd) {
-        padding: 30px 0 30px 30px;
-    }
-
-    .card:nth-child(even) {
-        padding: 30px 30px 30px 0;
-    }
-
-    /* Global ::before */
-    .card::before {
-        content: "";
-        position: absolute;
-        width: 50%;
-        border: solid #051b6b;
-    }
-
-    /* Setting the border of top, bottom, left */
-    .card:nth-child(odd)::before {
-        left: 0px;
-        top: -5px;
-        bottom: -5px;
-        border-width: 5px 0 5px 5px;
-        border-radius: 50px 0 0 50px;
-    }
-
-    /* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
-    @media only screen and (max-width: 400px) {
-        .card:nth-child(odd)::before {
-            top: -5px;
-            bottom: -5px;
-        }
-    }
-
-    /* Setting the border of top, bottom, right */
-    .card:nth-child(even)::before {
-        right: 0;
-        top: 0;
-        bottom: 0;
-        border-width: 5px 5px 5px 0;
-        border-radius: 0 50px 50px 0;
-    }
-
-    /* Removing the border if it is the first card */
-    .card:first-child::before {
-        border-top: 0;
-        border-top-left-radius: 0;
-    }
-
-    /* Removing the border if it is the last card  and it's odd */
-    .card:last-child:nth-child(odd)::before {
-        border-bottom: 0;
-        border-bottom-left-radius: 0;
-    }
-
-    /* Removing the border if it is the last card  and it's even */
-    .card:last-child:nth-child(even)::before {
-        border-bottom: 0;
-        border-bottom-right-radius: 0;
-    }
-
-    /* Information about the timeline */
-    .info {
-        display: flex;
-        flex-direction: column;
-        background: #fff9e6;
-        border: #ffe07c solid 5px;
-        color: rgb(0, 0, 0);
-        border-radius: 10px;
-        padding: 10px;
-    }
-
-    /* Title of the card */
-    .title {
-        color: #051b6b;
-        position: relative;
-        font-size: 1.5em;
-    }
-
-    /* Timeline dot  */
-    .title::before {
-        content: "";
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background: white;
-        border-radius: 999px;
-        border: 3px solid orangered;
-    }
-
-    .info-context {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .info-context .imgandlable {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .info-context p {
-        margin: 10px;
-    }
-
-
-    /* text right if the card is even  */
-    .card:nth-child(even)>.info>.title {
-        text-align: right;
-    }
-
-    /* setting dot to the left if the card is odd */
-    .card:nth-child(odd)>.info>.title::before {
-        left: -50px;
-    }
-
-    /* setting dot to the right if the card is odd */
-    .card:nth-child(even)>.info>.title::before {
-        right: -50px;
-    }
-
-    .info-context img {
-        width: 80%;
-        margin: 10px;
-    }
-
-    .btn-primary {
-        display: inline-block;
-        font-weight: 400;
-        line-height: 1.5;
-        color: #212529;
-        text-align: center;
-        text-decoration: none;
-        vertical-align: middle;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-        background-color: transparent;
-        border: 1px solid transparent;
-        padding: .375rem .75rem;
-        font-size: 1rem;
-        border-radius: .25rem;
-        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-        max-width: 200px;
-        color: #fff;
-        background-color: #0d6efd;
-        border-color: #0d6efd
-    }
-
-    .btn-primary:hover {
-        color: #fff;
-        background-color: #0b5ed7;
-        border-color: #0a58ca
-    }
-</style>
 
 <body>
     <div class="timeline">
@@ -233,15 +42,11 @@
             <div class="card">
                 <div class="info">
                     <h3 class="title">2. Interview with Professor Yang Liu (Need, Safety, Implemenation) </h3>
-                    <div class="info-context">
-                        <div class="imgandlable">
+                    <div class="info-context" style="flex-direction: row;">
+                        <!-- <div class="image"> -->
                             <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-2.png">
-                            <p>刘阳深圳市疾病预防控制中心病媒组组长</p>
-                            <div class="info-lables">
-                                <img src="https://picsum.photos/100/100">
-                                <img src="https://picsum.photos/100/101">
-                            </div>
-                        </div>
+                            <!-- <p>刘阳深圳市疾病预防控制中心病媒组组长</p> -->
+                        <!-- </div> -->
                         <p>
                             Our interview with Professor Yang Liu, the staff in Shenzhen Center for Disease Control and
                             Prevention(Abbr. CDC), illuminated the critical need for addressing mosquito-borne diseases,
@@ -254,7 +59,15 @@
                             staff to explore the necessity for new, non-resistant insecticides that protect beneficial
                             insects.
                         </p>
-                        <a href="#" class="btn-primary">Read More</a>
+                        <div>
+                            <div class="imgandlable">
+                                <div class="info-lables">
+                                    <img src="https://picsum.photos/100/100">
+                                    <img src="https://picsum.photos/100/101">
+                                </div>
+                            </div>
+                            <a href="#" class="btn-primary">Read More</a>
+                        </div>
                     </div>
                 </div>
             </div>
