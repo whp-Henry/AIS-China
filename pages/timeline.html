@@ -5,8 +5,278 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Timeline</title>
-    <link rel="stylesheet" href="../static/tl-style.css">
 </head>
+<style>
+    :root {
+        --primary-color: #ffffff;
+        --background-color: #c9f2fd;
+        --font: sans-serif;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: var(--background-color);
+        font-family: var(--font);
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Timeline Container */
+    .timeline {
+        background: var(--primary-color);
+        /* margin: 20px auto; */
+        margin-left: 25%;
+        margin-right: 2%;
+        width: 70%;
+        padding: 20px;
+    }
+
+    /* Card container */
+    .card {
+        position: relative;
+        max-width: 100%;
+    }
+
+    /* setting padding based on even or odd */
+    .card:nth-child(odd) {
+        padding: 30px 0 30px 30px;
+    }
+
+    .card:nth-child(even) {
+        padding: 30px 30px 30px 0;
+    }
+
+    /* Global ::before */
+    .card::before {
+        content: "";
+        position: absolute;
+        width: 50%;
+        border: solid #051b6b;
+        pointer-events: none;
+    }
+
+    /* Setting the border of top, bottom, left */
+    .card:nth-child(odd)::before {
+        left: 0px;
+        top: -5px;
+        bottom: -5px;
+        border-width: 5px 0 5px 5px;
+        border-radius: 50px 0 0 50px;
+    }
+
+    /* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
+    @media only screen and (max-width: 400px) {
+        .card:nth-child(odd)::before {
+            top: -5px;
+            bottom: -5px;
+        }
+    }
+
+    /* Setting the border of top, bottom, right */
+    .card:nth-child(even)::before {
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-width: 5px 5px 5px 0;
+        border-radius: 0 50px 50px 0;
+    }
+
+    /* Removing the border if it is the first card */
+    .card:first-child::before {
+        border-top: 0;
+        border-top-left-radius: 0;
+    }
+
+    /* Removing the border if it is the last card  and it's odd */
+    .card:last-child:nth-child(odd)::before {
+        border-bottom: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    /* Removing the border if it is the last card  and it's even */
+    .card:last-child:nth-child(even)::before {
+        border-bottom: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    /* Information about the timeline */
+    .info {
+        display: flex;
+        flex-direction: column;
+        background: #fff9e6;
+        border: #ffe07c solid 5px;
+        color: rgb(0, 0, 0);
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    /* Title of the card */
+    .title {
+        color: #051b6b;
+        position: relative;
+        font-size: 1.5em;
+    }
+
+    /* Timeline dot  */
+    .title::before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 999px;
+        border: 3px solid orangered;
+    }
+
+    .info-context {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-context .imgandlable {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .info-lables {
+        display: flex;
+        flex-direction: column;
+        min-width: 150px;
+        align-items: center;
+    }
+
+    .info-lables img {
+        transition: transform 0.5s;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .info-lables img:hover {
+        transform: scale(1.2);
+    }
+
+    .info-text {
+        padding: 15px;
+        margin: 10px;
+        background: white;
+        border: #ffe07c solid 2px;
+        border-radius: 30px;
+    }
+
+
+    /* text right if the card is even  */
+    .card:nth-child(even)>.info>.title {
+        text-align: right;
+    }
+
+    /* setting dot to the left if the card is odd */
+    .card:nth-child(odd)>.info>.title::before {
+        left: -50px;
+    }
+
+    /* setting dot to the right if the card is odd */
+    .card:nth-child(even)>.info>.title::before {
+        right: -50px;
+    }
+
+    .info-context img {
+        width: 80%;
+        margin: 10px;
+    }
+
+    .readmorebtn {
+        display: inline-block;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        cursor: pointer;
+        /* -webkit-user-select: none;
+    -moz-user-select: none; */
+        user-select: none;
+        background-color: transparent;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        border-radius: .25rem;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        max-width: 200px;
+        color: #fff;
+        background-color: #0d6efd;
+        border-color: #0d6efd
+    }
+
+    .readmorebtn:hover {
+        color: #fff;
+        background-color: #0b5ed7;
+        border-color: #0a58ca
+    }
+
+    #wholescreen {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0);
+        z-index: 1000;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #wholescreen.active {
+        display: flex;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .timelinecard {
+        background: #c9f2fd;
+        border: #afeeff solid 5px;
+        color: rgb(0, 0, 0);
+        border-radius: 10px;
+        padding: 10px;
+        width: 80%;
+        max-width: 800px;
+        margin: 20px;
+        min-height: 500px;
+        opacity: 0;
+        position: absolute;
+        top: 10%;
+        left: 20%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        transition: all 0.5s;
+        transition-delay: 2s;
+    }
+
+    .timelinecard.show {
+        opacity: 1;
+    }
+
+    .timelinecard img {
+        width: 100%;
+        margin: 10px;
+    }
+
+    .timelinecard p {
+        margin: 10px;
+    }
+
+    .timelinecard h1 {
+        color: #051b6b;
+        font-size: 1.5em;
+    }
+</style>
 
 <body>
     <div class="timeline">
@@ -16,57 +286,74 @@
                     <h3 class="title">1. Questionnaire for citizens in southern China (Need, Business)</h3>
                     <div class="info-context">
                         <div class="imgandlable">
-                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-1.png">
+                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-1.png" class="info-abs-img">
                             <div class="info-lables">
-                                <img src="https://picsum.photos/100/100">
-                                <img src="https://picsum.photos/100/101">
+                                <img src="https://static.igem.wiki/teams/5186/ihp/flag-need.png">
+                                <img src="https://static.igem.wiki/teams/5186/ihp/flag-business.png">
                             </div>
                         </div>
-                        <p>
-                            Our project sought to understand public demand for mosquitocidal products through an online
-                            survey. Key findings include dissatisfaction with current product effectiveness (41.6%), a
-                            significant shift in public opinion towards mosquito elimination after disease education
-                            (86.1%), and safety concerns regarding chemical ingredients (53.5%). The majority of
-                            interest comes from domestic gardeners, outdoor enthusiasts, and pet owners, most of which
-                            have minimal concern for non-target insects. So we decided to design products for different
-                            application scenarios. For personal use product, the price preferences lean towards
-                            affordability (&lt;100 CNY). In response, we propose RNAi technology for targeted mosquito
-                            control, a 'kill switch' in E. coli for biosafety, and public education on mosquito-borne
-                            diseases to foster support for effective strategies. Our approach also considers
-                            cost-effective product design and expert consultation for further optimization.
-                        </p>
-                        <a href="#" class="btn-primary">Read More</a>
+                        <div class="info-text">
+                            <p>
+                                Our project sought to understand public demand for mosquitocidal products through an
+                                online
+                                survey. Key findings include dissatisfaction with current product effectiveness (41.6%),
+                                a
+                                significant shift in public opinion towards mosquito elimination after disease education
+                                (86.1%), and safety concerns regarding chemical ingredients (53.5%). The majority of
+                                interest comes from domestic gardeners, outdoor enthusiasts, and pet owners, most of
+                                which
+                                have minimal concern for non-target insects. So we decided to design products for
+                                different
+                                application scenarios. For personal use product, the price preferences lean towards
+                                affordability (&lt;100 CNY). In response, we propose RNAi technology for targeted
+                                mosquito
+                                control, a 'kill switch' in E. coli for biosafety, and public education on
+                                mosquito-borne
+                                diseases to foster support for effective strategies. Our approach also considers
+                                cost-effective product design and expert consultation for further optimization.
+                            </p>
+                        </div>
+                        <div class="readmorebtncontainer">
+                            <a class="readmorebtn" style="right: 0;">Read More</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="info">
                     <h3 class="title">2. Interview with Professor Yang Liu (Need, Safety, Implemenation) </h3>
-                    <div class="info-context" style="flex-direction: row;">
+                    <div class="info-context" style="flex-direction: row-reverse;">
                         <!-- <div class="image"> -->
-                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-2.png">
-                            <!-- <p>刘阳深圳市疾病预防控制中心病媒组组长</p> -->
+                        <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-2.png">
+                        <!-- <p>刘阳深圳市疾病预防控制中心病媒组组长</p> -->
                         <!-- </div> -->
-                        <p>
-                            Our interview with Professor Yang Liu, the staff in Shenzhen Center for Disease Control and
-                            Prevention(Abbr. CDC), illuminated the critical need for addressing mosquito-borne diseases,
-                            highlighting transmission patterns, economic impacts, and management challenges. Key
-                            obstacles include ineffective products and chemical resistance. Public awareness is low,
-                            with limited impact from social media. Despite ongoing efforts, practical application
-                            remains hard to achieve. Our project will focus on developing an attractive, safe
-                            mosquitocidal device, addressing technical, drug-resistance and biosafety issues, and
-                            engaging the public to enhance mosquito control. We also aim to further collaborate with CDC
-                            staff to explore the necessity for new, non-resistant insecticides that protect beneficial
-                            insects.
-                        </p>
+                        <div class="info-text">
+                            <p>
+                                Our interview with Professor Yang Liu, the staff in Shenzhen Center for Disease Control
+                                and
+                                Prevention(Abbr. CDC), illuminated the critical need for addressing mosquito-borne
+                                diseases,
+                                highlighting transmission patterns, economic impacts, and management challenges. Key
+                                obstacles include ineffective products and chemical resistance. Public awareness is low,
+                                with limited impact from social media. Despite ongoing efforts, practical application
+                                remains hard to achieve. Our project will focus on developing an attractive, safe
+                                mosquitocidal device, addressing technical, drug-resistance and biosafety issues, and
+                                engaging the public to enhance mosquito control. We also aim to further collaborate with
+                                CDC
+                                staff to explore the necessity for new, non-resistant insecticides that protect
+                                beneficial
+                                insects.
+                            </p>
+                        </div>
                         <div>
                             <div class="imgandlable">
                                 <div class="info-lables">
-                                    <img src="https://picsum.photos/100/100">
-                                    <img src="https://picsum.photos/100/101">
+                                    <img src="https://static.igem.wiki/teams/5186/ihp/flag-need.png">
+                                    <img src="https://static.igem.wiki/teams/5186/ihp/flag-safety.png">
+                                    <img src="https://static.igem.wiki/teams/5186/ihp/flag-implem.png">
                                 </div>
                             </div>
-                            <a href="#" class="btn-primary">Read More</a>
+                            <a class="readmorebtn">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -76,23 +363,28 @@
                     <h3 class="title">3. Interview with Shenzhen park management personnel (Need, Safety, Business)</h3>
                     <div class="info-context">
                         <div class="imgandlable">
-                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-1.png">
+                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-3.png">
                             <div class="info-lables">
                                 <img src="https://picsum.photos/100/100">
                                 <img src="https://picsum.photos/100/101">
                             </div>
                         </div>
-                        <p>
-                            This interview aimed to understand the efficacy of current mosquito control in parks and to
-                            discern the management's needs for innovative solutions. Findings reveal that mosquitoes
-                            negatively affect visitor experiences, prompting the park to invest 300,000 CNY in
-                            extermination, including chemical and physical methods. While open to new technologies,
-                            concerns about efficacy and environmental impact exist. The park's interest in ATSB devices
-                            highlights a need for effective, eco-friendly alternatives. Identifying parks management as
-                            our end-users, we plan to offer our device for testing to meet their requirements and
-                            address their concerns.
-                        </p>
-                        <a href="#" class="btn-primary">Read More</a>
+                        <div class="info-text">
+                            <p>
+                                This interview aimed to understand the efficacy of current mosquito control in parks and
+                                to
+                                discern the management's needs for innovative solutions. Findings reveal that mosquitoes
+                                negatively affect visitor experiences, prompting the park to invest 300,000 CNY in
+                                extermination, including chemical and physical methods. While open to new technologies,
+                                concerns about efficacy and environmental impact exist. The park's interest in ATSB
+                                devices
+                                highlights a need for effective, eco-friendly alternatives. Identifying parks management
+                                as
+                                our end-users, we plan to offer our device for testing to meet their requirements and
+                                address their concerns.
+                            </p>
+                        </div>
+                        <a class="readmorebtn">Read More</a>
                     </div>
                 </div>
             </div>
@@ -101,24 +393,30 @@
                     <h3 class="title">4. Questionnaire for mountaineering association (Need, Business)</h3>
                     <div class="info-context">
                         <div class="imgandlable">
-                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-1.png">
+                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-4.jpg">
                             <div class="info-lables">
                                 <img src="https://picsum.photos/100/100">
                                 <img src="https://picsum.photos/100/101">
                             </div>
                         </div>
-                        <p>
-                            We learned about the views and needs of the Shenzhen Mountaineering Association on current
-                            mosquitoes elimination products using while camping through online surveys. The main
-                            findings include 40% of participants complained about current products' lack of
-                            effectiveness. In addition, the survey shows that the public is very concerned about the
-                            composition and environmental protection of mosquito products, and 42% of participants are
-                            willing to pay higher fees for better mosquito control . Based on these survey results, we
-                            have strengthened our confidence in targeting camping enthusiasts as our end-users. And we
-                            will prove our Moskilla's effectiveness, safety and environmentally friendly effects to
-                            improve our market competitiveness.
-                        </p>
-                        <a href="#" class="btn-primary">Read More</a>
+                        <div class="info-text">
+                            <p>
+                                We learned about the views and needs of the Shenzhen Mountaineering Association on
+                                current
+                                mosquitoes elimination products using while camping through online surveys. The main
+                                findings include 40% of participants complained about current products' lack of
+                                effectiveness. In addition, the survey shows that the public is very concerned about the
+                                composition and environmental protection of mosquito products, and 42% of participants
+                                are
+                                willing to pay higher fees for better mosquito control . Based on these survey results,
+                                we
+                                have strengthened our confidence in targeting camping enthusiasts as our end-users. And
+                                we
+                                will prove our Moskilla's effectiveness, safety and environmentally friendly effects to
+                                improve our market competitiveness.
+                            </p>
+                        </div>
+                        <a class="readmorebtn">Read More</a>
                     </div>
                 </div>
             </div>
@@ -127,25 +425,32 @@
                     <h3 class="title">5. Interview with staff in CDC (Need, Safety, Business)</h3>
                     <div class="info-context">
                         <div class="imgandlable">
-                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-1.png">
+                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-5.png">
                             <div class="info-lables">
                                 <img src="https://picsum.photos/100/100">
                                 <img src="https://picsum.photos/100/101">
                             </div>
                         </div>
-                        <p>
-                            We conducted an interview with another staff in Shenzhen Center for Disease Control (SZCDC)
-                            and Prevention to gain further insights into the current status of mosquito-borne diseases
-                            (MBDs) in Shenzhen and explore potential solutions for prevention and control. Findings
-                            reveal the prevalence of MBDs, limited public awareness in mosquito control, econimic
-                            consumption and disadvantages caused by existing prevention measures. Besides, understanding
-                            the role of different stakeholders in managing MBDs, we identify street offices and
-                            communities as another potential end-users. Moving forward, we aim to partner with SZCDC for
-                            Moskilla's integration into their initiatives, commit to ongoing evaluation and adaptation
-                            of Moskilla, and engage with local other stakeholders for feedback and collaboration,
-                            especially street offices and communities.
-                        </p>
-                        <a href="#" class="btn-primary">Read More</a>
+                        <div class="info-text">
+                            <p>
+                                We conducted an interview with another staff in Shenzhen Center for Disease Control
+                                (SZCDC)
+                                and Prevention to gain further insights into the current status of mosquito-borne
+                                diseases
+                                (MBDs) in Shenzhen and explore potential solutions for prevention and control. Findings
+                                reveal the prevalence of MBDs, limited public awareness in mosquito control, econimic
+                                consumption and disadvantages caused by existing prevention measures. Besides,
+                                understanding
+                                the role of different stakeholders in managing MBDs, we identify street offices and
+                                communities as another potential end-users. Moving forward, we aim to partner with SZCDC
+                                for
+                                Moskilla's integration into their initiatives, commit to ongoing evaluation and
+                                adaptation
+                                of Moskilla, and engage with local other stakeholders for feedback and collaboration,
+                                especially street offices and communities.
+                            </p>
+                        </div>
+                        <a class="readmorebtn">Read More</a>
                     </div>
                 </div>
             </div>
@@ -155,27 +460,38 @@
                         Laws) </h3>
                     <div class="info-context">
                         <div class="imgandlable">
-                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-1.png">
+                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-6.png">
                             <div class="info-lables">
                                 <img src="https://picsum.photos/100/100">
                                 <img src="https://picsum.photos/100/101">
                             </div>
                         </div>
-                        <p>
-                            We contacted the local environmental protection bureau to understand the current chemical
-                            extermination methods and their regulatory oversight, as well as the role of mosquitoes in
-                            the food chain. Our research indicates that mass mosquito killing could disrupt habitats and
-                            affect species that rely on mosquitoes, such as geckos, lizards, and frogs. Additionally,
-                            chemical insecticides cause discomfort to residents, highlighting the need for communication
-                            and safety measures during the extermination process. We also explored the controversial
-                            gene editing technology for mosquito control, considering its potential benefits and risks,
-                            including genetic and biosecurity concerns, as well as its secondary effects on animals that
-                            consume mosquitoes. Our project's implementation will prioritize the safe domestic use of
-                            Moskilla, ensuring minimal environmental impact. With future external application in view,
-                            we are committed to meeting the Environmental Protection Bureau's testing standards to
-                            ensure safety and efficacy.
-                        </p>
-                        <a href="#" class="btn-primary">Read More</a>
+                        <div class="info-text">
+                            <p>
+                                We contacted the local environmental protection bureau to understand the current
+                                chemical
+                                extermination methods and their regulatory oversight, as well as the role of mosquitoes
+                                in
+                                the food chain. Our research indicates that mass mosquito killing could disrupt habitats
+                                and
+                                affect species that rely on mosquitoes, such as geckos, lizards, and frogs.
+                                Additionally,
+                                chemical insecticides cause discomfort to residents, highlighting the need for
+                                communication
+                                and safety measures during the extermination process. We also explored the controversial
+                                gene editing technology for mosquito control, considering its potential benefits and
+                                risks,
+                                including genetic and biosecurity concerns, as well as its secondary effects on animals
+                                that
+                                consume mosquitoes. Our project's implementation will prioritize the safe domestic use
+                                of
+                                Moskilla, ensuring minimal environmental impact. With future external application in
+                                view,
+                                we are committed to meeting the Environmental Protection Bureau's testing standards to
+                                ensure safety and efficacy.
+                            </p>
+                        </div>
+                        <a class="readmorebtn">Read More</a>
                     </div>
                 </div>
             </div>
@@ -184,23 +500,28 @@
                     <h3 class="title">7. Interview with staff in street office</h3>
                     <div class="info-context">
                         <div class="imgandlable">
-                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-1.png">
+                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-7.png">
                             <div class="info-lables">
                                 <img src="https://picsum.photos/100/100">
                                 <img src="https://picsum.photos/100/101">
                             </div>
                         </div>
-                        <p>
-                            We assessed mosquito control measures by the interview with a staff in street office,
-                            identifying end-user needs. Current chemical disinfection, while effective, poses
-                            sustainability and safety challenges. And street offices recognized public education is
-                            vital for addressing misconceptions. Knowing the qualifications of outsourced companies, our
-                            Moskilla is confirmed as a better and more ecological alternative. However, broad pest
-                            control of chemical disinfection is preferred, as it can eliminate not only mosquitoes but
-                            also other pests like cockroaches and fruit flies. We will focus on community engagement,
-                            R&D for urban pest shRNAs, and understanding outsourcer qualifications.
-                        </p>
-                        <a href="#" class="btn-primary">Read More</a>
+                        <div class="info-text">
+                            <p>
+                                We assessed mosquito control measures by the interview with a staff in street office,
+                                identifying end-user needs. Current chemical disinfection, while effective, poses
+                                sustainability and safety challenges. And street offices recognized public education is
+                                vital for addressing misconceptions. Knowing the qualifications of outsourced companies,
+                                our
+                                Moskilla is confirmed as a better and more ecological alternative. However, broad pest
+                                control of chemical disinfection is preferred, as it can eliminate not only mosquitoes
+                                but
+                                also other pests like cockroaches and fruit flies. We will focus on community
+                                engagement,
+                                R&D for urban pest shRNAs, and understanding outsourcer qualifications.
+                            </p>
+                        </div>
+                        <a class="readmorebtn">Read More</a>
                     </div>
                 </div>
             </div>
@@ -209,23 +530,97 @@
                     <h3 class="title">8. Interview with Southern Medical University Professor Xiaoguang Chen</h3>
                     <div class="info-context">
                         <div class="imgandlable">
-                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-1.png">
+                            <img src="https://static.igem.wiki/teams/5186/ihp/timeline-card-8.png">
                             <div class="info-lables">
                                 <img src="https://picsum.photos/100/100">
                                 <img src="https://picsum.photos/100/101">
                             </div>
                         </div>
-                        <p>
-                            HGFGHJdmnhsfuzmgyds gdnhd hbxggcknjb bfgvhnkjcbf vgdbjc hjnx sdgjkxb ghdxbhxj bk hkgckj b
-                            dddxcj gfjg sgnbhks vgkg KFC V50 dasjiduhjcngy7ewhxnuyjudoixyn uhsygbdhxh QUIQUINILE
-                            hudisbdfhuyby. 肯德基！！（震声）
-                        </p>
-                        <a href="#" class="btn-primary">Read More</a>
+                        <div class="info-text">
+                            <p>
+                                HGFGHJdmnhsfuzmgyds gdnhd hbxggcknjb bfgvhnkjcbf vgdbjc hjnx sdgjkxb ghdxbhxj bk hkgckj
+                                b
+                                dddxcj gfjg sgnbhks vgkg KFC V50 dasjiduhjcngy7ewhxnuyjudoixyn uhsygbdhxh QUIQUINILE
+                                hudisbdfhuyby.
+                            </p>
+                        </div>
+                        <a class="readmorebtn">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div id="wholescreen">
+        <div class="timelinecard lableA lableB">
+            <div class="scroll">
+                <div class="card-heading">1Heading in Here</div>
+                <div class="card-context">Context in Here</div>
+                <div>Picture in Here</div>
+            </div>
+            <div class="closebtn">CloseBTN at top right</div>
+        </div>
+        <div class="timelinecard lableA lableB">
+            <div class="scroll">
+                <div class="card-heading">2Heading in Here</div>
+                <div class="card-context">Context in Here</div>
+                <div>Picture in Here</div>
+            </div>
+            <div class="closebtn">CloseBTN at top right</div>
+        </div>
+        <div class="timelinecard lableA lableB">
+            <div class="scroll">
+                <div class="card-heading">3Heading in Here</div>
+                <div class="card-context">Context in Here</div>
+                <div>Picture in Here</div>
+            </div>
+            <div class="closebtn">CloseBTN at top right</div>
+        </div>
+    </div>
 </body>
+
+
+<script>
+    // Get the element with id wholescreen
+    var wholescreen = document.getElementById('wholescreen');
+
+    var mores = document.querySelectorAll('.readmorebtn');
+    var cards = document.querySelectorAll('.timelinecard');
+
+    var closes = document.querySelectorAll('#block .close');
+
+    // for (let i = 0; i < mores.length; i++) {
+    //     mores[i].tag = i;
+    //     mores[i].addEventListener('click', (e) => {
+    //         // body.classList.add("fix");
+    //         wholescreen.classList.add("active");
+    //         cards[e.currentTarget.tag].classList.add("show");
+    //     });
+    //     closes[i].tag = i;
+    //     closes[i].addEventListener('click', (e) => {
+    //         body.classList.remove("fix");
+    //         block.classList.remove("show");
+    //         icards[e.currentTarget.tag].classList.remove("show");
+    //     });
+    // }
+
+    for (let i = 0; i < mores.length; i++) {
+        mores[i].tag = i;
+        mores[i].addEventListener('click', (e) => {
+            // Add the class .active to the wholescreen element
+            wholescreen.classList.add('active');
+            cards[e.currentTarget.tag].classList.add("show");
+        });
+    }
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            console.log('Escape key pressed');
+            wholescreen.classList.remove('active');
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].classList.remove("show");
+            }
+        }
+    });
+</script>
 
 </html>
